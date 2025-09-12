@@ -120,9 +120,12 @@
 			"name": "Camera Movement"
 		}
 	],
+	"codenameChart": true,
 	"strumLines": [
 		{
 			"keyCount": 4,
+			"strumScale": 1,
+			"position": "dad",
 			"notes": [
 				{
 					"id": 2,
@@ -1080,7 +1083,7 @@
 				},
 				{
 					"id": 3,
-					"sLen": 128.571428571413,
+					"sLen": 128.571428571406,
 					"time": 57085.7142857143,
 					"type": 0
 				},
@@ -1973,20 +1976,18 @@
 					"type": 0
 				}
 			],
+			"characters": [
+				"pico"
+			],
+			"type": 0,
 			"visible": true,
 			"strumSpacing": 1,
 			"strumPos": [
 				0,
 				50
 			],
-			"position": "dad",
-			"strumScale": 1,
-			"vocalsSuffix": "-Opponent-Erect",
 			"strumLinePos": 0.25,
-			"type": 0,
-			"characters": [
-				"pico"
-			]
+			"vocalsSuffix": "-Opponent-Erect"
 		},
 		{
 			"keyCount": 4,
@@ -3577,7 +3578,7 @@
 				},
 				{
 					"id": 0,
-					"sLen": 171.428571428587,
+					"sLen": 171.428571428594,
 					"time": 65314.2857142855,
 					"type": 0
 				},
@@ -4885,7 +4886,7 @@
 				},
 				{
 					"id": 3,
-					"sLen": 128.571428571449,
+					"sLen": 128.571428571478,
 					"time": 110571.428571429,
 					"type": 0
 				}
@@ -4898,7 +4899,7 @@
 			],
 			"position": "boyfriend",
 			"strumScale": 1,
-			"vocalsSuffix": "-Player-Pico",
+			"vocalsSuffix": "-Player-Erect",
 			"strumLinePos": 0.75,
 			"type": 1,
 			"characters": [
@@ -4907,16 +4908,15 @@
 		},
 		{
 			"keyCount": 4,
-			"notes": [],
-			"visible": false,
 			"position": "girlfriend",
-			"type": 2,
+			"notes": [],
 			"characters": [
 				"gf"
-			]
+			],
+			"type": 2,
+			"visible": false
 		}
 	],
-	"codenameChart": true,
 	"scrollSpeed": 2.5,
 	"chartVersion": "1.6.0",
 	"stage": "phillyTrainErect",

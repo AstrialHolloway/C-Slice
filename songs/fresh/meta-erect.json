@@ -1,4 +1,7 @@
 {
+	"customValues": {
+		"stickerPack": "parents"
+	},
 	"opponentModeAllowed": true,
 	"icon": "dad",
 	"difficulties": [

@@ -1,6 +1,7 @@
 <!DOCTYPE codename-engine-stage>
 <stage startCamPosX="600" startCamPosY="550" folder="stages/school/erect/" zoom="1" name="schoolPico">
 	<use-extension script="pixel"/>
+	<use-extension script="dropshadow-effect"/>
 
 	<sprite antialiasing="false" x="-12" updateHitbox="true" scroll="0.1" sprite="weebSky" scale="6" name="bgSky"/>
 
@@ -53,8 +54,8 @@
 		<anim name="aBot-Viz7" anim="viz7" fps="15" loop="true" playOnCountdown="false"/>
 	</sprite>
 
-	<sprite antialiasing="false" x="770.684505650721" sprite="abot/aBotPixel" y="670.491850565119" type="beat" scale="6" name="aBot/Cover"/>
-	<boyfriend x="1150" y="300"/>
-	<girlfriend x="720" scroll="1" y="245.757359312881"/>
-	<dad/>
+	<sprite antialiasing="false" x="770.684505650721" sprite="abot/aBotPixel" y="670.491850565119" type="beat" scale="6" name="aBot/Cover"  ds_applyShader="true" ds_color="0xFF52351d" ds_antialiasAmt="0" ds_angle="100" ds_distance="3"/>
+	<boyfriend x="1150" y="300"  ds_applyShader="true" ds_color="0xFF52351d"  ds_antialiasAmt="0" ds_angle="100" ds_distance="3"/>
+	<girlfriend x="720" scroll="1" y="245.757359312881"  ds_applyShader="true" ds_color="0xFF52351d" ds_antialiasAmt="0" ds_angle="100" ds_distance="3"/>
+	<dad  ds_applyShader="true" ds_color="0xFF52351d" ds_antialiasAmt="0" ds_angle="100" ds_distance="3"/>
 </stage>

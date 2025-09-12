@@ -1,8 +1,7 @@
 <!DOCTYPE codename-engine-character>
-<!-- Made with WizardMantis's Character Converter on https://codename-engine.com/ -->
-<character sprite="otisSpeaker" icon="pico" color="#b7d855" x="-60" y="185" camx="-360" camy="140">
+<character x="-60" y="185" sprite="otisSpeaker" camx="-360" camy="140" icon="otis" color="#5A61DB">
 	<anim name="idle" anim="otis idle0"/>
-	<anim name="shoot1" anim="shoot back0" x="0" y="13"/>
+	<anim name="shoot1" anim="shoot back0" y="13"/>
 	<anim name="shoot2" anim="shoot back low0" x="-35" y="21"/>
 	<anim name="shoot3" anim="shoot forward0" x="238" y="96"/>
 	<anim name="shoot4" anim="shoot forward low0" x="260" y="23"/>

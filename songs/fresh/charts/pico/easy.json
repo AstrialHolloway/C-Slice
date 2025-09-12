@@ -1624,6 +1624,6 @@
 	"codenameChart": true,
 	"scrollSpeed": 1.6,
 	"chartVersion": "1.6.0",
-	"stage": "mainStageErect",
+	"stage": "mainStagePico",
 	"noteTypes": []
 }

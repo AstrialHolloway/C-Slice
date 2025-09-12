@@ -1,8 +1,0 @@
-<!DOCTYPE codename-engine-character>
-<character sprite="freeplay-boyfriend">
-	<anim name="idle" anim="hb1"/>
-	<anim name="singDOWN" anim="chest down"/>
-	<anim name="singRIGHT" anim="forearm right"/>
-	<anim name="singLEFT" anim="forearm left"/>
-	<anim name="singUP" anim="remote thumb up"/>
-</character>

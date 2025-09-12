@@ -1,0 +1,96 @@
+{
+    "arrowSprite": "freeplaySelector_pico",
+    "songList": [
+        "random",
+        // "tutorial",
+
+        /* "bopeebo",
+        "fresh",
+        "dadbattle",
+
+        "spookeez",
+        "south",
+        "monster",
+
+        "pico",
+        "philly nice",
+        "blammed",
+
+        "satin panties",
+        "high",
+        "milf",
+
+        "cocoa",
+        "eggnog",
+        "winter horrorland",
+
+        "senpai",
+        "roses",
+        "thorns",
+
+        "ugh",
+        "guns",
+        "stress" */
+
+        "stress-pico",
+
+        "darnell",
+        "lit up",
+        "2hot",
+        "blazin"
+    ],
+    "bgCardColor": "#98a2f3",
+    "bgSprite": "pcioBackground",
+    "dj": {
+        "position": [
+            20, 
+            300
+        ],
+        "assetPath": "pico",
+        "animations": {
+            "intro": {
+                "prefix": "pico dj intro",
+                "frameRate": 24,
+                "looping": false,
+                "offsets": [ -56, -438 ]
+            },
+            "idle": {
+                "prefix": "Pico DJ0",
+                "frameRate": 24,
+                "looping": false,
+                "offsets": [ 0, 0 ]
+            },
+            "exit": {
+                "prefix": "Pico DJ to CS",
+                "frameRate": 24,
+                "looping": false,
+                "offsets": [ -62, -278 ]
+            },
+            "confirm": {
+                "prefix": "Pico DJ confirm",
+                "frameRate": 24,
+                "looping": false,
+                "offsets": [ -45, 5 ]
+            }
+        }
+    },
+    "loopingSprites": {
+
+    },
+    "capsule": {
+        "assetPath": "pico",
+        "animations": {
+            "selected": {
+                "prefix": "mp3 capsule w backing0",
+                "frameRate": "",
+                "offsets": [ -5, 0 ]
+            },
+            "deselected": {
+                "prefix": "mp3 capsule w backing NOT SELECTED",
+                "frameRate": "",
+                "offsets": [ 0, 0 ]
+            }
+        }
+    },
+    "glowColor": "#f5a65c"
+}

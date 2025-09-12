@@ -1,0 +1,10 @@
+<!DOCTYPE codename-engine-stage>
+<stage folder="stages/philly/erect/" name="phillyTrainErect">
+	<sprite type="none" scroll="0.1" sprite="sky" name="Sky"/>
+	<sprite scroll="0.3" sprite="city" type="none" scale="0.9" name="City"/>
+	<sprite type="none" sprite="behindTrain" name="BehindTrain"/>
+	<sprite type="none" sprite="street" name="Street"/>
+	<girlfriend x="511.999991801263" y="118.428641261639"/>
+	<dad x="235.619047619048" y="71.6666666666673"/>
+	<boyfriend x="927.666666666667" y="56.4285714285722"/>
+</stage>

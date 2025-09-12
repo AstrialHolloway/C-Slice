@@ -1,0 +1,23 @@
+<!DOCTYPE cubical-hold-covers>
+<holdcovers sprite="game/holdcovers/default" alpha="1">
+	<strum id="0"> <!-- LEFT -->
+		<anim name="startleft"   anim="start left" fps="24" x="10" y="-46" loop="false" />
+		<anim name="holdingleft" anim="left"       fps="24" x="10" y="-46" loop="true" />
+		<anim name="endleft"     anim="end left"   fps="24" x="10" y="-46" loop="false" />
+	</strum>
+	<strum id="1"> <!-- DOWN -->
+		<anim name="startdown"   anim="start down" fps="24" x="10" y="-46" loop="false" />
+		<anim name="holdingdown" anim="down"       fps="24" x="10" y="-46" loop="true" />
+		<anim name="enddown"     anim="end down"   fps="24" x="10" y="-46" loop="false" />
+	</strum>
+	<strum id="2"> <!-- UP -->
+		<anim name="startup"   anim="start up" fps="24" x="10" y="-46" loop="false" />
+		<anim name="holdingup" anim="up"       fps="24" x="10" y="-46" loop="true" />
+		<anim name="endup"     anim="end up"   fps="24" x="10" y="-46" loop="false" />
+	</strum>
+	<strum id="3"> <!-- RIGHT -->
+		<anim name="startright"   anim="start right" fps="24" x="10" y="-46" loop="false" />
+		<anim name="holdingright" anim="right"       fps="24" x="10" y="-46" loop="true" />
+		<anim name="endright"     anim="end right"   fps="24" x="10" y="-46" loop="false" />
+	</strum>
+</holdcovers>

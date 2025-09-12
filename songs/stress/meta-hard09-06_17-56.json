@@ -1,0 +1,21 @@
+{
+	"color": "#E1E1E1",
+	"customValues": {
+		"stickerPack": "standard-pico"
+	},
+	"instSuffix": "-pico",
+	"opponentModeAllowed": true,
+	"icon": "tankman",
+	"difficulties": [
+		"easy",
+		"normal",
+		"hard"
+	],
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "Stress (Pico Mix)",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"vocalsSuffix": "-pico",
+	"bpm": 178
+}

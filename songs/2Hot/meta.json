@@ -1,4 +1,9 @@
 {
+	"customValues": {
+		"stickerPack": "standard-pico",
+		"abot": "true"
+	},
+	"color": "#725EB0",
 	"opponentModeAllowed": true,
 	"icon": "Darnell",
 	"difficulties": [
@@ -6,8 +11,6 @@
 		"Normal",
 		"Hard"
 	],
-	"color": -9281872,
-	"name": "2Hot",
 	"coopAllowed": false,
 	"stepsPerBeat": 2,
 	"displayName": "2Hot",

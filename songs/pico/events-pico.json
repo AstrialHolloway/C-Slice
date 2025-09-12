@@ -1,0 +1,24 @@
+{
+	"events": [
+		{
+			"params": [
+				1,
+				"burpSmile",
+				true,
+				"NONE"
+			],
+			"time": 66200,
+			"name": "Play Animation"
+		},
+		{
+			"params": [
+				1,
+				"shit",
+				true,
+				"NONE"
+			],
+			"time": 66700,
+			"name": "Play Animation"
+		}
+	]
+}

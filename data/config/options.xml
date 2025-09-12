@@ -1,5 +1,15 @@
 <menu name="Pitstop 2 Options" desc="Options for the Pitstop 2 mod">
 
     <checkbox id="devAccess" name="Developer Access" desc="Toggle the ability to access the dev stats"/>
+    <checkbox id="stickerTransitions" name="Sticker Transitions" desc="Toggle if sticker transitions work or not"/>
+    <checkbox id="smoothHealthbar" name="Smooth Healthbar" desc="Toggle if the healthbar is smooth or not"/>
+    <checkbox id="holdCovers" name="Hold Covers" desc="Toggle if hold covers work or not"/>
+    <checkbox id="ghostNotes" name="Ghost Notes" desc="Toggle if getting a bad or shit breaks your combo"/>
+    
+    <menu name="Hitsounds Menu" desc="Hiitsounds menu">
+        <checkbox id="hitsounds" name="Hitsounds" desc="Toggle if hitsounds work" />
+        <slider id="hitsoundsVolume" name="Hitsound Volume" desc="Change the volume of the hitsounds" min="0" max="1" barWidth="500" />
+        
+    </menu>
 
 </menu>

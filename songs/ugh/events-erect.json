@@ -1,0 +1,34 @@
+{
+	"events": [
+		{
+			"params": [
+				0,
+				"singUP-alt",
+				true,
+				"NONE"
+			],
+			"time": 5647.05882352941,
+			"name": "Play Animation"
+		},
+		{
+			"params": [
+				0,
+				"singUP-alt",
+				true,
+				"NONE"
+			],
+			"name": "Play Animation",
+			"time": 48000
+		},
+		{
+			"params": [
+				0,
+				"singUP-alt",
+				true,
+				"NONE"
+			],
+			"time": 73411.7647058823,
+			"name": "Play Animation"
+		}
+	]
+}

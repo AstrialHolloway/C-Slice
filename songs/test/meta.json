@@ -1,4 +1,7 @@
 {
+	"customValues": {
+		"stickerPack": "standered-bf"
+	},
 	"displayName": "test",
 	"bpm": 150.0,
 	"icon": "bf",

@@ -127,9 +127,12 @@
 			"name": "Camera Movement"
 		}
 	],
+	"codenameChart": true,
 	"strumLines": [
 		{
 			"keyCount": 4,
+			"strumScale": 1,
+			"position": "dad",
 			"notes": [
 				{
 					"id": 3,
@@ -1627,7 +1630,7 @@
 				},
 				{
 					"id": 0,
-					"sLen": 227.272727272735,
+					"sLen": 227.27272727275,
 					"time": 94181.2727272727,
 					"type": 0
 				},
@@ -1926,23 +1929,23 @@
 					"type": 0
 				}
 			],
+			"characters": [
+				"pico"
+			],
+			"type": 0,
 			"visible": true,
 			"strumSpacing": 1,
 			"strumPos": [
 				0,
 				50
 			],
-			"position": "dad",
-			"strumScale": 1,
-			"vocalsSuffix": "-Opponent-Pico",
 			"strumLinePos": 0.25,
-			"type": 0,
-			"characters": [
-				"pico"
-			]
+			"vocalsSuffix": "-Opponent-Pico"
 		},
 		{
 			"keyCount": 4,
+			"strumScale": 1,
+			"position": "boyfriend",
 			"notes": [
 				{
 					"id": 1,
@@ -3134,7 +3137,7 @@
 				},
 				{
 					"id": 3,
-					"sLen": 181.818181818191,
+					"sLen": 181.818181818206,
 					"time": 101454.545454545,
 					"type": 0
 				},
@@ -3193,35 +3196,32 @@
 					"type": 0
 				}
 			],
+			"characters": [
+				"pico-playable"
+			],
+			"type": 1,
 			"visible": true,
 			"strumSpacing": 1,
 			"strumPos": [
 				0,
 				50
 			],
-			"position": "boyfriend",
-			"strumScale": 1,
-			"vocalsSuffix": "-Player-Pico",
 			"strumLinePos": 0.75,
-			"type": 1,
-			"characters": [
-				"pico-playable"
-			]
+			"vocalsSuffix": "-Player-Pico"
 		},
 		{
 			"keyCount": 4,
-			"notes": [],
-			"visible": false,
 			"position": "girlfriend",
-			"type": 2,
+			"notes": [],
 			"characters": [
 				"nene"
-			]
+			],
+			"type": 2,
+			"visible": false
 		}
 	],
-	"codenameChart": true,
 	"scrollSpeed": 2.4,
 	"chartVersion": "1.6.0",
-	"stage": "phillyTrainErect",
+	"stage": "phillyTrainPico",
 	"noteTypes": []
 }

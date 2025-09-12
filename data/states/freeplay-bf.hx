@@ -1,16 +1,28 @@
-// Script by AstroDev, if modifying please have a basic understanding of haxe!
+// oh my god I need to clean this up lmao
+
 
 import funkin.savedata.FunkinSave;
 
-package funkin.savedata;
+import flixel.text.FlxBitmapText;
+import flixel.graphics.frames.FlxBitmapFont;
+import flixel.addons.util.FlxSimplex;
+import funkin.backend.MusicBeatState;
 
-package funkin.options;
+import data.GlobalVars;
+
+trace(char);
+
+FunkinSave.load();
+
+var saveData:FunkinSave;
 
 var allowDebug = FlxG.save.data.devAccess;
 
 trace(allowDebug);
 
 var curAccuracy = 0;
+
+var curScore = 0;
 
 var remix = false;
 
@@ -37,6 +49,9 @@ var devmode = false;
 var uiOffset = -14;
 
 var iconSprite:FunkinSprite;
+
+
+
 
 // -------------------------
 // songs
@@ -603,6 +618,9 @@ var categories:Array<String> =
     //add extra categories below (put a comma after each one exept the last)
 ];
 
+
+
+
 // -------------------------
 // assets
 // -------------------------
@@ -611,15 +629,68 @@ var categories:Array<String> =
 // Background
 // -------------------------
 
-var dadSprite:FunkinSprite = new FunkinSprite(550, 115 + uiOffset);
-dadSprite.loadGraphic(Paths.image("menus/freeplay/freeplayBGdad"));
-dadSprite.scale.set(1.4, 1.4);
-add(dadSprite);
+
 
 var cardGlowSprite:FunkinSprite = new FunkinSprite(-10, -25 + uiOffset);
 cardGlowSprite.loadGraphic(Paths.image("menus/freeplay/pinkBack"));
 cardGlowSprite.color = 0xffd763; // red overlay (ARGB)
+cardGlowSprite.scale.set(2, 2);
 add(cardGlowSprite);
+
+// -------------------------
+// Backing text (with direction)
+// -------------------------
+
+// Add "direction" property → 1 = left, -1 = right
+var textLines:Array<{text:String, font:String, size:Int, color:FlxColor, speed:Float, y:Int, direction:Int}> = [
+    { text: "HOT BLOODED IN MORE WAYS THAN ONE ", font: "5by7_b.ttf", size: 40, color: 0xfff383, speed: 450, y: 160 + uiOffset, direction: 1 },
+    { text: "BOYFRIEND ",                         font: "5by7.ttf",   size: 60, color: 0xff9963, speed: 250, y: 220 + uiOffset, direction: -1 },
+    { text: "PROTECT YO NUTS ",                   font: "5by7_b.ttf", size: 40, color: 0xffffff, speed: 300, y: 290 + uiOffset, direction: 1 },
+    { text: "BOYFRIEND ",                         font: "5by7.ttf",   size: 60, color: 0xff9963, speed: 250, y: 340 + uiOffset, direction: -1 },
+    { text: "HOT BLOODED IN MORE WAYS THAN ONE ", font: "5by7_b.ttf", size: 40, color: 0xfff383, speed: 450, y: 400 + uiOffset, direction: 1 },
+    { text: "BOYFRIEND ",                         font: "5by7.ttf",   size: 60, color: 0xff9963, speed: 250, y: 450 + uiOffset, direction: -1 }
+];
+
+// Hold text objects per line
+var loopTexts:Array<Array<FlxText>> = [];
+// Store scroll speed + direction for each line
+var lineSpeeds:Array<Float> = [];
+var lineDirs:Array<Int> = [];
+
+for (line in 0...textLines.length)
+{
+    var lineData = textLines[line];
+
+    // Measure width with this font + size
+    var measure:FlxText = new FlxText(0, 0, 0, lineData.text, lineData.size);
+    measure.setFormat(Paths.font(lineData.font), lineData.size, lineData.color);
+    var textWidth:Float = measure.width;
+    remove(measure);
+
+    var repeats:Int = Math.ceil(FlxG.width / textWidth) + 2;
+    var lineTexts:Array<FlxText> = [];
+
+    for (i in 0...repeats)
+    {
+        var txt:FlxText = new FlxText(i * textWidth, lineData.y, 0, lineData.text, lineData.size);
+        txt.setFormat(Paths.font(lineData.font), lineData.size, lineData.color);
+        add(txt);
+        lineTexts.push(txt);
+    }
+
+    loopTexts.push(lineTexts);
+    lineSpeeds.push(lineData.speed);
+    lineDirs.push(lineData.direction);
+}
+
+// -------------------------
+// Background
+// -------------------------
+
+var dadSprite:FunkinSprite = new FunkinSprite(556, 115 + uiOffset);
+dadSprite.loadGraphic(Paths.image("menus/freeplay/freeplayBGdadCropped"));
+dadSprite.scale.set(1.4, 1.4);
+add(dadSprite);
 
 // -------------------------
 // Albums
@@ -1499,8 +1570,17 @@ add(highscoreSprite);
 
 var scoreMilSprite:FunkinSprite = new FunkinSprite(885, 60 + uiOffset);
 scoreMilSprite.frames = Paths.getSparrowAtlas("menus/freeplay/digital_numbers");
-scoreMilSprite.animation.addByPrefix("Idle", "ZERO DIGITAL", 24, false);
-scoreMilSprite.animation.play("Idle");
+scoreMilSprite.animation.addByPrefix("0", "ZERO DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("1", "ONE DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("2", "TWO DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("3", "THREE DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("4", "FOUR DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("5", "FIVE DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("6", "SIX DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("7", "SEVEN DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("8", "EIGHT DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("9", "NINE DIGITAL0004", 0, false);
+scoreMilSprite.animation.play("0");
 scoreMilSprite.scale.set(0.40, 0.4);
 add(scoreMilSprite);
 
@@ -1508,22 +1588,49 @@ add(scoreMilSprite);
 
 var scoreHundThouSprite:FunkinSprite = new FunkinSprite(930, 60 + uiOffset);
 scoreHundThouSprite.frames = Paths.getSparrowAtlas("menus/freeplay/digital_numbers");
-scoreHundThouSprite.animation.addByPrefix("Idle", "ZERO DIGITAL", 24, false);
-scoreHundThouSprite.animation.play("Idle");
+scoreHundThouSprite.animation.addByPrefix("0", "ZERO DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("1", "ONE DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("2", "TWO DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("3", "THREE DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("4", "FOUR DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("5", "FIVE DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("6", "SIX DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("7", "SEVEN DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("8", "EIGHT DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("9", "NINE DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.play("0");
 scoreHundThouSprite.scale.set(0.40, 0.4);
 add(scoreHundThouSprite);
 
 var scoreTenThouSprite:FunkinSprite = new FunkinSprite(975, 60 + uiOffset);
 scoreTenThouSprite.frames = Paths.getSparrowAtlas("menus/freeplay/digital_numbers");
-scoreTenThouSprite.animation.addByPrefix("Idle", "ZERO DIGITAL", 24, false);
-scoreTenThouSprite.animation.play("Idle");
+scoreTenThouSprite.animation.addByPrefix("0", "ZERO DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("1", "ONE DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("2", "TWO DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("3", "THREE DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("4", "FOUR DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("5", "FIVE DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("6", "SIX DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("7", "SEVEN DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("8", "EIGHT DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("9", "NINE DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.play("0");
 scoreTenThouSprite.scale.set(0.40, 0.4);
 add(scoreTenThouSprite);
 
 var scoreOneThouSprite:FunkinSprite = new FunkinSprite(1020, 60 + uiOffset);
 scoreOneThouSprite.frames = Paths.getSparrowAtlas("menus/freeplay/digital_numbers");
-scoreOneThouSprite.animation.addByPrefix("Idle", "ZERO DIGITAL", 24, false);
-scoreOneThouSprite.animation.play("Idle");
+scoreOneThouSprite.animation.addByPrefix("0", "ZERO DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("1", "ONE DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("2", "TWO DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("3", "THREE DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("4", "FOUR DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("5", "FIVE DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("6", "SIX DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("7", "SEVEN DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("8", "EIGHT DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("9", "NINE DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.play("0");
 scoreOneThouSprite.scale.set(0.40, 0.4);
 add(scoreOneThouSprite);
 
@@ -1531,22 +1638,49 @@ add(scoreOneThouSprite);
 
 var scoreHundSprite:FunkinSprite = new FunkinSprite(1065, 60 + uiOffset);
 scoreHundSprite.frames = Paths.getSparrowAtlas("menus/freeplay/digital_numbers");
-scoreHundSprite.animation.addByPrefix("Idle", "ZERO DIGITAL", 24, false);
-scoreHundSprite.animation.play("Idle");
+scoreHundSprite.animation.addByPrefix("0", "ZERO DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("1", "ONE DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("2", "TWO DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("3", "THREE DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("4", "FOUR DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("5", "FIVE DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("6", "SIX DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("7", "SEVEN DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("8", "EIGHT DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("9", "NINE DIGITAL0004", 0, false);
+scoreHundSprite.animation.play("0");
 scoreHundSprite.scale.set(0.40, 0.4);
 add(scoreHundSprite);
 
 var scoreTenSprite:FunkinSprite = new FunkinSprite(1110, 60 + uiOffset);
 scoreTenSprite.frames = Paths.getSparrowAtlas("menus/freeplay/digital_numbers");
-scoreTenSprite.animation.addByPrefix("Idle", "ZERO DIGITAL", 24, false);
-scoreTenSprite.animation.play("Idle");
+scoreTenSprite.animation.addByPrefix("0", "ZERO DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("1", "ONE DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("2", "TWO DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("3", "THREE DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("4", "FOUR DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("5", "FIVE DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("6", "SIX DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("7", "SEVEN DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("8", "EIGHT DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("9", "NINE DIGITAL0004", 0, false);
+scoreTenSprite.animation.play("0");
 scoreTenSprite.scale.set(0.40, 0.4);
 add(scoreTenSprite);
 
 var scoreOneSprite:FunkinSprite = new FunkinSprite(1155, 60 + uiOffset);
 scoreOneSprite.frames = Paths.getSparrowAtlas("menus/freeplay/digital_numbers");
-scoreOneSprite.animation.addByPrefix("Idle", "ZERO DIGITAL", 24, false);
-scoreOneSprite.animation.play("Idle");
+scoreOneSprite.animation.addByPrefix("0", "ZERO DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("1", "ONE DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("2", "TWO DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("3", "THREE DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("4", "FOUR DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("5", "FIVE DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("6", "SIX DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("7", "SEVEN DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("8", "EIGHT DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("9", "NINE DIGITAL0004", 0, false);
+scoreOneSprite.animation.play("0");
 scoreOneSprite.scale.set(0.40, 0.4);
 add(scoreOneSprite);
 
@@ -1659,9 +1793,16 @@ var bpmNumNext:String = bpmList[index+1];
 var bpmNumNext1:String = bpmList[index+2]; 
 var bpmNumNext2:String = bpmList[index+3]; 
 
+saveData = FunkinSave.getSongHighscore(songList[index], diffList[2]);
+
+curAccuracy = FlxMath.roundDecimal(saveData.accuracy * 100, 0);
+
+trace(FlxMath.roundDecimal(saveData.accuracy * 100, 0));
+
 // -------------------------
 // Other Stuff
 // -------------------------
+
 
 new FlxTimer().start(20, function(tmr:FlxTimer)
 {
@@ -1677,8 +1818,52 @@ function create()
 
 
 
-function update()
+// Update loop
+function update(elapsed:Float)
 {
+    for (line in 0...loopTexts.length)
+    {
+        var lineTexts = loopTexts[line];
+        var speed = lineSpeeds[line];
+        var dir = lineDirs[line]; // 1 = left, -1 = right
+
+        for (txt in lineTexts)
+        {
+            txt.x -= speed * dir * elapsed;
+
+            if (dir == 1) // moving left
+            {
+                if (txt.x + txt.width < 0)
+                {
+                    var rightMost:Float = 0;
+                    for (t in lineTexts)
+                        if (t.x > rightMost) rightMost = t.x;
+
+                    txt.x = rightMost + txt.width;
+                }
+            }
+            else // moving right
+            {
+                if (txt.x > FlxG.width)
+                {
+                    var leftMost:Float = FlxG.width;
+                    for (t in lineTexts)
+                        if (t.x < leftMost) leftMost = t.x;
+
+                    txt.x = leftMost - txt.width;
+                }
+            }
+        }
+    }
+
+
+
+
+
+    if (char == "pico")
+    {
+        FlxG.switchState(new ModState('freeplay-pico'));
+    }
     if (index == 24 || index == 23 || basicRand == 24 || basicRand == 23)
     {
         remix = "bf";
@@ -1690,6 +1875,7 @@ function update()
         remix = false;
         addonthing = "";
     }
+    
     if (erectMode == true)
     {
         remix = false;
@@ -1716,13 +1902,16 @@ function update()
     diffSelectorHandler();
     weekNumHandler();
     bpmNumUpdateHandler();
+    accuracyHandler();
+    scoreHandler();
     
     difficultyDigitsPrior(diffNumPrior);
     difficultyDigitsCur(diffNumCur);
     difficultyDigitsNext(diffNumNext);
     difficultyDigitsNext1(diffNumNext1);
     difficultyDigitsNext2(diffNumNext2);
-    accuracyHandler();
+    
+    
 
     bpmDigitsPrior(bpmNumPrior);
     bpmDigitsCur(bpmNumCur);
@@ -1730,6 +1919,7 @@ function update()
     bpmDigitsNext1(bpmNumNext1);
     bpmDigitsNext2(bpmNumNext2);
 }
+
 
 function diffSelectorHandler()
 {
@@ -1750,29 +1940,177 @@ function diffSelectorHandler()
     }
 }
 
-function accuracyHandler()
+function updateAccuracyDisplay(curAccuracy:Int)
 {
-    if (curAccuracy > 9)
+    // Clamp between 0 and 100 just in case
+    curAccuracy = Std.int(Math.min(100, Math.max(0, curAccuracy)));
+
+    // Get digits
+    var ones:Int = curAccuracy % 10;
+    var tens:Int = Std.int((curAccuracy / 10) % 10);
+    var hunds:Int = Std.int(curAccuracy / 100);
+
+    // --- Ones place ---
+    switch (ones)
     {
-        accuracyTensSprite.visible = true;
+        case 0: accuracyOnesSprite.animation.play("zero");
+        case 1: accuracyOnesSprite.animation.play("one");
+        case 2: accuracyOnesSprite.animation.play("two");
+        case 3: accuracyOnesSprite.animation.play("three");
+        case 4: accuracyOnesSprite.animation.play("four");
+        case 5: accuracyOnesSprite.animation.play("five");
+        case 6: accuracyOnesSprite.animation.play("six");
+        case 7: accuracyOnesSprite.animation.play("sexen"); // typo in your atlas
+        case 8: accuracyOnesSprite.animation.play("eight");
+        case 9: accuracyOnesSprite.animation.play("nine");
     }
-    else
+
+    // --- Tens place ---
+    if (curAccuracy < 10)
     {
         accuracyTensSprite.visible = false;
     }
-    if (curAccuracy == 100)
-    {
-        accuracyHundsSprite.visible = true;
-    }
     else
+    {
+        accuracyTensSprite.visible = true;
+        switch (tens)
+        {
+            case 0: accuracyTensSprite.animation.play("zero");
+            case 1: accuracyTensSprite.animation.play("one");
+            case 2: accuracyTensSprite.animation.play("two");
+            case 3: accuracyTensSprite.animation.play("three");
+            case 4: accuracyTensSprite.animation.play("four");
+            case 5: accuracyTensSprite.animation.play("five");
+            case 6: accuracyTensSprite.animation.play("six");
+            case 7: accuracyTensSprite.animation.play("sexen");
+            case 8: accuracyTensSprite.animation.play("eight");
+            case 9: accuracyTensSprite.animation.play("nine");
+        }
+    }
+
+    // --- Hundreds place ---
+    if (curAccuracy < 100)
     {
         accuracyHundsSprite.visible = false;
     }
+    else
+    {
+        accuracyHundsSprite.visible = true;
+        accuracyHundsSprite.animation.play("one"); // only 100 possible
+    }
+}
+
+function updateScoreDisplay(score:Int)
+{
+    // Pad the score to always be 7 digits long ("0000123")
+    var padded:String = StringTools.lpad(Std.string(score), "0", 7);
+
+    // Each digit
+    var mil = Std.parseInt(padded.charAt(0)); // 1,000,000s
+    var hundThou = Std.parseInt(padded.charAt(1)); // 100,000s
+    var tenThou = Std.parseInt(padded.charAt(2)); // 10,000s
+    var oneThou = Std.parseInt(padded.charAt(3)); // 1,000s
+    var hund = Std.parseInt(padded.charAt(4)); // 100s
+    var ten = Std.parseInt(padded.charAt(5)); // 10s
+    var one = Std.parseInt(padded.charAt(6)); // 1s
+
+    // Update sprites
+    scoreMilSprite.animation.play(Std.string(mil));
+    scoreHundThouSprite.animation.play(Std.string(hundThou));
+    scoreTenThouSprite.animation.play(Std.string(tenThou));
+    scoreOneThouSprite.animation.play(Std.string(oneThou));
+    scoreHundSprite.animation.play(Std.string(hund));
+    scoreTenSprite.animation.play(Std.string(ten));
+    scoreOneSprite.animation.play(Std.string(one));
+}
+
+function accuracyHandler()
+{
+    if (erectMode == false)
+    {
+        if (remix == false)
+        {
+            saveData = FunkinSave.getSongHighscore(songList[index], diffList[diff]);
+
+            curAccuracy = FlxMath.roundDecimal(saveData.accuracy * 100, 0);
+        }
+        else
+        {
+            saveData = FunkinSave.getSongHighscore(songList[index], diffList[diff], "bf");
+
+            curAccuracy = FlxMath.roundDecimal(saveData.accuracy * 100, 0);
+        }
+        
+        if (curAccuracy > 9)
+        {
+            accuracyTensSprite.visible = true;
+        }
+        else
+        {
+            accuracyTensSprite.visible = false;
+        }
+        if (curAccuracy == 100)
+        {
+            accuracyHundsSprite.visible = true;
+        }
+        else
+        {
+            accuracyHundsSprite.visible = false;
+        }
+        updateAccuracyDisplay(curAccuracy);
+        
+    }
+
+    if (erectMode == true)
+    {
+        saveData = FunkinSave.getSongHighscore(songErectList[indexErect], diffList[diff], "erect");
+
+        curAccuracy = FlxMath.roundDecimal(saveData.accuracy * 100, 0);
+        
+        if (curAccuracy > 9)
+        {
+            accuracyTensSprite.visible = true;
+        }
+        else
+        {
+            accuracyTensSprite.visible = false;
+        }
+        if (curAccuracy == 100)
+        {
+            accuracyHundsSprite.visible = true;
+        }
+        else
+        {
+            accuracyHundsSprite.visible = false;
+        }
+        updateAccuracyDisplay(curAccuracy);
+        
+    }
+
+
 }
 
 function scoreHandler()
 {
-    
+    if (erectMode == false)
+    {
+        if (remix == false)
+        {
+            saveData = FunkinSave.getSongHighscore(songList[index], diffList[diff]);
+        }
+        else
+        {
+            saveData = FunkinSave.getSongHighscore(songList[index], diffList[diff], "bf");
+        }
+        
+        curScore = saveData.score;
+    }
+    if (erectMode == true)
+    {
+        saveData = FunkinSave.getSongHighscore(songErectList[indexErect], diffList[diff], "erect");
+        curScore = saveData.score;
+    }
+    updateScoreDisplay(curScore);
 }
 
 function bpmNumUpdateHandler()
@@ -3982,12 +4320,12 @@ function handleDiffs()
         IconNext.animation.addByPrefix("Confirm", "confirm", 10, false);
         IconNext.animation.addByPrefix("Hold", "hold", 24, true);
 
-        IconNext1.frames = Paths.getSparrowAtlas(icons[index+2]);
+        IconNext1.frames = Paths.getSparrowAtlas(icons[index+2] ?? icons[0]);
         IconNext1.animation.addByPrefix("Idle", "idle", 24, true);
         IconNext1.animation.addByPrefix("Confirm", "confirm", 10, false);
         IconNext1.animation.addByPrefix("Hold", "hold", 24, true);
 
-        IconNext2.frames = Paths.getSparrowAtlas(icons[index+3]);
+        IconNext2.frames = Paths.getSparrowAtlas(icons[index+3] ?? icons[0]);
         IconNext2.animation.addByPrefix("Idle", "idle", 24, true);
         IconNext2.animation.addByPrefix("Confirm", "confirm", 10, false);
         IconNext2.animation.addByPrefix("Hold", "hold", 24, true);
@@ -4031,12 +4369,12 @@ function handleDiffs()
         IconNext.animation.addByPrefix("Confirm", "confirm", 10, false);
         IconNext.animation.addByPrefix("Hold", "hold", 24, true);
 
-        IconNext1.frames = Paths.getSparrowAtlas(icons[index+2]);
+        IconNext1.frames = Paths.getSparrowAtlas(icons[index+2] ?? icons[0]);
         IconNext1.animation.addByPrefix("Idle", "idle", 24, true);
         IconNext1.animation.addByPrefix("Confirm", "confirm", 10, false);
         IconNext1.animation.addByPrefix("Hold", "hold", 24, true);
 
-        IconNext2.frames = Paths.getSparrowAtlas(icons[index+3]);
+        IconNext2.frames = Paths.getSparrowAtlas(icons[index+3] ?? icons[0]);
         IconNext2.animation.addByPrefix("Idle", "idle", 24, true);
         IconNext2.animation.addByPrefix("Confirm", "confirm", 10, false);
         IconNext2.animation.addByPrefix("Hold", "hold", 24, true);
@@ -4080,12 +4418,12 @@ function handleDiffs()
         IconNext.animation.addByPrefix("Confirm", "confirm", 10, false);
         IconNext.animation.addByPrefix("Hold", "hold", 24, true);
 
-        IconNext1.frames = Paths.getSparrowAtlas(icons[index+2]);
+        IconNext1.frames = Paths.getSparrowAtlas(icons[index+2] ?? icons[0]);
         IconNext1.animation.addByPrefix("Idle", "idle", 24, true);
         IconNext1.animation.addByPrefix("Confirm", "confirm", 10, false);
         IconNext1.animation.addByPrefix("Hold", "hold", 24, true);
 
-        IconNext2.frames = Paths.getSparrowAtlas(icons[index+3]);
+        IconNext2.frames = Paths.getSparrowAtlas(icons[index+3] ?? icons[0]);
         IconNext2.animation.addByPrefix("Idle", "idle", 24, true);
         IconNext2.animation.addByPrefix("Confirm", "confirm", 10, false);
         IconNext2.animation.addByPrefix("Hold", "hold", 24, true);
@@ -4144,7 +4482,7 @@ function handleDiffs()
         IconPrior.animation.addByPrefix("Confirm", "confirm", 10, false);
         IconPrior.animation.addByPrefix("Hold", "hold", 24, true);
 
-        curIcon.frames = Paths.getSparrowAtlas(iconsErect[indexErect]);
+        curIcon.frames = Paths.getSparrowAtlas(iconsErect[indexErect] ?? icons[0]);
         curIcon.animation.addByPrefix("Idle", "idle", 24, true);
         curIcon.animation.addByPrefix("Confirm", "confirm", 10, false);
         curIcon.animation.addByPrefix("Hold", "hold", 24, true);
@@ -4193,7 +4531,7 @@ function handleDiffs()
         IconPrior.animation.addByPrefix("Confirm", "confirm", 10, false);
         IconPrior.animation.addByPrefix("Hold", "hold", 24, true);
 
-        curIcon.frames = Paths.getSparrowAtlas(iconsErect[indexErect]);
+        curIcon.frames = Paths.getSparrowAtlas(iconsErect[indexErect] ?? icons[0]);
         curIcon.animation.addByPrefix("Idle", "idle", 24, true);
         curIcon.animation.addByPrefix("Confirm", "confirm", 10, false);
         curIcon.animation.addByPrefix("Hold", "hold", 24, true);
@@ -4211,6 +4549,7 @@ function handleInputs()
 {
     if (controls.LEFT_P)
     {
+        
         songStarted = false;
         {
             diff--;
@@ -4225,7 +4564,9 @@ function handleInputs()
             
             handleDiffs();
             trace("difficulty changed to:" + diffList[diff]);
+            trace(FlxMath.roundDecimal(saveData.accuracy * 100, 0));
         }
+        
         
     }
 
@@ -4245,6 +4586,8 @@ function handleInputs()
 
             handleDiffs();
             trace("difficulty changed to:" + diffList[diff]);
+
+            trace(FlxMath.roundDecimal(saveData.accuracy * 100, 0));
         }
         
     }
@@ -4265,10 +4608,22 @@ function handleInputs()
 
                 if (index < 0)
                 {
-                    addonthing = "-bf";
+                    
                     index = songList.length - 1;
                     
                 }
+
+                if (index < 23 && index != 0)
+                {
+                    addonthing = "";
+                    remix = false;
+                }
+                else
+                {
+                    addonthing = "-bf";
+                    remix = "bf";
+                }
+                
 
                 if (index == 0)
                 {
@@ -4324,6 +4679,7 @@ function handleInputs()
                 albumText.animation.play("idle");
                 trace("song changed to: " + songList[index]);
                 trace("BPM changed to: " + bpmList[index]);
+                trace(FlxMath.roundDecimal(saveData.accuracy * 100, 0));
                 
             }
             if (erectMode == true)
@@ -4395,6 +4751,7 @@ function handleInputs()
                 albumText.animation.play("idle");
                 trace("song changed to: " + songList[indexErect]);
                 trace("BPM changed to: " + bpmList[indexErect]);
+                trace(FlxMath.roundDecimal(saveData.accuracy * 100, 0));
             }
         }
     }
@@ -4414,6 +4771,18 @@ function handleInputs()
                     
                     
                 }
+
+                if (index < 23 && index != 0)
+                {
+                    addonthing = "";
+                    remix = false;
+                }
+                else
+                {
+                    addonthing = "-bf";
+                    remix = "bf";
+                }
+
                 if (index == 0)
                 {
                     CoolUtil.playMusic("music/freeplayRandom/freeplayRandom.ogg",false,1,true,bpmList[index]);
@@ -4471,6 +4840,7 @@ function handleInputs()
                 albumText.animation.play("idle");
                 trace("song changed to: " + songList[index]);
                 trace("BPM changed to: " + bpmList[index]);
+                trace(FlxMath.roundDecimal(saveData.accuracy * 100, 0));
             }
             if (erectMode == true)
             {
@@ -4533,6 +4903,7 @@ function handleInputs()
                 albumText.animation.play("idle");
                 trace("song changed to: " + songErectList[indexErect]);
                 trace("BPM changed to: " + bpmErectList[indexErect]);
+                trace(FlxMath.roundDecimal(saveData.accuracy * 100, 0));
             }
         }
     }
@@ -4560,12 +4931,12 @@ function handleInputs()
                     {
                         if (index == 0)
                         {
-                            PlayState.loadSong(songList[basicRand], "easy", false, false);
+                            PlayState.loadSong(songList[basicRand], "easy", remix);
                             FlxG.switchState(new PlayState());
                         }
                         else
                         {
-                            PlayState.loadSong(songList[index], "easy", false, false);
+                            PlayState.loadSong(songList[index], "easy", remix);
                             FlxG.switchState(new PlayState());
                         }
                     }
@@ -4576,12 +4947,12 @@ function handleInputs()
                     {
                         if (index == 0)
                         {
-                            PlayState.loadSong(songList[basicRand], "normal", false, false);
+                            PlayState.loadSong(songList[basicRand], "normal", remix);
                             FlxG.switchState(new PlayState());
                         }
                         else
                         {
-                            PlayState.loadSong(songList[index], "normal", false, false);
+                            PlayState.loadSong(songList[index], "normal", remix);
                             FlxG.switchState(new PlayState());
                         }
                     }

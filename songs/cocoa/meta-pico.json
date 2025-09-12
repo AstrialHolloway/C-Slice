@@ -1,4 +1,8 @@
 {
+	"customValues": {
+		"stickerPack": "standard-pico",
+		"abot": "true"
+	},
 	"opponentModeAllowed": true,
 	"icon": "parents-christmas",
 	"difficulties": [

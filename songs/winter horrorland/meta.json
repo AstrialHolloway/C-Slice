@@ -1,4 +1,7 @@
 {
+	"customValues": {
+		"stickerPack": "monster"
+	},
 	"displayName": "Winter Horrorland",
 	"bpm": 159.0,
 	"icon": "monster",

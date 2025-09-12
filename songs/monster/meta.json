@@ -1,4 +1,7 @@
 {
+	"customValues": {
+		"stickerPack": "monster"
+	},
 	"displayName": "Monster",
 	"bpm": 95.0,
 	"icon": "monster",

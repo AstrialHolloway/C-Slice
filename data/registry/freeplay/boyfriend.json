@@ -1,0 +1,172 @@
+{
+    "hasErect": true,
+    
+    "remixType": "bf",
+    "remixExt": "-bf",
+    "songList": [
+        "tutorial", 
+        "bopeebo", 
+        "fresh", 
+        "dadbattle", 
+        "spookeez", 
+        "south", 
+        "monster", 
+        "pico",
+        "philly nice",
+        "blammed",
+        "satin panties",
+        "high",
+        "milf",
+        "cocoa",
+        "eggnog",
+        "winter horrorland",
+        "senpai",
+        "roses",
+        "thorns",
+        "ugh",
+        "guns",
+        "stress",
+        "darnell",
+        "lit-up"
+    ],
+    "erectSongs": [
+        "bopeebo", 
+        "fresh", 
+        "dadbattle", 
+        "spookeez", 
+        "south",
+        "pico",
+        "philly nice",
+        "blammed",
+        "satin panties",
+        "high",
+        "cocoa",
+        "eggnog",
+        "senpai",
+        "roses",
+        "thorns",
+        "ugh"
+    ],
+    "remixedSongs": [
+        "darnell",
+        "lit-up"
+    ],
+
+    "backingType": "text",
+    "backingText":{
+        "line1": {
+            "text": "HOT BLOODED IN MORE WAYS THAN ONE ",
+            "font": "5by7_b.ttf",
+            "size": 40,
+            "color": "0xfff383",
+            "speed": 450,
+            "y": 160,
+            "direction": 1
+        },
+        "line2": {
+            "text": "BOYFRIEND ",
+            "font": "5by7.ttf",
+            "size": 60,
+            "color": "0xff9963",
+            "speed": 250,
+            "y": 220,
+            "direction": -1
+        },
+        "line3": {
+            "text": "PROTECT YO NUTS ",
+            "font": "5by7_b.ttf",
+            "size": 40,
+            "color": "0xffffff",
+            "speed": 300,
+            "y": 290,
+            "direction": 1
+        },
+        "line4": {
+            "text": "BOYFRIEND ",
+            "font": "5by7.ttf",
+            "size": 60,
+            "color": "0xff9963",
+            "speed": 250,
+            "y": 340,
+            "direction": -1
+        },
+        "line5": {
+            "text": "HOT BLOODED IN MORE WAYS THAN ONE ",
+            "font": "5by7_b.ttf",
+            "size": 40,
+            "color": "0xfff383",
+            "speed": 450,
+            "y": 400,
+            "direction": 1
+        },
+        "line6": {
+            "text": "BOYFRIEND ",
+            "font": "5by7.ttf",
+            "size": 60,
+            "color": "0xff9963",
+            "speed": 250,
+            "y": 450,
+            "direction": -1
+        }
+        
+    },
+
+    "arrowSprite": "freeplaySelector",
+    "digitalSprite": "digital_numbers",
+    "bgCardColor": "0xffd863",
+    "bgSprite": "freeplayBGdadCropped",
+
+    "loopingSprites": {
+        
+        "capsule": {
+            "assetPath": "freeplayCapsule",
+            "animations": {
+                "selected": {
+                    "prefix": "sel",
+                    "frameRate": "",
+                    "offsets": [0, 0 ]
+                },
+                "deselected": {
+                    "prefix": "basic",
+                    "frameRate": "",
+                    "offsets": [ 0, 0 ]
+                }
+            }
+        }
+        
+    },
+
+    "dj": {
+        "position": [
+            20, 
+            280
+        ],
+        "assetPath": "boyfriend",
+        "animations": {
+            "intro": {
+                "prefix": "boyfriend dj intro",
+                "frameRate": 24,
+                "looping": false,
+                "offsets": [ -5, -426 ]
+            },
+            "idle": {
+                "prefix": "Boyfriend DJ0",
+                "frameRate": 24,
+                "looping": true,
+                "offsets": [ 0, 0 ]
+            },
+            "exit": {
+                "prefix": "Boyfriend DJ to CS",
+                "frameRate": 24,
+                "looping": false,
+                "offsets": [ -45, -64 ]
+            },
+            "confirm": {
+                "prefix": "Boyfriend DJ confirm",
+                "frameRate": 24,
+                "looping": false,
+                "offsets": [ -42, 25 ]
+            }
+        }
+    }
+}

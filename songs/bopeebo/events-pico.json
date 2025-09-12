@@ -1,0 +1,134 @@
+{
+	"events": [
+		{
+			"params": [
+				1,
+				"hey",
+				true,
+				"NONE"
+			],
+			"time": 4200,
+			"name": "Play Animation"
+		},
+		{
+			"params": [
+				1,
+				"hey",
+				true,
+				"NONE"
+			],
+			"name": "Play Animation",
+			"time": 9000
+		},
+		{
+			"params": [
+				1,
+				"hey",
+				true,
+				"NONE"
+			],
+			"time": 18600,
+			"name": "Play Animation"
+		},
+		{
+			"params": [
+				1,
+				"hey",
+				true,
+				"NONE"
+			],
+			"name": "Play Animation",
+			"time": 23400
+		},
+		{
+			"params": [
+				1,
+				"hey",
+				true,
+				"NONE"
+			],
+			"time": 28200,
+			"name": "Play Animation"
+		},
+		{
+			"params": [
+				1,
+				"hey",
+				true,
+				"NONE"
+			],
+			"name": "Play Animation",
+			"time": 37800
+		},
+		{
+			"params": [
+				1,
+				"hey",
+				true,
+				"NONE"
+			],
+			"time": 42600,
+			"name": "Play Animation"
+		},
+		{
+			"params": [
+				1,
+				"hey",
+				true,
+				"NONE"
+			],
+			"name": "Play Animation",
+			"time": 47400
+		},
+		{
+			"params": [
+				1,
+				"hey",
+				true,
+				"NONE"
+			],
+			"time": 57000,
+			"name": "Play Animation"
+		},
+		{
+			"params": [
+				1,
+				"hey",
+				true,
+				"NONE"
+			],
+			"name": "Play Animation",
+			"time": 61800
+		},
+		{
+			"params": [
+				1,
+				"hey",
+				true,
+				"NONE"
+			],
+			"time": 66600,
+			"name": "Play Animation"
+		},
+		{
+			"params": [
+				1,
+				"hey",
+				true,
+				"NONE"
+			],
+			"name": "Play Animation",
+			"time": 71700
+		},
+		{
+			"params": [
+				1,
+				"hey",
+				true,
+				"NONE"
+			],
+			"name": "Play Animation",
+			"time": 76200
+		}
+	]
+}

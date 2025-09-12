@@ -1,4 +1,7 @@
 {
+	"customValues": {
+		"stickerPack": "all"
+	},
 	"opponentModeAllowed": true,
 	"icon": "pico",
 	"difficulties": [

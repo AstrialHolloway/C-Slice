@@ -1,0 +1,13 @@
+<!DOCTYPE codename-engine-stage>
+<stage folder="stages/default/erect/" name="mainStageErect">
+	<sprite x="901.71636653764" sprite="backDark" y="-13.2242122452791" type="none" name="crowdBG"/>
+	<sprite x="729.013650278918" scroll="1" sprite="crowd" y="487.988033330471" scale="1" name="Crowd" type="loop">
+		<anim name="crowd" anim="Symbol 2 instance 1" fps="15" loop="true"/>
+	</sprite>
+	<sprite x="-490.26472039535" sprite="stage_bg" y="-26.9362320906724" type="none" name="stage"/>
+	<sprite x="-248.540226787594" sprite="server" y="395.20079790175" type="none" name="server"/>
+	<girlfriend x="278.96470300795" y="395.231429489748" scroll="1"/>
+	<boyfriend x="848.141684918489" y="307.147256117823" scroll="1"/>
+	<dad x="-70.2483885624906" y="304.069655619462" scroll="1"/>
+	<sprite x="-459.83640928503" sprite="lights" y="36.4053088869846" type="none" name="rafters"/>
+</stage>

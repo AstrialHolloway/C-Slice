@@ -1,4 +1,7 @@
 {
+	"customValues": {
+		"stickerPack": "standard-pico"
+	},
 	"opponentModeAllowed": true,
 	"icon": "darnell",
 	"difficulties": [

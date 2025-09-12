@@ -1,0 +1,15 @@
+<menu name="Pitstop 2 credits" desc="Credits for the pitstop 2 mod">
+    <!-- Porter -->
+    <github user="AstrialHolloway" customName="Astrial" desc="The person who ported almost everything" size="100" portrait="true"/>
+    <!-- Scripts (from codename engine discord) -->
+    <credit name="Syruplmao" desc="Made the dropshadow shader" icon="Syruplmao" size="100"/>
+    <credit name="Pinto" desc="Pinto" icon="pintocat" size="100"/>
+
+    <!-- githubs -->
+    <github user="Mlaofmd" customName="Mlaofmd" desc="Made the smooth healthbar script" size="100" portrait="true"/>
+    <github user="NebulaStellaNova" customName="Nebula S. Nova" desc="The dj sprites/functionality (in release)" size="100" portrait="true"/>
+    <github user="TechnikTil" customName="TechnikTil" desc="Made the sticker transition and ghost notes scripts" size="100" portrait="true"/>
+    <github user="rodney528" customName="rodney528" desc="Made the change character script" size="100" portrait="true"/>
+    <github user="swordcube" customName="swordcube" desc="Made the hold cover script" size="100" portrait="true"/>
+    <github user="WizardMantis441" customName="WizardMantis441" desc="Made the hitsounds script" size="100" portrait="true"/>
+</menu>

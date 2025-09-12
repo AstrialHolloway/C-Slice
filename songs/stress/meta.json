@@ -1,4 +1,7 @@
 {
+	"customValues": {
+		"stickerPack": "standard-bf"
+	},
 	"opponentModeAllowed": true,
 	"icon": "tankman",
 	"difficulties": [

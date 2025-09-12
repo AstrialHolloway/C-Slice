@@ -1,10 +1,15 @@
-// Script by AstroDev, if modifying please have a basic understanding of haxe!
+// oh my god I need to clean this up lmao
 
 import funkin.savedata.FunkinSave;
 
-package funkin.savedata;
+import flixel.text.FlxBitmapText;
+import flixel.graphics.frames.FlxBitmapFont;
+import flixel.addons.util.FlxSimplex;
+import funkin.backend.MusicBeatState;
 
-package funkin.options;
+FunkinSave.load();
+
+var saveData:FunkinSave;
 
 var allowDebug = FlxG.save.data.devAccess;
 
@@ -12,7 +17,9 @@ trace(allowDebug);
 
 var curAccuracy = 0;
 
-var remix = false;
+var curScore = 0;
+
+var remix = "pico";
 
 var addonthing = "-pico";
 
@@ -429,16 +436,133 @@ var categories:Array<String> =
 // -------------------------
 // Background
 // -------------------------
+var cardGlowSprite:FunkinSprite = new FunkinSprite(-10, -25 + uiOffset);
+cardGlowSprite.loadGraphic(Paths.image("menus/freeplay/pinkBack"));
+cardGlowSprite.color = 0x98a2f3; // red overlay (ARGB)
+cardGlowSprite.scale.set(2, 2);
+add(cardGlowSprite);
+
+// -------------------------
+// Backing Sprite
+// -------------------------
+
+// -------------------------
+// Moving Sprites
+// -------------------------
+
+var moveSpeed1 = 150;
+
+var lowerBack1:FunkinSprite = new FunkinSprite(250, 295 + uiOffset);
+lowerBack1.loadGraphic(Paths.image("menus/freeplay/backingCards/pico/darkblue"));
+lowerBack1.scale.set(500, 100);
+lowerBack1.alpha = 0.2;
+add(lowerBack1);
+
+
+var lowerSprite1:FunkinSprite = new FunkinSprite(-200, 160 + uiOffset);
+lowerSprite1.loadGraphic(Paths.image("menus/freeplay/backingCards/pico/lowerLoop1"));
+lowerSprite1.scale.set(0.8, 0.8);
+lowerSprite1.alpha = 0.5;
+add(lowerSprite1);
+
+var lowerSprite2:FunkinSprite = new FunkinSprite(-1850, 160 + uiOffset);
+lowerSprite2.loadGraphic(Paths.image("menus/freeplay/backingCards/pico/lowerLoop1"));
+lowerSprite2.scale.set(0.8, 0.8);
+lowerSprite2.alpha = 0.5;
+add(lowerSprite2);
+
+
+
+var lowerSprite3:FunkinSprite = new FunkinSprite(-200, 360 + uiOffset);
+lowerSprite3.loadGraphic(Paths.image("menus/freeplay/backingCards/pico/lowerLoop"));
+lowerSprite3.scale.set(0.8, 0.8);
+lowerSprite3.alpha = 0.6;
+add(lowerSprite3);
+
+var lowerSprite4:FunkinSprite = new FunkinSprite(-1850, 360 + uiOffset);
+lowerSprite4.loadGraphic(Paths.image("menus/freeplay/backingCards/pico/lowerLoop"));
+lowerSprite4.scale.set(0.8, 0.8);
+lowerSprite4.alpha = 0.6;
+add(lowerSprite4);
+
+var moveSpeed3 = 250;
+
+var middleBack:FunkinSprite = new FunkinSprite(250, 400 + uiOffset);
+middleBack.loadGraphic(Paths.image("menus/freeplay/backingCards/pico/darkblue"));
+middleBack.scale.set(500, 110);
+middleBack.alpha = 0.4;
+add(middleBack);
+
+var middleLoop1:FunkinSprite = new FunkinSprite(-200, 350 + uiOffset);
+middleLoop1.loadGraphic(Paths.image("menus/freeplay/backingCards/pico/middleLoop"));
+middleLoop1.scale.set(1, 1);
+add(middleLoop1);
+
+var middleLoop2:FunkinSprite = new FunkinSprite(-1750, 350 + uiOffset);
+middleLoop2.loadGraphic(Paths.image("menus/freeplay/backingCards/pico/middleLoop"));
+middleLoop2.scale.set(1, 1);
+add(middleLoop2);
+
+
+
+// animated
+
+var moveSpeed2:Float = 250; // pixels per second
+
+var topLooping:FunkinSprite = new FunkinSprite(20, 100 + uiOffset);
+topLooping.frames = Paths.getSparrowAtlas("menus/freeplay/backingCards/pico/topLoop");
+topLooping.animation.addByPrefix("base", "base", 24, true);
+topLooping.animation.addByPrefix("uzi", "uzi info", 24, false);
+topLooping.animation.addByPrefix("sniper", "sniper info", 24, false);
+topLooping.animation.addByPrefix("rifle", "rifle info", 24, false);
+topLooping.animation.addByPrefix("rocket", "rocket launcher info", 24, false);
+topLooping.scale.set(1, 1);
+topLooping.animation.play("base"); // start with base
+add(topLooping);
+
+var topLooping2:FunkinSprite = new FunkinSprite(topLooping.width + 40, 100 + uiOffset);
+topLooping2.frames = Paths.getSparrowAtlas("menus/freeplay/backingCards/pico/topLoop");
+topLooping2.animation.addByPrefix("base", "base", 24, true);
+topLooping2.animation.addByPrefix("uzi", "uzi info", 24, false);
+topLooping2.animation.addByPrefix("sniper", "sniper info", 24, false);
+topLooping2.animation.addByPrefix("rifle", "rifle info", 24, false);
+topLooping2.animation.addByPrefix("rocket", "rocket launcher info", 24, false);
+topLooping2.scale.set(1, 1);
+topLooping2.animation.play("base"); // start with base
+add(topLooping2);
+
+// Trigger settings
+
+var trigger1:Float = -50; // position where animation should play
+var trigger2:Float = -600; // position where animation should play
+var trigger3:Float = -900; // position where animation should play
+var trigger4:Float = -1500; // position where animation should play
+var trigger5:Float = -50; // position where animation should play
+var trigger6:Float = -600; // position where animation should play
+var trigger7:Float = -900; // position where animation should play
+var trigger8:Float = -1500; // position where animation should play
+
+var triggered1:Bool = false; // make sure it only triggers once per pass
+var triggered2:Bool = false; // make sure it only triggers once per pass
+var triggered3:Bool = false; // make sure it only triggers once per pass
+var triggered4:Bool = false; // make sure it only triggers once per pass
+var triggered5:Bool = false; // make sure it only triggers once per pass
+var triggered6:Bool = false; // make sure it only triggers once per pass
+var triggered7:Bool = false; // make sure it only triggers once per pass
+var triggered8:Bool = false; // make sure it only triggers once per pass
+
+// -------------------------
+// Background
+// -------------------------
 
 var dadSprite:FunkinSprite = new FunkinSprite(550, 115 + uiOffset);
-dadSprite.loadGraphic(Paths.image("menus/freeplay/freeplayBGdadPico"));
+dadSprite.loadGraphic(Paths.image("menus/freeplay/freeplayBGdadCroppedPico"));
 dadSprite.scale.set(1.4, 1.4);
 add(dadSprite);
 
-var cardGlowSprite:FunkinSprite = new FunkinSprite(-10, -25 + uiOffset);
-cardGlowSprite.loadGraphic(Paths.image("menus/freeplay/pinkBack"));
-cardGlowSprite.color = 0x8a91f2; // red overlay (ARGB)
-add(cardGlowSprite);
+
+
+
 
 // -------------------------
 // Albums
@@ -1318,8 +1442,17 @@ add(highscoreSprite);
 
 var scoreMilSprite:FunkinSprite = new FunkinSprite(885, 60 + uiOffset);
 scoreMilSprite.frames = Paths.getSparrowAtlas("menus/freeplay/digital_numbers_pico");
-scoreMilSprite.animation.addByPrefix("Idle", "ZERO DIGITAL", 24, false);
-scoreMilSprite.animation.play("Idle");
+scoreMilSprite.animation.addByPrefix("0", "ZERO DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("1", "ONE DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("2", "TWO DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("3", "THREE DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("4", "FOUR DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("5", "FIVE DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("6", "SIX DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("7", "SEVEN DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("8", "EIGHT DIGITAL0004", 0, false);
+scoreMilSprite.animation.addByPrefix("9", "NINE DIGITAL0004", 0, false);
+scoreMilSprite.animation.play("0");
 scoreMilSprite.scale.set(0.40, 0.4);
 add(scoreMilSprite);
 
@@ -1327,22 +1460,49 @@ add(scoreMilSprite);
 
 var scoreHundThouSprite:FunkinSprite = new FunkinSprite(930, 60 + uiOffset);
 scoreHundThouSprite.frames = Paths.getSparrowAtlas("menus/freeplay/digital_numbers_pico");
-scoreHundThouSprite.animation.addByPrefix("Idle", "ZERO DIGITAL", 24, false);
-scoreHundThouSprite.animation.play("Idle");
+scoreHundThouSprite.animation.addByPrefix("0", "ZERO DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("1", "ONE DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("2", "TWO DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("3", "THREE DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("4", "FOUR DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("5", "FIVE DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("6", "SIX DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("7", "SEVEN DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("8", "EIGHT DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.addByPrefix("9", "NINE DIGITAL0004", 0, false);
+scoreHundThouSprite.animation.play("0");
 scoreHundThouSprite.scale.set(0.40, 0.4);
 add(scoreHundThouSprite);
 
 var scoreTenThouSprite:FunkinSprite = new FunkinSprite(975, 60 + uiOffset);
 scoreTenThouSprite.frames = Paths.getSparrowAtlas("menus/freeplay/digital_numbers_pico");
-scoreTenThouSprite.animation.addByPrefix("Idle", "ZERO DIGITAL", 24, false);
-scoreTenThouSprite.animation.play("Idle");
+scoreTenThouSprite.animation.addByPrefix("0", "ZERO DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("1", "ONE DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("2", "TWO DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("3", "THREE DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("4", "FOUR DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("5", "FIVE DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("6", "SIX DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("7", "SEVEN DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("8", "EIGHT DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.addByPrefix("9", "NINE DIGITAL0004", 0, false);
+scoreTenThouSprite.animation.play("0");
 scoreTenThouSprite.scale.set(0.40, 0.4);
 add(scoreTenThouSprite);
 
 var scoreOneThouSprite:FunkinSprite = new FunkinSprite(1020, 60 + uiOffset);
 scoreOneThouSprite.frames = Paths.getSparrowAtlas("menus/freeplay/digital_numbers_pico");
-scoreOneThouSprite.animation.addByPrefix("Idle", "ZERO DIGITAL", 24, false);
-scoreOneThouSprite.animation.play("Idle");
+scoreOneThouSprite.animation.addByPrefix("0", "ZERO DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("1", "ONE DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("2", "TWO DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("3", "THREE DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("4", "FOUR DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("5", "FIVE DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("6", "SIX DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("7", "SEVEN DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("8", "EIGHT DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.addByPrefix("9", "NINE DIGITAL0004", 0, false);
+scoreOneThouSprite.animation.play("0");
 scoreOneThouSprite.scale.set(0.40, 0.4);
 add(scoreOneThouSprite);
 
@@ -1350,22 +1510,49 @@ add(scoreOneThouSprite);
 
 var scoreHundSprite:FunkinSprite = new FunkinSprite(1065, 60 + uiOffset);
 scoreHundSprite.frames = Paths.getSparrowAtlas("menus/freeplay/digital_numbers_pico");
-scoreHundSprite.animation.addByPrefix("Idle", "ZERO DIGITAL", 24, false);
-scoreHundSprite.animation.play("Idle");
+scoreHundSprite.animation.addByPrefix("0", "ZERO DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("1", "ONE DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("2", "TWO DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("3", "THREE DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("4", "FOUR DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("5", "FIVE DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("6", "SIX DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("7", "SEVEN DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("8", "EIGHT DIGITAL0004", 0, false);
+scoreHundSprite.animation.addByPrefix("9", "NINE DIGITAL0004", 0, false);
+scoreHundSprite.animation.play("0");
 scoreHundSprite.scale.set(0.40, 0.4);
 add(scoreHundSprite);
 
 var scoreTenSprite:FunkinSprite = new FunkinSprite(1110, 60 + uiOffset);
 scoreTenSprite.frames = Paths.getSparrowAtlas("menus/freeplay/digital_numbers_pico");
-scoreTenSprite.animation.addByPrefix("Idle", "ZERO DIGITAL", 24, false);
-scoreTenSprite.animation.play("Idle");
+scoreTenSprite.animation.addByPrefix("0", "ZERO DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("1", "ONE DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("2", "TWO DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("3", "THREE DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("4", "FOUR DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("5", "FIVE DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("6", "SIX DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("7", "SEVEN DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("8", "EIGHT DIGITAL0004", 0, false);
+scoreTenSprite.animation.addByPrefix("9", "NINE DIGITAL0004", 0, false);
+scoreTenSprite.animation.play("0");
 scoreTenSprite.scale.set(0.40, 0.4);
 add(scoreTenSprite);
 
 var scoreOneSprite:FunkinSprite = new FunkinSprite(1155, 60 + uiOffset);
 scoreOneSprite.frames = Paths.getSparrowAtlas("menus/freeplay/digital_numbers_pico");
-scoreOneSprite.animation.addByPrefix("Idle", "ZERO DIGITAL", 24, false);
-scoreOneSprite.animation.play("Idle");
+scoreOneSprite.animation.addByPrefix("0", "ZERO DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("1", "ONE DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("2", "TWO DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("3", "THREE DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("4", "FOUR DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("5", "FIVE DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("6", "SIX DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("7", "SEVEN DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("8", "EIGHT DIGITAL0004", 0, false);
+scoreOneSprite.animation.addByPrefix("9", "NINE DIGITAL0004", 0, false);
+scoreOneSprite.animation.play("0");
 scoreOneSprite.scale.set(0.40, 0.4);
 add(scoreOneSprite);
 
@@ -1478,6 +1665,12 @@ var bpmNumNext:String = bpmList[index+1];
 var bpmNumNext1:String = bpmList[index+2]; 
 var bpmNumNext2:String = bpmList[index+3]; 
 
+saveData = FunkinSave.getSongHighscore(songList[index], diffList[2]);
+
+curAccuracy = FlxMath.roundDecimal(saveData.accuracy * 100, 0);
+
+trace(FlxMath.roundDecimal(saveData.accuracy * 100, 0));
+
 // -------------------------
 // Other Stuff
 // -------------------------
@@ -1496,9 +1689,123 @@ function create()
 
 
 
-function update()
+function update(elapsed:Float)
 {
-    if (index == 16 || index == 17 || basicRand == 18 || basicRand == 19)
+    // Move sprite left
+    topLooping.x -= moveSpeed2 * elapsed;
+    topLooping2.x -= moveSpeed2 * elapsed;
+    
+    lowerSprite1.x += moveSpeed1 * elapsed;
+    lowerSprite2.x += moveSpeed1 * elapsed;
+    lowerSprite3.x -= moveSpeed1 * elapsed;
+    lowerSprite4.x -= moveSpeed1 * elapsed;
+
+    middleLoop1.x += moveSpeed3 * elapsed;
+    middleLoop2.x += moveSpeed3 * elapsed;
+
+    // Wrap around if it leaves screen (optional)
+    if (topLooping.x + topLooping.width < 0)
+    {
+        topLooping.x = topLooping.width+40;
+        triggered1 = false; // reset so it can trigger again next time
+        triggered2 = false;
+        triggered3 = false;
+        triggered4 = false;
+        topLooping.animation.play("base");
+    }
+
+    if (topLooping2.x + topLooping2.width < 0)
+    {
+        topLooping2.x = topLooping.width+40;
+        triggered5 = false; // reset so it can trigger again next time
+        triggered6 = false;
+        triggered7 = false;
+        triggered8 = false;
+        topLooping2.animation.play("base");
+    }
+
+    if (lowerSprite2.x + lowerSprite2.width > lowerSprite1.width+300)
+    {
+        lowerSprite2.x = lowerSprite1.x-1640;
+    }
+
+    if (lowerSprite1.x + lowerSprite1.width > lowerSprite1.width+300)
+    {
+        lowerSprite1.x = lowerSprite2.x-1640;
+    }
+
+    if (lowerSprite3.x + lowerSprite3.width < 0)
+    {
+        lowerSprite3.x = lowerSprite4.x+1640;
+    }
+
+    if (lowerSprite4.x + lowerSprite4.width < 0)
+    {
+        lowerSprite4.x = lowerSprite3.x+1640;
+    }
+
+    if (middleLoop2.x + middleLoop2.width > middleLoop1.width+500)
+    {
+        middleLoop2.x = middleLoop1.x-1540;
+    }
+
+    if (middleLoop1.x + middleLoop1.width > middleLoop1.width+500)
+    {
+       middleLoop1.x = middleLoop2.x-1540;
+    }
+
+
+    // Trigger when reaching X
+    if (!triggered1 && topLooping.x <= trigger1)
+    {
+        topLooping.animation.play("uzi", true); // <-- change to whichever anim
+        triggered1 = true;
+    }
+
+    if (!triggered2 && topLooping.x <= trigger2)
+    {
+        topLooping.animation.play("sniper", true); // <-- change to whichever anim
+        triggered2 = true;
+    }
+
+    if (!triggered3 && topLooping.x <= trigger3)
+    {
+        topLooping.animation.play("rifle", true); // <-- change to whichever anim
+        triggered3 = true;
+    }
+
+    if (!triggered4 && topLooping.x <= trigger4)
+    {
+        topLooping.animation.play("rocket", true); // <-- change to whichever anim
+        triggered4 = true;
+    }
+
+    // Trigger when reaching X
+    if (!triggered5 && topLooping2.x <= trigger5)
+    {
+        topLooping2.animation.play("uzi", true); // <-- change to whichever anim
+        triggered5 = true;
+    }
+
+    if (!triggered6 && topLooping2.x <= trigger6)
+    {
+        topLooping2.animation.play("sniper", true); // <-- change to whichever anim
+        triggered6 = true;
+    }
+
+    if (!triggered7 && topLooping2.x <= trigger7)
+    {
+        topLooping2.animation.play("rifle", true); // <-- change to whichever anim
+        triggered7 = true;
+    }
+
+    if (!triggered8 && topLooping2.x <= trigger8)
+    {
+        topLooping2.animation.play("rocket", true); // <-- change to whichever anim
+        triggered8 = true;
+    }
+
+    if (index > 15)
     {
         remix = false;
         addonthing = "";
@@ -1536,6 +1843,7 @@ function update()
     weekNumHandler();
     bpmNumUpdateHandler();
     accuracyHandler();
+    scoreHandler();
     
     difficultyDigitsPrior(diffNumPrior);
     difficultyDigitsCur(diffNumCur);
@@ -1550,69 +1858,184 @@ function update()
     bpmDigitsNext2(bpmNumNext2);
 }
 
-function diffSelectorHandler()
+
+
+// Accuracy Stuff
+
+function updateAccuracyDisplay(curAccuracy:Int)
 {
-    if (index == 16 || index == 0)
+    // Clamp between 0 and 100 just in case
+    curAccuracy = Std.int(Math.min(100, Math.max(0, curAccuracy)));
+
+    // Get digits
+    var ones:Int = curAccuracy % 10;
+    var tens:Int = Std.int((curAccuracy / 10) % 10);
+    var hunds:Int = Std.int(curAccuracy / 100);
+
+    // --- Ones place ---
+    switch (ones)
     {
-        erectSelector.alpha = 1;
-        nightSelector.alpha = 1;
+        case 0: accuracyOnesSprite.animation.play("zero");
+        case 1: accuracyOnesSprite.animation.play("one");
+        case 2: accuracyOnesSprite.animation.play("two");
+        case 3: accuracyOnesSprite.animation.play("three");
+        case 4: accuracyOnesSprite.animation.play("four");
+        case 5: accuracyOnesSprite.animation.play("five");
+        case 6: accuracyOnesSprite.animation.play("six");
+        case 7: accuracyOnesSprite.animation.play("sexen"); // typo in your atlas
+        case 8: accuracyOnesSprite.animation.play("eight");
+        case 9: accuracyOnesSprite.animation.play("nine");
+    }
+
+    // --- Tens place ---
+    if (curAccuracy < 10)
+    {
+        accuracyTensSprite.visible = false;
     }
     else
     {
-        erectSelector.alpha = 0.3;
-        nightSelector.alpha = 0.3;
+        accuracyTensSprite.visible = true;
+        switch (tens)
+        {
+            case 0: accuracyTensSprite.animation.play("zero");
+            case 1: accuracyTensSprite.animation.play("one");
+            case 2: accuracyTensSprite.animation.play("two");
+            case 3: accuracyTensSprite.animation.play("three");
+            case 4: accuracyTensSprite.animation.play("four");
+            case 5: accuracyTensSprite.animation.play("five");
+            case 6: accuracyTensSprite.animation.play("six");
+            case 7: accuracyTensSprite.animation.play("sexen");
+            case 8: accuracyTensSprite.animation.play("eight");
+            case 9: accuracyTensSprite.animation.play("nine");
+        }
     }
-    if (erectMode == true)
+
+    // --- Hundreds place ---
+    if (curAccuracy < 100)
     {
-        erectSelector.alpha = 1;
-        nightSelector.alpha = 1; 
+        accuracyHundsSprite.visible = false;
+    }
+    else
+    {
+        accuracyHundsSprite.visible = true;
+        accuracyHundsSprite.animation.play("one"); // only 100 possible
     }
 }
 
 function accuracyHandler()
 {
-    if (curAccuracy > 9)
+    if (erectMode == false)
     {
-        accuracyTensSprite.visible = true;
+        if (remix == "pico")
+        {
+            saveData = FunkinSave.getSongHighscore(songList[index], diffList[diff], "pico");
+
+            curAccuracy = FlxMath.roundDecimal(saveData.accuracy * 100, 0);
+        }
+        else
+        {
+            saveData = FunkinSave.getSongHighscore(songList[index], diffList[diff]);
+        }
+        
+        if (curAccuracy > 9)
+        {
+            accuracyTensSprite.visible = true;
+        }
+        else
+        {
+            accuracyTensSprite.visible = false;
+        }
+        if (curAccuracy == 100)
+        {
+            accuracyHundsSprite.visible = true;
+        }
+        else
+        {
+            accuracyHundsSprite.visible = false;
+        }
+        updateAccuracyDisplay(curAccuracy);
+        
     }
-    else
+
+    if (erectMode == true)
     {
-        accuracyTensSprite.visible = false;
+        saveData = FunkinSave.getSongHighscore(songErectList[indexErect], diffList[diff], "erect");
+
+        curAccuracy = FlxMath.roundDecimal(saveData.accuracy * 100, 0);
+        
+        if (curAccuracy > 9)
+        {
+            accuracyTensSprite.visible = true;
+        }
+        else
+        {
+            accuracyTensSprite.visible = false;
+        }
+        if (curAccuracy == 100)
+        {
+            accuracyHundsSprite.visible = true;
+        }
+        else
+        {
+            accuracyHundsSprite.visible = false;
+        }
+        updateAccuracyDisplay(curAccuracy);
+        
     }
-    if (curAccuracy == 100)
-    {
-        accuracyHundsSprite.visible = true;
-    }
-    else
-    {
-        accuracyHundsSprite.visible = false;
-    }
+
+
+}
+
+// Score Stuff
+
+function updateScoreDisplay(score:Int)
+{
+    // Pad the score to always be 7 digits long ("0000123")
+    var padded:String = StringTools.lpad(Std.string(score), "0", 7);
+
+    // Each digit
+    var mil = Std.parseInt(padded.charAt(0)); // 1,000,000s
+    var hundThou = Std.parseInt(padded.charAt(1)); // 100,000s
+    var tenThou = Std.parseInt(padded.charAt(2)); // 10,000s
+    var oneThou = Std.parseInt(padded.charAt(3)); // 1,000s
+    var hund = Std.parseInt(padded.charAt(4)); // 100s
+    var ten = Std.parseInt(padded.charAt(5)); // 10s
+    var one = Std.parseInt(padded.charAt(6)); // 1s
+
+    // Update sprites
+    scoreMilSprite.animation.play(Std.string(mil));
+    scoreHundThouSprite.animation.play(Std.string(hundThou));
+    scoreTenThouSprite.animation.play(Std.string(tenThou));
+    scoreOneThouSprite.animation.play(Std.string(oneThou));
+    scoreHundSprite.animation.play(Std.string(hund));
+    scoreTenSprite.animation.play(Std.string(ten));
+    scoreOneSprite.animation.play(Std.string(one));
 }
 
 function scoreHandler()
 {
-    
-}
-
-function bpmNumUpdateHandler()
-{
     if (erectMode == false)
     {
-        bpmNumPrior = bpmList[index-1]; 
-        bpmNumCur = bpmList[index]; 
-        bpmNumNext = bpmList[index+1]; 
-        bpmNumNext1 = bpmList[index+2]; 
-        bpmNumNext2 = bpmList[index+3]; 
+        if (remix == "pico")
+        {
+            saveData = FunkinSave.getSongHighscore(songList[index], diffList[diff], "pico");
+        }
+        else
+        {
+            saveData = FunkinSave.getSongHighscore(songList[index], diffList[diff]);
+        }
+        
+        curScore = saveData.score;
     }
     if (erectMode == true)
     {
-        bpmNumPrior = bpmErectList[indexErect-1]; 
-        bpmNumCur = bpmErectList[indexErect]; 
-        bpmNumNext = bpmErectList[indexErect+1]; 
-        bpmNumNext1 = bpmErectList[indexErect+2]; 
-        bpmNumNext2 = bpmErectList[indexErect+3]; 
+        saveData = FunkinSave.getSongHighscore(songErectList[indexErect], diffList[diff], "erect");
+        curScore = saveData.score;
     }
+    updateScoreDisplay(curScore);
 }
+
+// Week Number Stuff
 
 function weekNumHandler()
 {
@@ -1910,6 +2333,8 @@ function weekNumHandler()
         }
     }
 }
+
+// Capsule Stuff
 
 function capsuleHandler()
 {
@@ -2317,6 +2742,8 @@ function capsuleHandler()
     
 }
 
+// Random Stuff
+
 function randomHandler()
 {
     if (index == 0)
@@ -2346,6 +2773,8 @@ function randomHandler()
         
     }
 }
+
+// Debug Stuff
 
 function debugStatsHandler()
 {
@@ -2445,6 +2874,29 @@ function debugStatsHandler()
         songExtDebLabel.visible = false;
     }
 }
+
+// BPM Stuff
+
+function bpmNumUpdateHandler()
+{
+    if (erectMode == false)
+    {
+        bpmNumPrior = bpmList[index-1]; 
+        bpmNumCur = bpmList[index]; 
+        bpmNumNext = bpmList[index+1]; 
+        bpmNumNext1 = bpmList[index+2]; 
+        bpmNumNext2 = bpmList[index+3]; 
+    }
+    if (erectMode == true)
+    {
+        bpmNumPrior = bpmErectList[indexErect-1]; 
+        bpmNumCur = bpmErectList[indexErect]; 
+        bpmNumNext = bpmErectList[indexErect+1]; 
+        bpmNumNext1 = bpmErectList[indexErect+2]; 
+        bpmNumNext2 = bpmErectList[indexErect+3]; 
+    }
+}
+
 
 function bpmDigitsPrior(bpmNumPrior:String)
 {
@@ -2818,6 +3270,27 @@ function bpmDigitsNext2(bpmNumNext2:String)
         case 7: hundsBPMNext2.animation.play("seven");
         case 8: hundsBPMNext2.animation.play("eight");
         case 9: hundsBPMNext2.animation.play("nine");
+    }
+}
+
+// Diff Stuff
+
+function diffSelectorHandler()
+{
+    if (index == 16 || index == 0)
+    {
+        erectSelector.alpha = 1;
+        nightSelector.alpha = 1;
+    }
+    else
+    {
+        erectSelector.alpha = 0.3;
+        nightSelector.alpha = 0.3;
+    }
+    if (erectMode == true)
+    {
+        erectSelector.alpha = 1;
+        nightSelector.alpha = 1; 
     }
 }
 
@@ -3453,11 +3926,13 @@ function handleDiffs()
     }
 }
 
+// Input Things
+
 function handleInputs()
 {
     if (controls.LEFT_P)
     {
-        songStarted = false;
+        if (songStarted == false)
         {
             diff--;
             FlxG.sound.play(Paths.sound("menu/scroll"), 0.7);
@@ -3469,6 +3944,8 @@ function handleInputs()
             }
 
             
+
+            
             handleDiffs();
             trace("difficulty changed to:" + diffList[diff]);
         }
@@ -3477,7 +3954,7 @@ function handleInputs()
 
     if (controls.RIGHT_P)
     {
-        songStarted = false;
+        if (songStarted == false)
         {
             diff++;
             FlxG.sound.play(Paths.sound("menu/scroll"), 0.7);
@@ -3488,6 +3965,7 @@ function handleInputs()
                 diff = 0;
             }
             
+            
 
             handleDiffs();
             trace("difficulty changed to:" + diffList[diff]);
@@ -3497,7 +3975,7 @@ function handleInputs()
 
     if (controls.UP_P)
     {
-        songStarted = false;
+        if (songStarted == false)
         {
             if (erectMode == false)
             {
@@ -3511,9 +3989,21 @@ function handleInputs()
 
                 if (index < 0)
                 {
-                    addonthing = "";
+                    
                     index = songList.length - 1;
                     
+                }
+
+                if (index < 16 && index != 0)
+                {
+                    addonthing = "-pico";
+                    remix = "pico";
+                    
+                }
+                else
+                {
+                    addonthing = "";
+                    remix = false;
                 }
 
                 if (index == 0)
@@ -3660,6 +4150,20 @@ function handleInputs()
                     
                     
                 }
+
+                if (index > 15 || index == 0)
+                {
+                    
+                    addonthing = "";
+                    remix = false;
+                    
+                }
+                else
+                {
+                    addonthing = "-pico";
+                    remix = "pico";
+                }
+
                 if (index == 0)
                 {
                     CoolUtil.playMusic("music/freeplayRandom/freeplayRandom.ogg",false,1,true,bpmList[index]);
@@ -3806,12 +4310,12 @@ function handleInputs()
                     {
                         if (index == 0)
                         {
-                            PlayState.loadSong(songList[basicRand], "easy", false, false);
+                            PlayState.loadSong(songList[basicRand], "easy", remix);
                             FlxG.switchState(new PlayState());
                         }
                         else
                         {
-                            PlayState.loadSong(songList[index], "easy", false, false);
+                            PlayState.loadSong(songList[index], "easy", remix);
                             FlxG.switchState(new PlayState());
                         }
                     }
@@ -3822,12 +4326,12 @@ function handleInputs()
                     {
                         if (index == 0)
                         {
-                            PlayState.loadSong(songList[basicRand], "normal", false, false);
+                            PlayState.loadSong(songList[basicRand], "normal", remix);
                             FlxG.switchState(new PlayState());
                         }
                         else
                         {
-                            PlayState.loadSong(songList[index], "normal", false, false);
+                            PlayState.loadSong(songList[index], "normal", remix);
                             FlxG.switchState(new PlayState());
                         }
                     }
@@ -3940,8 +4444,10 @@ function handleInputs()
 
     if (controls.BACK)
     {
+
         if (songStarted == false)
         {
+            
             FlxG.sound.play(Paths.sound("menu/cancel"), 0.7);
             
         }
@@ -3950,6 +4456,7 @@ function handleInputs()
             
             if (songStarted == false)
             {
+                
                 FlxG.switchState(new MainMenuState());
                 
             }

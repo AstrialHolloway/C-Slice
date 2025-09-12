@@ -1,4 +1,10 @@
 {
+	"color": "#941653",
+	"customValues": {
+		"stickerPack": "standard-pico",
+		"abot": "true"
+	},
+	"instSuffix": "-pico",
 	"opponentModeAllowed": true,
 	"icon": "pico",
 	"difficulties": [
@@ -6,13 +12,11 @@
 		"normal",
 		"hard"
 	],
-	"color": "#941653",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"displayName": "Blammed (Pico Mix)",
 	"needsVoices": true,
 	"beatsPerMeasure": 4,
-	"bpm": 165,
-	"instSuffix": "-pico",
-	"vocalsSuffix": "-pico"
+	"vocalsSuffix": "-pico",
+	"bpm": 165
 }

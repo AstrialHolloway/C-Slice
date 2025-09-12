@@ -948,20 +948,20 @@
 					"type": 0
 				}
 			],
-			"visible": true,
+			"position": "dad",
+			"strumScale": 1,
 			"strumSpacing": 1,
+			"visible": true,
+			"type": 0,
+			"characters": [
+				"pico"
+			],
 			"strumPos": [
 				0,
 				50
 			],
-			"position": "dad",
-			"strumScale": 1,
 			"vocalsSuffix": "-Opponent-Pico",
-			"strumLinePos": 0.25,
-			"type": 0,
-			"characters": [
-				"pico"
-			]
+			"strumLinePos": 0.25
 		},
 		{
 			"keyCount": 4,
@@ -1474,19 +1474,19 @@
 					"id": 0,
 					"sLen": 0,
 					"time": 44200,
-					"type": 0
+					"type": 1
 				},
 				{
 					"id": 2,
 					"sLen": 0,
 					"time": 44400,
-					"type": 0
+					"type": 1
 				},
 				{
 					"id": 3,
 					"sLen": 0,
 					"time": 44600,
-					"type": 0
+					"type": 1
 				},
 				{
 					"id": 0,
@@ -1612,19 +1612,19 @@
 					"id": 3,
 					"sLen": 0,
 					"time": 50600,
-					"type": 0
+					"type": 1
 				},
 				{
 					"id": 2,
 					"sLen": 0,
 					"time": 50800,
-					"type": 0
+					"type": 1
 				},
 				{
 					"id": 3,
 					"sLen": 0,
 					"time": 51000,
-					"type": 0
+					"type": 1
 				},
 				{
 					"id": 0,
@@ -1738,13 +1738,13 @@
 					"id": 0,
 					"sLen": 0,
 					"time": 57200,
-					"type": 0
+					"type": 1
 				},
 				{
 					"id": 3,
 					"sLen": 0,
 					"time": 57400,
-					"type": 0
+					"type": 1
 				},
 				{
 					"id": 1,
@@ -1876,13 +1876,13 @@
 					"id": 3,
 					"sLen": 0,
 					"time": 63600,
-					"type": 0
+					"type": 1
 				},
 				{
 					"id": 0,
 					"sLen": 0,
 					"time": 63800,
-					"type": 0
+					"type": 1
 				},
 				{
 					"id": 1,
@@ -2203,26 +2203,26 @@
 					"type": 0
 				}
 			],
-			"visible": true,
+			"position": "boyfriend",
+			"strumScale": 1,
 			"strumSpacing": 1,
+			"visible": true,
+			"type": 1,
+			"characters": [
+				"pico-playable"
+			],
 			"strumPos": [
 				0,
 				50
 			],
-			"position": "boyfriend",
-			"strumScale": 1,
 			"vocalsSuffix": "-Player-Pico",
-			"strumLinePos": 0.75,
-			"type": 1,
-			"characters": [
-				"pico-playable"
-			]
+			"strumLinePos": 0.75
 		},
 		{
 			"keyCount": 4,
 			"notes": [],
-			"visible": false,
 			"position": "girlfriend",
+			"visible": false,
 			"type": 2,
 			"characters": [
 				"nene"
@@ -2232,8 +2232,8 @@
 	"codenameChart": true,
 	"scrollSpeed": 1.8,
 	"chartVersion": "1.6.0",
-	"stage": "phillyTrainErect",
+	"stage": "phillyTrainPico",
 	"noteTypes": [
-		"Alt Animation"
+		"Alt Anim Note"
 	]
 }

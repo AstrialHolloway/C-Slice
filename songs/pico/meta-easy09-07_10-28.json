@@ -1,0 +1,21 @@
+{
+	"color": "#941653",
+	"customValues": {
+		"stickerPack": "standard-pico"
+	},
+	"instSuffix": "-pico",
+	"opponentModeAllowed": true,
+	"icon": "pico",
+	"difficulties": [
+		"easy",
+		"normal",
+		"hard"
+	],
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "Pico (Pico Mix)",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"bpm": 150,
+	"vocalsSuffix": "-pico"
+}

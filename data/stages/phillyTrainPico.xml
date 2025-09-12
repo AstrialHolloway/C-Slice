@@ -1,0 +1,54 @@
+<!DOCTYPE codename-engine-stage>
+<stage folder="stages/philly/erect/" name="phillyTrainErect">
+	<sprite type="none" scroll="0.1" sprite="sky" name="Sky"/>
+	<sprite scroll="0.3" sprite="city" type="none" scale="0.9" name="City"/>
+	<sprite type="none" sprite="behindTrain" name="BehindTrain"/>
+	<sprite type="none" sprite="street" name="Street"/>
+
+	<sprite x="570" sprite="abot/stereoBG" y="430" type="none" name="aBotBack"/>
+
+	<!--Viz-->
+
+	<!--Viz Left-->
+
+	<sprite x="600" sprite="abot/aBotViz" y="490" name="abotViz1">
+		<anim name="abotViz1" anim="viz1" fps="25" loop="true" playOnCountdown="false"/>
+	</sprite>
+
+	<sprite x="665" sprite="abot/aBotViz" y="485" name="abotViz2">
+		<anim name="abotViz2" anim="viz2" fps="20" loop="true" playOnCountdown="false"/>
+	</sprite>
+
+	<sprite x="725" sprite="abot/aBotViz" y="480" name="abotViz3">
+		<anim name="abotViz3" anim="viz3" fps="15" loop="true" playOnCountdown="false"/>
+	</sprite>
+
+	<!--Viz Mid-->
+
+	<sprite x="790" sprite="abot/aBotViz" y="480" name="abotViz4">
+		<anim name="abotViz4" anim="viz4" fps="10" loop="true" playOnCountdown="false"/>
+	</sprite>
+
+	<!--Viz Right-->
+
+	<sprite x="850" sprite="abot/aBotViz" y="480" name="abotViz5">
+		<anim name="abotViz5" anim="viz5" fps="15" loop="true" playOnCountdown="false"/>
+	</sprite>
+
+	<sprite x="910" sprite="abot/aBotViz" y="485" name="abotViz6">
+		<anim name="abotViz6" anim="viz6" fps="20" loop="true" playOnCountdown="false"/>
+	</sprite>
+
+	<sprite x="960" sprite="abot/aBotViz" y="490" name="abotViz7">
+		<anim name="abotViz7" anim="viz7" fps="25" loop="true" playOnCountdown="false"/>
+	</sprite>
+
+	<sprite x="385" sprite="abot/abotSystem" y="395" type="beat" name="aBotSystem">
+		<anim name="idle" anim="Abot System" fps="25" playOnCountdown="false"/>
+	</sprite>
+
+	<girlfriend x="510" y="-120"/>
+	<dad x="235.619047619048" y="71.6666666666673"/>
+	<boyfriend x="927.666666666667" y="56.4285714285722"/>
+
+</stage>

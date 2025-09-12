@@ -1,4 +1,10 @@
 {
+	"color": "#A0D1FF",
+	"customValues": {
+		"stickerPack": "standard-pico",
+		"abot": "true"
+	},
+	"instSuffix": "-pico",
 	"opponentModeAllowed": true,
 	"icon": "parents-christmas",
 	"difficulties": [
@@ -6,13 +12,11 @@
 		"normal",
 		"hard"
 	],
-	"color": "#A0D1FF",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"displayName": "Eggnog (Pico Mix)",
 	"needsVoices": true,
 	"beatsPerMeasure": 4,
-	"bpm": 150,
-	"instSuffix": "-pico",
-	"vocalsSuffix": "-pico"
+	"vocalsSuffix": "-pico",
+	"bpm": 150
 }

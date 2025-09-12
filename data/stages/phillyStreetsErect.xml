@@ -1,19 +1,39 @@
 <!DOCTYPE codename-engine-stage>
-<stage folder="stages/phillyStreets/images/phillyStreets/erect/" name="philly-streets" zoom="0.77">
+
+<stage folder="stages/phillyStreets/images/phillyStreets/erect/" name="philly-streets" zoom="0.77" startCamPosX="1200" startCamPosY="550">
+
 	<sprite x="-650" scroll="0.1" sprite="phillySkybox" y="-375" scale="0.65" name="sky1"/>
+
 	<sprite x="-227.5" scroll="0.1" sprite="phillySkybox" y="-375" scale="0.65" name="sky2"/>
+
 	<sprite x="195" scroll="0.1" sprite="phillySkybox" y="-375" scale="0.65" name="sky3"/>
+
 	<sprite x="-545" scroll="0.2" sprite="phillySkyline" y="-273" name="skyline"/>
+
 	<sprite x="625" scroll="0.3" sprite="phillyForegroundCity" y="94" name="city"/>
+
 	<sprite x="1800" scroll="0.7" sprite="phillyConstruction" y="364" name="constructionSite"/>
+
 	<sprite x="284" sprite="phillyHighwayLights" y="305" name="highwayLights"/>
+
 	<sprite x="139" sprite="phillyHighway" y="209" name="highway"/>
+
 	<sprite x="1200" scroll="0.9" sprite="phillyCars" y="818" type="beat" name="cars1"/>
-	<sprite x="1200" scroll="0.9" sprite="phillyCars" y="818" type="beat" name="cars2"/>
-	<sprite x="1840" scroll="0.9" sprite="phillyTraffic" y="608" type="beat" name="trafficLight"/>
+
+	<sprite x="1500" scroll="0.9" sprite="phillyCars" y="814" type="none" name="cars2"/>
+
+	<sprite x="1840" scroll="0.9" sprite="phillyTraffic" y="608" type="beat" name="trafficLight">
+		<anim name="redtogreen" anim="redtogreen" fps="1" loop="true" playOnCountdown="false"/>
+	</sprite>
+
 	<sprite x="1840" scroll="0.9" sprite="phillyTraffic_lightmap" y="608" alpha="0.6" name="trafficLightMap"/>
+
 	<sprite x="88" sprite="phillyForeground" y="317" name="street"/>
-	<girlfriend x="1155" scroll="1" y="450"/>
-	<boyfriend x="1930" y="450"/>
+
+	<girlfriend x="1200" scroll="1" y="450"/>
+
+	<boyfriend camxoffset="-100" x="1930" y="450"/>
+
 	<dad x="600" y="650"/>
+
 </stage>

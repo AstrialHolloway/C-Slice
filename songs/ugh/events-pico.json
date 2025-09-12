@@ -53,6 +53,16 @@
 		{
 			"params": [
 				0,
+				"argh",
+				true,
+				"NONE"
+			],
+			"name": "Play Animation",
+			"time": 49500
+		},
+		{
+			"params": [
+				0,
 				"beat it",
 				true,
 				"NONE"

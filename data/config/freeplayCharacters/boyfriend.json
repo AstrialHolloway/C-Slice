@@ -1,41 +1,136 @@
 {
-    "arrowSprite": "freeplaySelector",
-    "songList": [
-        "random",
-        
-        "test",
-        "tutorial",
-
-        "bopeebo",
-        "fresh",
-        "dadbattle",
-
-        "spookeez",
-        "south",
-        "monster",
-
+    "hasErect": true,
+    
+    "remixType": "bf",
+    "remixExt": "-bf",
+    "songs": [
+        "tutorial", 
+        "bopeebo", 
+        "fresh", 
+        "dadbattle", 
+        "spookeez", 
+        "south", 
+        "monster", 
         "pico",
         "philly nice",
         "blammed",
-
         "satin panties",
         "high",
         "milf",
-
         "cocoa",
         "eggnog",
         "winter horrorland",
-
         "senpai",
         "roses",
         "thorns",
-
         "ugh",
         "guns",
-        "stress"
+        "stress",
+        "darnell",
+        "lit-up"
     ],
-    "bgCardColor": "#ffd863",
-    "bgSprite": "bfBackground",
+    "erectSongs": [
+        "bopeebo", 
+        "fresh", 
+        "dadbattle", 
+        "spookeez", 
+        "south",
+        "pico",
+        "philly nice",
+        "blammed",
+        "satin panties",
+        "high",
+        "cocoa",
+        "eggnog",
+        "senpai",
+        "roses",
+        "thorns",
+        "ugh"
+    ],
+
+    "backingType": "text",
+    "backingText":{
+        "line1": {
+            "text": "HOT BLOODED IN MORE WAYS THAN ONE ",
+            "font": "5by7_b.tff",
+            "size": 40,
+            "color": "0xfff383",
+            "speed": "450",
+            "Y": "160",
+            "direction": "left"
+        },
+        "line2": {
+            "prefix": "BOYFRIEND ",
+            "font": "5by7.tff",
+            "size": 60,
+            "color": "0xff9963",
+            "speed": "250",
+            "Y": "220",
+            "direction": "right"
+        },
+        "line3": {
+            "prefix": "PROTECT YO NUTS ",
+            "font": "5by7_b.tff",
+            "size": 40,
+            "color": "0xffffff",
+            "speed": "300",
+            "Y": "290",
+            "direction": "left"
+        },
+        "line4": {
+            "text": "BOYFRIEND ",
+            "font": "5by7.tff",
+            "size": 60,
+            "color": "0xfff383",
+            "speed": "250",
+            "Y": "340",
+            "direction": "left"
+        },
+        "line5": {
+            "prefix": "HOT BLOODED IN MORE WAYS THAN ONE ",
+            "font": "5by7_b.tff",
+            "size": 40,
+            "color": "0xff9963",
+            "speed": "450",
+            "Y": "400",
+            "direction": "right"
+        },
+        "line6": {
+            "prefix": "BOYFRIEND ",
+            "font": "5by7.tff",
+            "size": 60,
+            "color": "0xffffff",
+            "speed": "250",
+            "Y": "450",
+            "direction": "left"
+        }
+        
+    },
+
+    "arrowSprite": "freeplaySelector",
+    "bgCardColor": "0xffd863",
+    "bgSprite": "freeplayBGdadCropped",
+
+    "loopingSprites": {
+        
+        "capsule": {
+            "assetPath": "freeplayCapsule",
+            "animations": {
+                "selected": {
+                    "prefix": "sel",
+                    "frameRate": "",
+                    "offsets": [0, 0 ]
+                },
+                "deselected": {
+                    "prefix": "basic",
+                    "frameRate": "",
+                    "offsets": [ 0, 0 ]
+                }
+            }
+        }
+        
+    },
+
     "dj": {
         "position": [
             20, 
@@ -66,56 +161,7 @@
                 "frameRate": 24,
                 "looping": false,
                 "offsets": [ -42, 25 ]
-            },
-            "secret": {
-                "prefix": "Boyfriend DJ confirm",
-                "frameRate": 24,
-                "looping": false,
-                "offsets": [ -42, 25 ]
-            },
-            "tv-intro": {
-                "prefix": "Boyfriend DJ confirm",
-                "frameRate": 24,
-                "looping": false,
-                "offsets": [ -42, 25 ]
-            },
-            "tv-idle": {
-                "prefix": "Boyfriend DJ confirm",
-                "frameRate": 24,
-                "looping": false,
-                "offsets": [ -42, 25 ]
-            },
-            "fail": {
-                "prefix": "Boyfriend DJ confirm",
-                "frameRate": 24,
-                "looping": false,
-                "offsets": [ -42, 25 ]
-            },
-            "win": {
-                "prefix": "Boyfriend DJ confirm",
-                "frameRate": 24,
-                "looping": false,
-                "offsets": [ -42, 25 ]
             }
         }
-    },
-    "loopingSprites": {
-
-    },
-    "capsule": {
-        "assetPath": "bf",
-        "animations": {
-            "selected": {
-                "prefix": "mp3 capsule w backing0",
-                "frameRate": "",
-                "offsets": [ -5, 0 ]
-            },
-            "deselected": {
-                "prefix": "mp3 capsule w backing NOT SELECTED",
-                "frameRate": "",
-                "offsets": [ 0, 0 ]
-            }
-        }
-    },
-    "glowColor": "#00CCFF"
+    }
 }

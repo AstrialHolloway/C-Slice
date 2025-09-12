@@ -8,6 +8,8 @@ import data.GlobalVars;
 
 trace(freechar);
 
+
+
 var transitioning = false;
 
 var static = false;
@@ -55,12 +57,13 @@ ground.animation.addByPrefix("Loop", "stage full instance 1", 15, true);
 ground.animation.play("Loop");
 add(ground);
 
-
-var barThing:FunkinSprite = new FunkinSprite(0, 40 + uiOffset);
-barThing.loadGraphic(Paths.image("menus/charSelect/barThing"));
-barThing.scale.set(1, 1);
-barThing.alpha = 0.5;
-barThing.color = 0x0f1438;
+var barThing = new FunkinSprite(0, 40);
+barThing.loadSprite(Paths.image("menus/charSelect/barThing"));
+barThing.addAnim('idle', 'name bar animated', 24, true);
+barThing.antialiasing = true;
+barThing.updateHitbox();
+barThing.playAnim('idle', true);
+barThing.scale.set(1,1);
 add(barThing);
 
 var nametag:FunkinSprite = new FunkinSprite(755,7 + uiOffset);
@@ -227,6 +230,20 @@ selectorCover.scale.set(1, 1);
 add(selectorCover);
 
 // -------------------------
+// cursor
+// -------------------------
+
+var cursor:FunkinSprite = new FunkinSprite(563,256 + uiOffset);
+cursor.frames = Paths.getSparrowAtlas("menus/charSelect/selectorCursor");
+cursor.animation.addByPrefix("idle", "cursor IDLE instance ", 24, true);
+cursor.animation.addByPrefix("denied", "cursor DENIED instance ", 24, true);
+cursor.animation.addByPrefix("accepted", "cursor ACCEPTED instance ", 24, true);
+cursor.animation.play("idle");
+cursor.scale.set(1, 1);
+cursor.color = 0xffcd00;
+add(cursor);
+
+// -------------------------
 // Icons
 // -------------------------
 
@@ -333,6 +350,11 @@ function create()
 
 function update()
 {   
+    
+    if (cursor.animation.name == "denied" && cursor.animation.curAnim.curFrame == 13) {
+		cursor.playAnim('idle', true);
+        cursor.color = 0xffcd00;
+	}
     if (lockedChar.animation.name == "in" && lockedChar.animation.curAnim.curFrame == 7) {
 		lockedChar.playAnim('idle', true);
 	}
@@ -441,6 +463,8 @@ function handleNametags()
         bfChar.visible=false;
         lockedChar.visible=true;
         lockedChar.playAnim('in', true);
+        cursor.x = 453;
+        cursor.y = 146;
         
     }
 
@@ -456,6 +480,8 @@ function handleNametags()
         bfChar.visible=false;
         lockedChar.visible=true;
         lockedChar.playAnim('in', true);
+        cursor.x = 563;
+        cursor.y = 146;
         
     }
 
@@ -471,6 +497,8 @@ function handleNametags()
         bfChar.visible=false;
         lockedChar.visible=true;
         lockedChar.playAnim('in', true);
+        cursor.x = 673;
+        cursor.y = 146;
         
     }
 
@@ -490,6 +518,8 @@ function handleNametags()
         picoChar.playAnim('idle', true);
         picoChar.scale.set(-1,1);
         nenePart.playAnim('idle', true);
+        cursor.x = 453;
+        cursor.y = 256;
         
     }
 
@@ -506,6 +536,8 @@ function handleNametags()
         lockedChar.visible=false;
         bfChar.playAnim('idle', true);
         gfPart.playAnim('idle', true);
+        cursor.x = 563;
+        cursor.y = 256;
         
     }
 
@@ -521,6 +553,8 @@ function handleNametags()
         bfChar.visible=false;
         lockedChar.visible=true;
         lockedChar.playAnim('in', true);
+        cursor.x = 673;
+        cursor.y = 256;
         
     }
     
@@ -538,6 +572,8 @@ function handleNametags()
         bfChar.visible=false;
         lockedChar.visible=true;
         lockedChar.playAnim('in', true);
+        cursor.x = 453;
+        cursor.y = 366;
         
     }
     
@@ -553,6 +589,8 @@ function handleNametags()
         bfChar.visible=false;
         lockedChar.visible=true;
         lockedChar.playAnim('in', true);
+        cursor.x = 563;
+        cursor.y = 366;
         
     }
 
@@ -568,6 +606,8 @@ function handleNametags()
         bfChar.visible=false;
         lockedChar.visible=true;
         lockedChar.playAnim('in', true);
+        cursor.x = 673;
+        cursor.y = 366;
     }
 }
 
@@ -770,6 +810,9 @@ function handleInputs()
                 bfIcon.animation.play("selected");
                 bfChar.playAnim('select', true);
                 gfPart.playAnim('select', true);
+                char = "boyfriend";
+                cursor.playAnim("accepted",true);
+                cursor.color = 0xffffff;
             }
             if (currentPlayer == "pico")
             {
@@ -777,6 +820,9 @@ function handleInputs()
                 picoIcon.animation.play("selected");
                 picoChar.playAnim('select', true);
                 nenePart.playAnim('select', true);
+                char = "pico";
+                cursor.playAnim("accepted",true);
+                cursor.color = 0xffffff;
             }
             transitioning = true;
             FlxG.sound.play(Paths.sound("CS_confirm"), 0.5);
@@ -796,6 +842,7 @@ function handleInputs()
                         FlxG.switchState(new ModState('freeplay-pico'));
                         freechar = "freeplay-pico";
                         trace(freechar);
+                        
                     }
                 }
                     
@@ -805,6 +852,8 @@ function handleInputs()
         {
             FlxG.sound.play(Paths.sound("CS_locked"), 0.5);
             lockedChar.playAnim("fail",true);
+            cursor.playAnim("denied",true);
+            cursor.color = 0xffffff;
         }
     }
 

@@ -72,7 +72,7 @@
 
 	<girlfriend x="1200" scroll="1" y="260"/>
 
-	<boyfriend x="1930" y="450"/>
+	<boyfriend camxoffset="-100" x="1930" y="450"/>
 
 	<dad x="600" y="650"/>
 

@@ -3,12 +3,12 @@
 		{
 			"params": [
 				0,
-				"tankman-bloody-cut1",
-				0,
-				false
+				"redheads",
+				true,
+				"NONE"
 			],
-			"time": 62106.7415730337,
-			"name": "Change Character"
+			"time": 62022.4719101124,
+			"name": "Play Animation"
 		},
 		{
 			"params": [
@@ -22,18 +22,17 @@
 		},
 		{
 			"params": [
-				0,
-				"tankman-bloody",
-				0,
-				true
+				false,
+				true,
+				0
 			],
 			"time": 64719.1011235955,
-			"name": "Change Character"
+			"name": "Alt Animation Toggle"
 		},
 		{
 			"params": [
 				0,
-				"good",
+				"goodBloody",
 				true,
 				"NONE"
 			],

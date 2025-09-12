@@ -113,9 +113,12 @@
 			"name": "Camera Movement"
 		}
 	],
+	"codenameChart": true,
 	"strumLines": [
 		{
 			"keyCount": 4,
+			"strumScale": 1,
+			"position": "dad",
 			"notes": [
 				{
 					"id": 2,
@@ -431,7 +434,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 214.285714285706,
+					"sLen": 214.285714285703,
 					"time": 25071.4285714286,
 					"type": 0
 				},
@@ -449,7 +452,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 214.285714285717,
+					"sLen": 214.285714285721,
 					"time": 25885.7142857143,
 					"type": 0
 				},
@@ -461,7 +464,7 @@
 				},
 				{
 					"id": 0,
-					"sLen": 171.42857142858,
+					"sLen": 171.428571428583,
 					"time": 26400,
 					"type": 0
 				},
@@ -1594,23 +1597,23 @@
 					"type": 0
 				}
 			],
+			"characters": [
+				"pico"
+			],
+			"type": 0,
 			"visible": true,
 			"strumSpacing": 1,
 			"strumPos": [
 				0,
 				50
 			],
-			"position": "dad",
-			"strumScale": 1,
-			"vocalsSuffix": "-Opponent-Pico",
 			"strumLinePos": 0.25,
-			"type": 0,
-			"characters": [
-				"pico"
-			]
+			"vocalsSuffix": "-Opponent-Pico"
 		},
 		{
 			"keyCount": 4,
+			"strumScale": 1,
+			"position": "boyfriend",
 			"notes": [
 				{
 					"id": 1,
@@ -2754,7 +2757,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 385.714285714275,
+					"sLen": 385.714285714261,
 					"time": 62571.4285714286,
 					"type": 0
 				},
@@ -3545,35 +3548,32 @@
 					"type": 0
 				}
 			],
+			"characters": [
+				"pico-playable"
+			],
+			"type": 1,
 			"visible": true,
 			"strumSpacing": 1,
 			"strumPos": [
 				0,
 				50
 			],
-			"position": "boyfriend",
-			"strumScale": 1,
-			"vocalsSuffix": "-Player-Pico",
 			"strumLinePos": 0.75,
-			"type": 1,
-			"characters": [
-				"pico-playable"
-			]
+			"vocalsSuffix": "-Player-Pico"
 		},
 		{
 			"keyCount": 4,
-			"notes": [],
-			"visible": false,
 			"position": "girlfriend",
-			"type": 2,
+			"notes": [],
 			"characters": [
 				"nene"
-			]
+			],
+			"type": 2,
+			"visible": false
 		}
 	],
-	"codenameChart": true,
 	"scrollSpeed": 2.6,
 	"chartVersion": "1.6.0",
-	"stage": "phillyTrainErect",
+	"stage": "phillyTrainPico",
 	"noteTypes": []
 }

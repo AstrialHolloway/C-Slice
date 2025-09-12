@@ -15,4 +15,6 @@
 	<anim name="singRIGHT-alt" anim="pico swear right" x="-50" y="3"/>
 	<anim name="burpSmile" anim="burpsmile" x="39"/>
 	<anim name="shit" anim="shit" x="3" y="1"/>
+	<anim name="hey" anim="Pico HEY!!" x="41" y="3"/>
+	<anim name="cheer" anim="Pico YEAH cheer" x="60" y="30"/>
 </character>

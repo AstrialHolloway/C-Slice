@@ -809,20 +809,20 @@
 					"type": 0
 				}
 			],
-			"visible": true,
+			"position": "dad",
+			"strumScale": 1,
 			"strumSpacing": 1,
+			"visible": true,
+			"type": 0,
+			"characters": [
+				"dad"
+			],
 			"strumPos": [
 				0,
 				50
 			],
-			"position": "dad",
-			"strumScale": 1,
 			"vocalsSuffix": "-Opponent-Pico",
-			"strumLinePos": 0.25,
-			"type": 0,
-			"characters": [
-				"dad"
-			]
+			"strumLinePos": 0.25
 		},
 		{
 			"keyCount": 4,
@@ -1089,12 +1089,6 @@
 					"id": 0,
 					"sLen": 0,
 					"time": 23250,
-					"type": 0
-				},
-				{
-					"id": 2,
-					"sLen": 0,
-					"time": 23400,
 					"type": 0
 				},
 				{
@@ -2052,12 +2046,6 @@
 					"type": 0
 				},
 				{
-					"id": 2,
-					"sLen": 0,
-					"time": 71700,
-					"type": 0
-				},
-				{
 					"id": 0,
 					"sLen": 0,
 					"time": 72000,
@@ -2208,26 +2196,26 @@
 					"type": 0
 				}
 			],
-			"visible": true,
+			"position": "boyfriend",
+			"strumScale": 1,
 			"strumSpacing": 1,
+			"visible": true,
+			"type": 1,
+			"characters": [
+				"pico-playable"
+			],
 			"strumPos": [
 				0,
 				50
 			],
-			"position": "boyfriend",
-			"strumScale": 1,
 			"vocalsSuffix": "-Player-Pico",
-			"strumLinePos": 0.75,
-			"type": 1,
-			"characters": [
-				"pico-playable"
-			]
+			"strumLinePos": 0.75
 		},
 		{
 			"keyCount": 4,
 			"notes": [],
-			"visible": false,
 			"position": "girlfriend",
+			"visible": false,
 			"type": 2,
 			"characters": [
 				"nene"
@@ -2237,6 +2225,6 @@
 	"codenameChart": true,
 	"scrollSpeed": 2.3,
 	"chartVersion": "1.6.0",
-	"stage": "mainStageErect",
+	"stage": "mainStagePico",
 	"noteTypes": []
 }

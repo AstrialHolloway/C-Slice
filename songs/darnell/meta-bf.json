@@ -1,4 +1,8 @@
 {
+	"customValues": {
+		"stickerPack": "standard-bf",
+		"abot": "false"
+	},
 	"opponentModeAllowed": true,
 	"icon": "darnell",
 	"difficulties": [
