@@ -1,4 +1,4 @@
-// You won't need to mod this unless you really need to!
+// oh my god I need to clean this up lmao
 
 
 import funkin.savedata.FunkinSave;

@@ -1,4 +1,4 @@
-// You don't need to edit this!
+// Script by AstroDev, if modifying please have a basic understanding of haxe!
 
 import funkin.savedata.FunkinSave;
 
@@ -25,8 +25,6 @@ var freeplaySongData:FunkinSave;
 var curScore;
 
 var curAccuracy;
-
-
 
 
 
@@ -101,7 +99,7 @@ arrowRightDiff.origin.set(arrowRightDiff.width / 2, arrowRightDiff.height / 2);
 arrowRightDiff.scale.x = -1;
 add(arrowRightDiff);
 
-var dj = new FunkinSprite(freeplayData.dj.position[0]-15, freeplayData.dj.position[1]+10);
+dj = new FunkinSprite(freeplayData.dj.position[0]-15, freeplayData.dj.position[1]+10);
 dj.loadSprite(Paths.image("menus/freeplay/djs/" + freeplayData.dj.assetPath));
 dj.animation.addByPrefix('intro', freeplayData.dj.animations.intro.prefix, freeplayData.dj.animations.intro.frameRate, freeplayData.dj.animations.intro.looping);
 dj.animation.addByPrefix('idle', freeplayData.dj.animations.idle.prefix, freeplayData.dj.animations.idle.frameRate,freeplayData.dj.animations.idle.looping);

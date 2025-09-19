@@ -1,10 +1,6 @@
-
-
-
-
-
 static var redirectStates:Map<Dynamic, String> = [
     FreeplayState => "freeplay"
+    MainMenuState => "MainMenuState"
 ];
 
 
