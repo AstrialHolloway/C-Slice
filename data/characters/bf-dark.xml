@@ -1,16 +1,15 @@
 <!DOCTYPE codename-engine-character>
-<!-- Made with WizardMantis's Character Converter on https://codename-engine.com/ -->
-<character sprite="dark/bf_dark" icon="bf" color="#31b0d1" y="350" flipX="true">
-	<anim name="idle" anim="BF idle dance" x="-5" y="0"/>
-	<anim name="singLEFT" anim="BF NOTE LEFT0" x="5" y="-6"/>
-	<anim name="singDOWN" anim="BF NOTE DOWN0" x="-20" y="-51"/>
-	<anim name="singUP" anim="BF NOTE UP0" x="-46" y="27"/>
-	<anim name="singRIGHT" anim="BF NOTE RIGHT0" x="-48" y="-7"/>
-	<anim name="singLEFTmiss" anim="BF NOTE LEFT MISS" x="7" y="19"/>
-	<anim name="singDOWNmiss" anim="BF NOTE DOWN MISS" x="-15" y="-19"/>
-	<anim name="singUPmiss" anim="BF NOTE UP MISS" x="-46" y="27"/>
-	<anim name="singRIGHTmiss" anim="BF NOTE RIGHT MISS" x="-44" y="22"/>
-	<anim name="hey" anim="BF HEY" x="-3" y="5"/>
-	<anim name="hurt" anim="BF hit" x="14" y="18"/>
-	<anim name="scared" anim="BF idle shaking" x="-4" y="0" loop="true"/>
+<character isPlayer="true" flipX="true" x="-21" y="347" color="#31B0D1" sprite="dark/bf">
+	<anim name="idle" anim="BF idle dance" x="-5" y="0" fps="24" loop="false"/>
+	<anim name="singUP" anim="BF NOTE UP0" x="-39" y="27" fps="24" loop="false"/>
+	<anim name="singLEFT" anim="BF NOTE LEFT0" x="6" y="-7" fps="24" loop="false"/>
+	<anim name="singRIGHT" anim="BF NOTE RIGHT0" x="-48" y="-6" fps="24" loop="false"/>
+	<anim name="singDOWN" anim="BF NOTE DOWN0" x="-17" y="-50" fps="24" loop="false"/>
+	<anim name="singUPmiss" anim="BF NOTE UP MISS" x="-35" y="27" fps="24" loop="false"/>
+	<anim name="singLEFTmiss" anim="BF NOTE LEFT MISS" x="6" y="19" fps="24" loop="false"/>
+	<anim name="singRIGHTmiss" anim="BF NOTE RIGHT MISS" x="-44" y="22" fps="24" loop="false"/>
+	<anim name="singDOWNmiss" anim="BF NOTE DOWN MISS" x="-16" y="-19" fps="24" loop="false"/>
+	<anim name="scared" anim="BF idle shaking" x="-6" y="1" fps="24" loop="true"/>
+	<anim name="hey" anim="BF HEY" x="-3" y="6" fps="24" loop="false"/>
+
 </character>

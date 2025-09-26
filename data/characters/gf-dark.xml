@@ -1,9 +1,8 @@
 <!DOCTYPE codename-engine-character>
-<!-- Made with WizardMantis's Character Converter on https://codename-engine.com/ -->
-<character sprite="dark/gf_dark" icon="gf" color="#a5004d">
-	<anim name="cheer" anim="GF Cheer" x="3" y="0"/>
-	<anim name="sad" anim="gf sad" x="-2" y="-21" indices="0..12"/>
-	<anim name="danceLeft" anim="GF Dancing Beat" x="0" y="-9" indices="30,0..14"/>
-	<anim name="danceRight" anim="GF Dancing Beat" x="0" y="-9" indices="15..29"/>
-	<anim name="scared" anim="GF FEAR" x="-2" y="-17" loop="true"/>
+<character x="-70" y="-30" sprite="dark/gf" camx="-160" icon="gf" color="#A5004D" isGF="true">
+	<anim name="cheer" anim="GF Cheer"/>
+	<anim name="danceLeft" anim="GF Dancing Beat" indices="0..14"/>
+	<anim name="danceRight" anim="GF Dancing Beat" indices="15..30"/>
+	<anim name="scared" anim="GF FEAR" x="-2" y="-8" loop="true"/>
+	<anim name="sad" anim="gf sad" x="-2" y="-12" loop="true" indices="0..12"/>
 </character>

@@ -1,6 +1,16 @@
 {
+	"color": "#FF78BF",
 	"customValues": {
-		"stickerPack": "standard-bf"
+		"ratings": {
+			"easy": 1,
+			"hard": 3,
+			"normal": 2
+		},
+		"previewStart": 0,
+		"album": "volume2",
+		"artist": "Kawai Sprite",
+		"previewEnd": 15000,
+		"charter": "ninjamuffin99 + MtH"
 	},
 	"opponentModeAllowed": true,
 	"icon": "senpai",
@@ -9,15 +19,14 @@
 		"normal",
 		"hard"
 	],
-	"color": "#FF78BF",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"displayName": "Senpai",
+	"needsVoices": false,
 	"beatsPerMeasure": 4,
-	"needsVoices": true,
 	"variants": [
-		"pico",
-		"erect"
+		"erect",
+		"pico"
 	],
 	"bpm": 144
 }

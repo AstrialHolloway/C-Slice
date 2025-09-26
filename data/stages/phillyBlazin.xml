@@ -1,8 +1,0 @@
-<!DOCTYPE codename-engine-stage>
-<stage folder="stages/phillyStreets/images/phillyBlazin/" name="phillyBlazin">
-	<sprite x="-700" scroll="0" sprite="skyBlur" y="-120" type="none" scale="1.75" name="skyBlur"/>
-	<sprite x="-700" scroll="0" sprite="streetBlur" y="-120" type="none" scale="1.75" name="streetBlur"/>
-	<girlfriend x="1353" camyoffset="20" y="1125"/>
-	<dad camxoffset="500" x="-237" camyoffset="200" y="200" scale="1.75"/>
-	<boyfriend scale="1.75" camxoffset="-350" x="-237" camyoffset="-100"/>
-</stage>

@@ -1,20 +1,26 @@
 {
-	"customValues": {
-		"stickerPack": "standard-bf"
-	},
 	"opponentModeAllowed": true,
-	"icon": "senpai-angry",
+	"icon": "senpai",
 	"difficulties": [
 		"erect",
 		"nightmare"
 	],
-	"color": "#FF78BF",
 	"coopAllowed": true,
+	"customValues": {
+		"previewStart": 0,
+		"ratings": {
+			"nightmare": 9,
+			"erect": 8
+		},
+		"album": "volume3",
+		"previewEnd": 15000,
+		"artist": "Kawai Sprite",
+		"charter": "Jenny Crowe + fabs + Spazkid"
+	},
 	"stepsPerBeat": 4,
 	"displayName": "Roses Erect",
-	"needsVoices": true,
 	"beatsPerMeasure": 4,
-	"bpm": 128,
+	"needsVoices": false,
 	"instSuffix": "-erect",
-	"vocalsSuffix": "-erect"
+	"bpm": 128
 }

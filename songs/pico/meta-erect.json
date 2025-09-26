@@ -1,7 +1,4 @@
 {
-	"customValues": {
-		"stickerPack": "standard-bf"
-	},
 	"opponentModeAllowed": true,
 	"icon": "pico",
 	"difficulties": [
@@ -10,9 +7,20 @@
 	],
 	"color": "#941653",
 	"coopAllowed": true,
+	"customValues": {
+		"previewStart": 0,
+		"ratings": {
+			"nightmare": 10,
+			"erect": 9
+		},
+		"album": "volume3",
+		"previewEnd": 15000,
+		"artist": "Kawai Sprite (feat. Saruky)",
+		"charter": "fabs + Spazkid"
+	},
 	"stepsPerBeat": 4,
 	"displayName": "Pico Erect",
-	"needsVoices": true,
+	"needsVoices": false,
 	"beatsPerMeasure": 4,
 	"bpm": 162,
 	"instSuffix": "-erect",

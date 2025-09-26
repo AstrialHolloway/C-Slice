@@ -1,18 +1,11 @@
-
-// SCRIPT BY techniktil on discord
-
-// this script is to make sure that the sticker transitions even show!
-
 import funkin.backend.MusicBeatTransition;
-
-
 import funkin.savedata.FunkinSave;
 
-var allowTransitions = FlxG.save.data.stickerTransitions;
+var allowStickers = FlxG.save.data.hitsounds;
 
 function onGamePause(event)
 {
-	if (allowTransitions == true)
+	if (allowStickers == true)
 	{
 		MusicBeatTransition.script = 'data/stickerTransition.hx';
 	}
@@ -20,7 +13,7 @@ function onGamePause(event)
 
 function onSubstateClose(event)
 {
-	if (allowTransitions == true)
+	if (allowStickers == true)
 	{
 		if(!Std.isOfType(subState, MusicBeatTransition) && paused)
 		{
@@ -31,7 +24,7 @@ function onSubstateClose(event)
 
 function onGameOver(event)
 {
-	if (allowTransitions == true)
+	if (allowStickers == true)
 	{
 		MusicBeatTransition.script = 'data/stickerTransition.hx';
 	}

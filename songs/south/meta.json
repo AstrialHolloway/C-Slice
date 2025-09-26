@@ -1,7 +1,4 @@
 {
-	"customValues": {
-		"stickerPack": "standard-bf"
-	},
 	"opponentModeAllowed": true,
 	"icon": "spooky",
 	"difficulties": [
@@ -9,15 +6,16 @@
 		"normal",
 		"hard"
 	],
-	"color": "#223344",
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"displayName": "South",
-	"beatsPerMeasure": 4,
-	"needsVoices": true,
 	"variants": [
 		"erect",
 		"pico"
 	],
+	"customValues": {},
+	"color": -14535868,
+	"name": "south",
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "South",
+	"beatsPerMeasure": 4,
 	"bpm": 165
 }

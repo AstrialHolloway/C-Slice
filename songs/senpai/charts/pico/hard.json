@@ -1,142 +1,13 @@
 {
-	"events": [
-		{
-			"params": [
-				1
-			],
-			"time": 1666.66666666667,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 6666.66666666667,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 15000,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 16666.6666666667,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 18333.3333333333,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 26666.6666666667,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 33333.3333333333,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 40000,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 46666.6666666667,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 51666.6666666666,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 55000,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 60000,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 65000,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 66666.6666666666,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 70000,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 73333.3333333333,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 76666.6666666667,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 80000,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 86666.6666666667,
-			"name": "Camera Movement"
-		}
-	],
+	"events": [],
+	"codenameChart": true,
+	"stage": "school-pico",
+	"scrollSpeed": 2.4,
+	"chartVersion": "1.6.0",
 	"strumLines": [
 		{
 			"keyCount": 4,
+			"position": "dad",
 			"notes": [
 				{
 					"id": 3,
@@ -782,7 +653,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 833.666666666642,
+					"sLen": 833.66666666665,
 					"time": 55624.6666666667,
 					"type": 0
 				},
@@ -806,7 +677,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 364.583333333321,
+					"sLen": 364.583333333328,
 					"time": 57916.6666666667,
 					"type": 0
 				},
@@ -1628,22 +1499,15 @@
 				}
 			],
 			"visible": true,
-			"strumSpacing": 1,
-			"strumPos": [
-				0,
-				50
-			],
-			"position": "dad",
-			"strumScale": 1,
-			"vocalsSuffix": "-Opponent-pico",
-			"strumLinePos": 0.25,
-			"type": 0,
 			"characters": [
 				"senpai"
-			]
+			],
+			"type": 0,
+			"vocalsSuffix": "-senpai-pico"
 		},
 		{
 			"keyCount": 4,
+			"position": "boyfriend",
 			"notes": [
 				{
 					"id": 1,
@@ -2241,7 +2105,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 329.861111111066,
+					"sLen": 329.861111111069,
 					"time": 30416.6666666667,
 					"type": 0
 				},
@@ -3513,34 +3377,22 @@
 				}
 			],
 			"visible": true,
-			"strumSpacing": 1,
-			"strumPos": [
-				0,
-				50
-			],
-			"position": "boyfriend",
-			"strumScale": 1,
-			"vocalsSuffix": "-Player-pico",
-			"strumLinePos": 0.75,
-			"type": 1,
 			"characters": [
 				"pico-pixel"
-			]
+			],
+			"type": 1,
+			"vocalsSuffix": "-pico-pixel-pico"
 		},
 		{
 			"keyCount": 4,
-			"notes": [],
 			"position": "girlfriend",
-			"visible": false,
-			"type": 2,
+			"notes": [],
 			"characters": [
 				"nene-pixel"
-			]
+			],
+			"visible": false,
+			"type": 2
 		}
 	],
-	"codenameChart": true,
-	"scrollSpeed": 2.4,
-	"chartVersion": "1.6.0",
-	"stage": "schoolPico",
 	"noteTypes": []
 }

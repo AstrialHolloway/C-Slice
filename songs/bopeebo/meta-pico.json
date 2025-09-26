@@ -1,22 +1,32 @@
 {
-	"customValues": {
-		"stickerPack": "standard-pico",
-		"abot": "true"
-	},
-	"opponentModeAllowed": true,
-	"icon": "dad",
-	"difficulties": [
-		"Easy",
-		"Normal",
-		"Hard"
-	],
 	"color": "#9271FD",
-	"coopAllowed": true,
-	"stepsPerBeat": 2,
-	"displayName": "Bopeebo (Pico Mix)",
-	"needsVoices": true,
-	"beatsPerMeasure": 6,
-	"bpm": 100,
+	"customValues": {
+		"previewStart": 0,
+		"ratings": {
+			"easy": 1,
+			"hard": 3,
+			"normal": 2
+		},
+		"album": "volume4",
+		"noteStyle": "funkin",
+		"previewEnd": 15000,
+		"charter": "fabs + Spazkid",
+		"artist": "ThatAndyGuy (feat. Saruky)",
+		"stickerPack": "parents"
+	},
 	"instSuffix": "-pico",
+	"opponentModeAllowed": false,
+	"difficulties": [
+		"easy",
+		"normal",
+		"hard"
+	],
+	"icon": "face",
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "Bopeebo (Pico Mix)",
+	"beatsPerMeasure": 4,
+	"needsVoices": false,
+	"bpm": 100,
 	"vocalsSuffix": "-pico"
 }

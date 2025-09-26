@@ -1,7 +1,18 @@
 {
 	"customValues": {
-		"stickerPack": "standard-bf"
+		"ratings": {
+			"easy": 1,
+			"normal": 2,
+			"hard": 3
+		},
+		"previewStart": 0,
+		"previewEnd": 15000,
+		"charter": "ninjamuffin99 + MtH + Spazkid",
+		"artist": "Kawai Sprite",
+		"album": "volume1",
+		"noteStyle": "funkin"
 	},
+	"color": "#9271FD",
 	"opponentModeAllowed": true,
 	"icon": "pico",
 	"difficulties": [
@@ -9,15 +20,14 @@
 		"normal",
 		"hard"
 	],
-	"color": "#941653",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"displayName": "Philly Nice",
+	"needsVoices": false,
 	"beatsPerMeasure": 4,
-	"needsVoices": true,
 	"variants": [
-		"pico",
-		"erect"
+		"erect",
+		"pico"
 	],
 	"bpm": 175
 }

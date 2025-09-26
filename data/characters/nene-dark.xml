@@ -1,11 +1,11 @@
 <!DOCTYPE codename-engine-character>
-<character y="200" sprite="dark/nene_dark" camx="-150" camy="100" icon="nene" color="#E45976" holdTime="6.1">
-	<anim name="danceLeft" anim="Nene Idle" indices="0..14"/>
-	<anim name="danceRight" anim="Nene Idle" indices="15..29"/>
-	<anim name="combo50" anim="combo celebration 1 nene" x="-120" y="50"/>
-	<anim name="laughCutscene" anim="laughing nene" x="17" y="-5" indices="0..11,7..11,7..11,7..11,7..11,7..11"/>
-	<anim name="combo100" anim="fawn nene" x="-50" y="-25" indices="0..6,4..6,4..6,4..6"/>
-	<anim name="raiseKnife" anim="knife raise" y="52"/>
-	<anim name="idleKnife" anim="knife high held" x="-99" y="52"/>
-	<anim name="lowerKnife" anim="knife lower" y="52"/>
+<character y="-30" sprite="dark/nene" camx="-100" camy="100" icon="nene" color="#EB6BA3" isGF="true">
+	<anim name="danceLeft" anim="Idle0" indices="0..15"/>
+	<anim name="danceRight" anim="Idle0" indices="16..30"/>
+	<anim name="combo50" anim="ComboCheer0" x="-123" y="56"/>
+	<anim name="drop70" anim="Laugh0" indices="0..11,7..9,19,11,7..11"/>
+	<anim name="combo200" anim="ComboFawn0" x="-40" y="-19" indices="0..6,4..6,4..6,4..6"/>
+	<anim name="raiseKnife" anim="KnifeRaise0" y="51.5"/>
+	<anim name="idleKnife" anim="KnifeIdle0" x="-98.5" y="51.5"/>
+	<anim name="lowerKnife" anim="KnifeLower0" x="134.5" y="51" indices="0..9"/>
 </character>

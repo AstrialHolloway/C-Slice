@@ -1,20 +1,21 @@
 {
-	"customValues": {
-		"stickerPack": "standard-pico",
-		"abot": "true"
-	},
 	"opponentModeAllowed": true,
-	"icon": "darnell",
 	"difficulties": [
-		"Easy",
-		"Normal",
-		"Hard"
+		"easy",
+		"normal",
+		"hard"
 	],
-	"color": "#725EB0",
+	"icon": "darnell",
 	"coopAllowed": true,
-	"stepsPerBeat": 2,
+	"name": "blazin",
+	"color": -10394881,
+	"customValues": {
+		"stickerPack": "bonus-weekend1",
+		"album": "volume4"
+	},
+	"stepsPerBeat": 4,
 	"displayName": "Blazin'",
-	"beatsPerMeasure": 6,
-	"needsVoices": false,
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
 	"bpm": 180
 }

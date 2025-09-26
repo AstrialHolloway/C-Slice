@@ -1,20 +1,29 @@
 {
+	"color": "#FF78BF",
 	"customValues": {
-		"stickerPack": "standard-bf"
+		"previewStart": 0,
+		"ratings": {
+			"erect": 9,
+			"nightmare": 10
+		},
+		"artist": "Kawai Sprite (feat. Saster)",
+		"charter": "Jenny Crowe + fabs",
+		"previewEnd": 15000,
+		"album": "volume3",
+		"noteStyle": "pixel"
 	},
+	"instSuffix": "-erect",
 	"opponentModeAllowed": true,
-	"icon": "spirit",
 	"difficulties": [
 		"erect",
 		"nightmare"
 	],
-	"color": "#FF78BF",
+	"icon": "spirit",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"displayName": "Thorns Erect",
-	"needsVoices": true,
 	"beatsPerMeasure": 4,
+	"needsVoices": false,
 	"bpm": 190,
-	"instSuffix": "-erect",
 	"vocalsSuffix": "-erect"
 }

@@ -1,7 +1,6 @@
 {
-	"customValues": {
-		"stickerPack": "standard-bf"
-	},
+	"customValues": {},
+	"color": "#F6B604",
 	"opponentModeAllowed": true,
 	"icon": "tankman",
 	"difficulties": [
@@ -9,15 +8,13 @@
 		"normal",
 		"hard"
 	],
-	"color": "#E1E1E1",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"displayName": "Ugh",
 	"beatsPerMeasure": 4,
-	"needsVoices": true,
+	"needsVoices": false,
 	"variants": [
-		"erect",
-		"pico"
+		"erect"
 	],
 	"bpm": 160
 }

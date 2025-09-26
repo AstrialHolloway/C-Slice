@@ -1,20 +1,14 @@
 {
-	"customValues": {
-		"stickerPack": "standard-bf"
-	},
 	"opponentModeAllowed": true,
 	"icon": "spooky",
-	"difficulties": [
-		"erect",
-		"nightmare"
-	],
-	"color": "#223344",
+	"customValues": {},
+	"color": -14535868,
+	"name": "spookeez",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
-	"displayName": "Spookeez Erect",
-	"needsVoices": true,
+	"displayName": "Spookeez (Erect)",
 	"beatsPerMeasure": 4,
+	"needsVoices": false,
 	"bpm": 166,
-	"instSuffix": "-erect",
-	"vocalsSuffix": "-erect"
+	"instSuffix": "-erect"
 }

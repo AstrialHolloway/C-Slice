@@ -1,6 +1,14 @@
 {
+	"color": "#941653",
 	"customValues": {
-		"stickerPack": "standard-bf"
+		"ratings": {
+			"easy": 1,
+			"hard": 2,
+			"normal": 2
+		},
+		"album": "volume1",
+		"artist": "Kawai Sprite",
+		"charter": "ninjamuffin99 + MtH"
 	},
 	"opponentModeAllowed": true,
 	"icon": "pico",
@@ -9,15 +17,14 @@
 		"normal",
 		"hard"
 	],
-	"color": "#941653",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"displayName": "Pico",
+	"needsVoices": false,
 	"beatsPerMeasure": 4,
-	"needsVoices": true,
 	"variants": [
-		"pico",
-		"erect"
+		"erect",
+		"pico"
 	],
 	"bpm": 150
 }

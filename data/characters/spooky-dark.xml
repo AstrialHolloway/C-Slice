@@ -1,12 +1,10 @@
 <!DOCTYPE codename-engine-character>
-<!-- Made with WizardMantis's Character Converter on https://codename-engine.com/ -->
-<character sprite="dark/spooky_dark" icon="spooky" color="#d57e00" y="200">
-	<anim name="hey" anim="Cheer"/>
-	<anim name="hey" anim="cheer"/>
-	<anim name="singLEFT" anim="SingLEFT" x="130" y="-10"/>
-	<anim name="singRIGHT" anim="SingRIGHT" x="-150" y="-14"/>
-	<anim name="singDOWN" anim="SingDOWN" x="-50" y="-130"/>
-	<anim name="singUP" anim="SingUP" x="-20" y="26"/>
-	<anim name="danceLeft" anim="Idle" indices="0..7"/>
-	<anim name="danceRight" anim="Idle" indices="8..15"/>
+<character isPlayer="false" flipX="false" x="-17" y="200" color="#C5995A" sprite="dark/spooky">
+	<anim name="danceLeft" 	anim="Idle" 	indices="1..8"/>
+	<anim name="danceRight" anim="Idle" 	indices="9..16"/>
+	<anim name="singUP" 	anim="SingUP" 					x="-20" y="26"/>
+	<anim name="singLEFT" 	anim="SingLEFT" 				x="130" y="-10"/>
+	<anim name="singRIGHT" 	anim="SingRIGHT" 				x="-130" y="-14"/>
+	<anim name="singDOWN" 	anim="SingDOWN" 				x="-15" y="-145"/>
+	<anim name="cheer" 		anim="Cheer" 					x="60" y="25"/>
 </character>

@@ -1,20 +1,17 @@
 {
-	"customValues": {
-		"stickerPack": "standard-bf"
-	},
+	"color": "#223344",
+	"customValues": {},
+	"instSuffix": "-erect",
 	"opponentModeAllowed": true,
 	"icon": "spooky",
 	"difficulties": [
 		"erect",
 		"nightmare"
 	],
-	"color": "#223344",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"displayName": "South Erect",
-	"needsVoices": true,
+	"needsVoices": false,
 	"beatsPerMeasure": 4,
-	"bpm": 177,
-	"instSuffix": "-erect",
-	"vocalsSuffix": "-erect"
+	"bpm": 177
 }

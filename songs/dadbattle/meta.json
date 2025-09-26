@@ -1,7 +1,19 @@
 {
 	"customValues": {
+		"ratings": {
+			"easy": 1,
+			"normal": 2,
+			"hard": 3
+		},
+		"previewStart": 0,
+		"previewEnd": 15000,
+		"charter": "ninjamuffin99 + MtH",
+		"artist": "Kawai Sprite",
+		"album": "volume1",
+		"noteStyle": "funkin",
 		"stickerPack": "parents"
 	},
+	"color": "#9271FD",
 	"opponentModeAllowed": true,
 	"icon": "dad",
 	"difficulties": [
@@ -9,12 +21,11 @@
 		"normal",
 		"hard"
 	],
-	"color": "#9271FD",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
-	"displayName": "Dadbattle",
+	"displayName": "DadBattle",
+	"needsVoices": false,
 	"beatsPerMeasure": 4,
-	"needsVoices": true,
 	"variants": [
 		"erect",
 		"pico"

@@ -2,152 +2,867 @@
 	"events": [
 		{
 			"params": [
+				0,
+				true,
+				4,
+				"CLASSIC",
+				"In"
+			],
+			"name": "Camera Movement",
+			"time": 0.634146341499218
+		},
+		{
+			"params": [
 				1
 			],
-			"time": 2711.86440677966,
-			"name": "Camera Movement"
+			"name": "Camera Movement",
+			"time": 2711.6341463415
 		},
 		{
 			"params": [
 				0
 			],
-			"time": 5423.72881355932,
-			"name": "Camera Movement"
+			"name": "Camera Movement",
+			"time": 5423.6341463415
 		},
 		{
 			"params": [
 				1
 			],
-			"time": 8135.59322033898,
-			"name": "Camera Movement"
+			"name": "Camera Movement",
+			"time": 8135.6341463415
+		},
+		{
+			"params": [
+				2,
+				1
+			],
+			"name": "Camera Modulo Change",
+			"time": 10762.3614457831
 		},
 		{
 			"params": [
 				0
 			],
-			"time": 10847.4576271186,
-			"name": "Camera Movement"
+			"name": "Camera Movement",
+			"time": 10847.6341463415
 		},
 		{
 			"params": [
 				1
 			],
-			"time": 16271.186440678,
-			"name": "Camera Movement"
+			"name": "Camera Movement",
+			"time": 16271.6341463415
+		},
+		{
+			"params": [
+				true,
+				1.1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 20338.9512195122
+		},
+		{
+			"params": [
+				true,
+				1.2,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 21016.9491525424
 		},
 		{
 			"params": [
 				0
 			],
-			"time": 21694.9152542373,
-			"name": "Camera Movement"
+			"name": "Camera Movement",
+			"time": 21694.6341463415
+		},
+		{
+			"params": [
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 21737.9512195122
 		},
 		{
 			"params": [
 				1
 			],
-			"time": 27118.6440677966,
-			"name": "Camera Movement"
+			"name": "Camera Movement",
+			"time": 27118.6341463415
+		},
+		{
+			"params": [
+				true,
+				1.1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 31186.9512195122
+		},
+		{
+			"params": [
+				true,
+				1.2,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 31864.9512195122
+		},
+		{
+			"params": [
+				true,
+				1.1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 32542.9512195122
 		},
 		{
 			"params": [
 				0
 			],
-			"time": 33898.3050847458,
-			"name": "Camera Movement"
+			"name": "Camera Movement",
+			"time": 32584.6341463415
+		},
+		{
+			"params": [
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 32881.9512195122
 		},
 		{
 			"params": [
 				1
 			],
-			"time": 37966.1016949153,
-			"name": "Camera Movement"
+			"name": "Camera Movement",
+			"time": 37966.6341463415
+		},
+		{
+			"params": [
+				true,
+				1.1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 38008.9512195122
+		},
+		{
+			"params": [
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 39322.9512195122
+		},
+		{
+			"params": [
+				true,
+				1.1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 40677.9512195122
+		},
+		{
+			"params": [
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 42033.9512195122
+		},
+		{
+			"params": [
+				true,
+				0.9,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 43220.9512195122
+		},
+		{
+			"params": [
+				4,
+				1
+			],
+			"name": "Camera Modulo Change",
+			"time": 43305.3614457831
+		},
+		{
+			"params": [
+				-50,
+				50,
+				true,
+				32,
+				"expo",
+				"Out",
+				true
+			],
+			"name": "Camera Position",
+			"time": 44067
+		},
+		{
+			"params": [
+				2,
+				true,
+				32,
+				"expo",
+				"Out"
+			],
+			"name": "Camera Movement",
+			"time": 44067
+		},
+		{
+			"params": [
+				1
+			],
+			"name": "Camera Movement",
+			"time": 48813.6341463415
+		},
+		{
+			"params": [
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 48855.9512195122
+		},
+		{
+			"params": [
+				true,
+				1.05,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 49576.9512195122
+		},
+		{
+			"params": [
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 50847.9512195122
+		},
+		{
+			"params": [
+				true,
+				1.1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 52881.9512195122
+		},
+		{
+			"params": [
+				2,
+				1
+			],
+			"name": "Camera Modulo Change",
+			"time": 54152.3614457831
+		},
+		{
+			"params": [
+				true,
+				0.9,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 54237.9512195122
+		},
+		{
+			"params": [
+				-50,
+				50,
+				true,
+				32,
+				"expo",
+				"Out",
+				true
+			],
+			"name": "Camera Position",
+			"time": 54915
+		},
+		{
+			"params": [
+				2,
+				true,
+				32,
+				"expo",
+				"Out"
+			],
+			"name": "Camera Movement",
+			"time": 54915
+		},
+		{
+			"params": [
+				1
+			],
+			"name": "Camera Movement",
+			"time": 59661.6341463415
+		},
+		{
+			"params": [
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 59703.9512195122
+		},
+		{
+			"params": [
+				true,
+				1.1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 61016.9512195122
+		},
+		{
+			"params": [
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 62372.9512195122
+		},
+		{
+			"params": [
+				true,
+				1.1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 63728.9512195122
 		},
 		{
 			"params": [
 				0
 			],
-			"time": 44745.7627118644,
-			"name": "Camera Movement"
+			"name": "Camera Movement",
+			"time": 65084.6341463415
+		},
+		{
+			"params": [
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 65127.9512195122
 		},
 		{
 			"params": [
 				1
 			],
-			"time": 48813.5593220339,
-			"name": "Camera Movement"
+			"name": "Camera Movement",
+			"time": 70508.6341463415
+		},
+		{
+			"params": [
+				true,
+				1.1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 74575.9512195122
+		},
+		{
+			"params": [
+				true,
+				1.2,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 75253.9491525424
 		},
 		{
 			"params": [
 				0
 			],
-			"time": 55593.220338983,
-			"name": "Camera Movement"
+			"name": "Camera Movement",
+			"time": 75931.6341463415
+		},
+		{
+			"params": [
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 75974.9512195122
 		},
 		{
 			"params": [
 				1
 			],
-			"time": 59661.0169491525,
-			"name": "Camera Movement"
+			"name": "Camera Movement",
+			"time": 81355.6341463415
 		},
 		{
 			"params": [
-				0
+				true,
+				1.1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
 			],
-			"time": 65084.7457627118,
-			"name": "Camera Movement"
+			"name": "Camera Zoom",
+			"time": 81397.9512195122
+		},
+		{
+			"params": [
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 82711.9512195122
+		},
+		{
+			"params": [
+				true,
+				1.1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 84066.9512195122
+		},
+		{
+			"params": [
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 85422.9512195122
+		},
+		{
+			"params": [
+				true,
+				0.9,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 86610.9512195122
+		},
+		{
+			"params": [
+				4,
+				1
+			],
+			"name": "Camera Modulo Change",
+			"time": 86695.3614457831
+		},
+		{
+			"params": [
+				-50,
+				50,
+				true,
+				32,
+				"expo",
+				"Out",
+				true
+			],
+			"name": "Camera Position",
+			"time": 87457
+		},
+		{
+			"params": [
+				2,
+				true,
+				32,
+				"expo",
+				"Out"
+			],
+			"name": "Camera Movement",
+			"time": 87457
 		},
 		{
 			"params": [
 				1
 			],
-			"time": 70508.4745762712,
-			"name": "Camera Movement"
+			"name": "Camera Movement",
+			"time": 92203.6341463415
 		},
 		{
 			"params": [
-				0
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
 			],
-			"time": 75932.2033898305,
-			"name": "Camera Movement"
+			"name": "Camera Zoom",
+			"time": 92245.9512195122
+		},
+		{
+			"params": [
+				true,
+				1.05,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 92966.9512195122
+		},
+		{
+			"params": [
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 94237.9512195122
+		},
+		{
+			"params": [
+				true,
+				1.1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 96271.9512195122
+		},
+		{
+			"params": [
+				2,
+				1
+			],
+			"name": "Camera Modulo Change",
+			"time": 97542.3614457831
+		},
+		{
+			"params": [
+				true,
+				0.9,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 97627.9512195122
+		},
+		{
+			"params": [
+				-50,
+				50,
+				true,
+				32,
+				"expo",
+				"Out",
+				true
+			],
+			"name": "Camera Position",
+			"time": 98305
+		},
+		{
+			"params": [
+				2,
+				true,
+				32,
+				"expo",
+				"Out"
+			],
+			"name": "Camera Movement",
+			"time": 98305
 		},
 		{
 			"params": [
 				1
 			],
-			"time": 81355.9322033898,
-			"name": "Camera Movement"
+			"name": "Camera Movement",
+			"time": 103051.634146342
 		},
 		{
 			"params": [
-				0
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
 			],
-			"time": 88135.593220339,
-			"name": "Camera Movement"
+			"name": "Camera Zoom",
+			"time": 103093.951219512
+		},
+		{
+			"params": [
+				true,
+				1.1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 104406.951219512
+		},
+		{
+			"params": [
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 105762.951219512
+		},
+		{
+			"params": [
+				true,
+				1.1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
+			],
+			"name": "Camera Zoom",
+			"time": 107118.951219512
 		},
 		{
 			"params": [
 				1
 			],
-			"time": 92203.3898305085,
-			"name": "Camera Movement"
+			"name": "Camera Movement",
+			"time": 108474.634146342
 		},
 		{
 			"params": [
-				0
+				true,
+				1,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
 			],
-			"time": 98983.0508474577,
-			"name": "Camera Movement"
+			"name": "Camera Zoom",
+			"time": 108517.951219512
 		},
 		{
 			"params": [
-				1
+				true,
+				0.9,
+				"camGame",
+				32,
+				"expo",
+				"Out",
+				"stage",
+				false
 			],
-			"time": 103050.847457627,
-			"name": "Camera Movement"
+			"name": "Camera Zoom",
+			"time": 109830.951219512
+		},
+		{
+			"params": [
+				2,
+				true,
+				64,
+				"expo",
+				"Out"
+			],
+			"name": "Camera Movement",
+			"time": 109915.254237288
 		}
 	],
+	"stage": "spooky-erect",
+	"codenameChart": true,
+	"scrollSpeed": 2.7,
+	"chartVersion": "1.6.0",
 	"strumLines": [
 		{
 			"keyCount": 4,
@@ -208,7 +923,7 @@
 				},
 				{
 					"id": 3,
-					"sLen": 211.864406779659,
+					"sLen": 211.864406779658,
 					"time": 12542.3728813559,
 					"type": 0
 				},
@@ -232,13 +947,13 @@
 				},
 				{
 					"id": 2,
-					"sLen": 169.491525423729,
+					"sLen": 169.491525423731,
 					"time": 13220.3389830508,
 					"type": 0
 				},
 				{
 					"id": 3,
-					"sLen": 211.864406779661,
+					"sLen": 211.864406779659,
 					"time": 13559.3220338983,
 					"type": 0
 				},
@@ -778,7 +1493,7 @@
 				},
 				{
 					"id": 2,
-					"sLen": 593.220338983054,
+					"sLen": 593.220338983083,
 					"time": 44067.7966101695,
 					"type": 0
 				},
@@ -790,19 +1505,19 @@
 				},
 				{
 					"id": 0,
-					"sLen": 254.237288135591,
+					"sLen": 254.237288135606,
 					"time": 45084.7457627119,
 					"type": 0
 				},
 				{
 					"id": 1,
-					"sLen": 593.220338983054,
+					"sLen": 593.220338983061,
 					"time": 45423.7288135593,
 					"type": 0
 				},
 				{
 					"id": 3,
-					"sLen": 593.220338983061,
+					"sLen": 593.220338983076,
 					"time": 46101.6949152542,
 					"type": 0
 				},
@@ -814,25 +1529,25 @@
 				},
 				{
 					"id": 0,
-					"sLen": 593.220338983054,
+					"sLen": 593.220338983061,
 					"time": 47457.6271186441,
 					"type": 0
 				},
 				{
 					"id": 1,
-					"sLen": 593.220338983054,
+					"sLen": 593.220338983061,
 					"time": 48135.593220339,
 					"type": 0
 				},
 				{
 					"id": 0,
-					"sLen": 508.47457627119,
+					"sLen": 508.474576271197,
 					"time": 48813.5593220339,
 					"type": 0
 				},
 				{
 					"id": 2,
-					"sLen": 593.220338983054,
+					"sLen": 593.220338983047,
 					"time": 54915.2542372881,
 					"type": 0
 				},
@@ -850,13 +1565,13 @@
 				},
 				{
 					"id": 1,
-					"sLen": 593.220338983054,
+					"sLen": 593.220338983061,
 					"time": 56271.186440678,
 					"type": 0
 				},
 				{
 					"id": 3,
-					"sLen": 593.220338983054,
+					"sLen": 593.220338983047,
 					"time": 56949.1525423729,
 					"type": 0
 				},
@@ -880,7 +1595,7 @@
 				},
 				{
 					"id": 0,
-					"sLen": 508.474576271183,
+					"sLen": 508.474576271154,
 					"time": 59661.0169491525,
 					"type": 0
 				},
@@ -1348,31 +2063,31 @@
 				},
 				{
 					"id": 0,
-					"sLen": 254.237288135599,
+					"sLen": 254.23728813557,
 					"time": 88474.5762711864,
 					"type": 0
 				},
 				{
 					"id": 1,
-					"sLen": 593.220338983054,
+					"sLen": 593.220338983068,
 					"time": 88813.5593220339,
 					"type": 0
 				},
 				{
 					"id": 3,
-					"sLen": 593.220338983054,
+					"sLen": 593.220338983068,
 					"time": 89491.5254237288,
 					"type": 0
 				},
 				{
 					"id": 2,
-					"sLen": 508.474576271197,
+					"sLen": 508.474576271226,
 					"time": 90169.4915254237,
 					"type": 0
 				},
 				{
 					"id": 0,
-					"sLen": 593.220338983054,
+					"sLen": 593.220338983097,
 					"time": 90847.4576271186,
 					"type": 0
 				},
@@ -1384,19 +2099,19 @@
 				},
 				{
 					"id": 0,
-					"sLen": 508.474576271197,
+					"sLen": 508.474576271226,
 					"time": 92203.3898305085,
 					"type": 0
 				},
 				{
 					"id": 2,
-					"sLen": 593.220338983083,
+					"sLen": 593.220338983097,
 					"time": 98305.0847457627,
 					"type": 0
 				},
 				{
 					"id": 3,
-					"sLen": 254.237288135584,
+					"sLen": 254.23728813557,
 					"time": 98983.0508474576,
 					"type": 0
 				},
@@ -1414,7 +2129,7 @@
 				},
 				{
 					"id": 3,
-					"sLen": 593.220338983054,
+					"sLen": 593.22033898301,
 					"time": 100338.983050847,
 					"type": 0
 				},
@@ -1432,13 +2147,13 @@
 				},
 				{
 					"id": 1,
-					"sLen": 593.220338983054,
+					"sLen": 593.220338983083,
 					"time": 102372.881355932,
 					"type": 0
 				},
 				{
 					"id": 0,
-					"sLen": 508.474576271183,
+					"sLen": 508.474576271168,
 					"time": 103050.847457627,
 					"type": 0
 				}
@@ -1451,20 +2166,26 @@
 			],
 			"position": "dad",
 			"strumScale": 1,
-			"vocalsSuffix": "-Opponent-Erect",
+			"vocalsSuffix": "-spooky-erect",
 			"strumLinePos": 0.25,
 			"type": 0,
 			"characters": [
-				"spooky-dark"
+				"spooky"
 			]
 		},
 		{
 			"keyCount": 4,
 			"notes": [
 				{
-					"id": 1,
-					"sLen": 127.118644067799,
+					"id": 3,
+					"sLen": 0,
 					"time": 16271.186440678,
+					"type": 0
+				},
+				{
+					"id": 1,
+					"sLen": 84.7457627118674,
+					"time": 16313.5593220339,
 					"type": 0
 				},
 				{
@@ -1696,9 +2417,15 @@
 					"type": 0
 				},
 				{
-					"id": 1,
-					"sLen": 635.593220338982,
+					"id": 0,
+					"sLen": 0,
 					"time": 21694.9152542373,
+					"type": 0
+				},
+				{
+					"id": 1,
+					"sLen": 593.22033898305,
+					"time": 21737.2881355932,
 					"type": 0
 				},
 				{
@@ -2453,7 +3180,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 254.237288135599,
+					"sLen": 254.237288135613,
 					"time": 48813.5593220339,
 					"type": 0
 				},
@@ -2477,7 +3204,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 508.47457627119,
+					"sLen": 508.474576271219,
 					"time": 49576.2711864407,
 					"type": 0
 				},
@@ -2507,13 +3234,13 @@
 				},
 				{
 					"id": 0,
-					"sLen": 254.237288135591,
+					"sLen": 254.237288135606,
 					"time": 50847.4576271186,
 					"type": 0
 				},
 				{
 					"id": 2,
-					"sLen": 254.237288135591,
+					"sLen": 254.237288135584,
 					"time": 51186.4406779661,
 					"type": 0
 				},
@@ -2705,7 +3432,7 @@
 				},
 				{
 					"id": 2,
-					"sLen": 254.237288135591,
+					"sLen": 254.237288135606,
 					"time": 56271.186440678,
 					"type": 0
 				},
@@ -2735,7 +3462,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 508.47457627119,
+					"sLen": 508.474576271197,
 					"time": 57711.8644067797,
 					"type": 0
 				},
@@ -2747,7 +3474,7 @@
 				},
 				{
 					"id": 3,
-					"sLen": 508.474576271183,
+					"sLen": 508.474576271154,
 					"time": 58389.8305084746,
 					"type": 0
 				},
@@ -3125,7 +3852,7 @@
 				},
 				{
 					"id": 3,
-					"sLen": 127.118644067799,
+					"sLen": 127.118644067792,
 					"time": 64915.2542372881,
 					"type": 0
 				},
@@ -3154,9 +3881,15 @@
 					"type": 0
 				},
 				{
-					"id": 1,
+					"id": 0,
 					"sLen": 0,
 					"time": 70508.4745762712,
+					"type": 0
+				},
+				{
+					"id": 1,
+					"sLen": 0,
+					"time": 70550.8474576271,
 					"type": 0
 				},
 				{
@@ -3833,7 +4566,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 254.237288135599,
+					"sLen": 254.237288135642,
 					"time": 92203.3898305085,
 					"type": 0
 				},
@@ -3857,7 +4590,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 508.474576271154,
+					"sLen": 508.474576271139,
 					"time": 92966.1016949153,
 					"type": 0
 				},
@@ -3887,13 +4620,13 @@
 				},
 				{
 					"id": 0,
-					"sLen": 254.237288135613,
+					"sLen": 254.237288135642,
 					"time": 94237.2881355932,
 					"type": 0
 				},
 				{
 					"id": 2,
-					"sLen": 254.237288135584,
+					"sLen": 254.23728813557,
 					"time": 94576.2711864407,
 					"type": 0
 				},
@@ -4043,7 +4776,7 @@
 				},
 				{
 					"id": 0,
-					"sLen": 254.237288135613,
+					"sLen": 254.237288135642,
 					"time": 98305.0847457627,
 					"type": 0
 				},
@@ -4085,7 +4818,7 @@
 				},
 				{
 					"id": 2,
-					"sLen": 254.237288135613,
+					"sLen": 254.237288135642,
 					"time": 99661.0169491526,
 					"type": 0
 				},
@@ -4103,7 +4836,7 @@
 				},
 				{
 					"id": 0,
-					"sLen": 508.474576271183,
+					"sLen": 508.474576271168,
 					"time": 100423.728813559,
 					"type": 0
 				},
@@ -4127,13 +4860,13 @@
 				},
 				{
 					"id": 3,
-					"sLen": 508.474576271197,
+					"sLen": 508.474576271212,
 					"time": 101779.661016949,
 					"type": 0
 				},
 				{
 					"id": 2,
-					"sLen": 593.220338983054,
+					"sLen": 593.220338983083,
 					"time": 102372.881355932,
 					"type": 0
 				},
@@ -4505,7 +5238,7 @@
 				},
 				{
 					"id": 3,
-					"sLen": 127.118644067785,
+					"sLen": 127.11864406777,
 					"time": 108305.084745763,
 					"type": 0
 				},
@@ -4559,7 +5292,7 @@
 				},
 				{
 					"id": 0,
-					"sLen": 508.474576271197,
+					"sLen": 508.474576271212,
 					"time": 111186.440677966,
 					"type": 0
 				},
@@ -4583,7 +5316,7 @@
 				},
 				{
 					"id": 3,
-					"sLen": 508.474576271183,
+					"sLen": 508.474576271212,
 					"time": 112542.372881356,
 					"type": 0
 				},
@@ -4608,27 +5341,31 @@
 			],
 			"position": "boyfriend",
 			"strumScale": 1,
-			"vocalsSuffix": "-Player-Erect",
+			"vocalsSuffix": "-bf-erect",
 			"strumLinePos": 0.75,
 			"type": 1,
 			"characters": [
-				"bf-dark"
+				"bf"
 			]
 		},
 		{
 			"keyCount": 4,
 			"notes": [],
 			"visible": false,
+			"strumSpacing": 1,
+			"strumPos": [
+				0,
+				50
+			],
 			"position": "girlfriend",
+			"strumScale": 1,
+			"vocalsSuffix": "",
+			"strumLinePos": 0.25,
 			"type": 2,
 			"characters": [
-				"gf-dark"
+				"gf"
 			]
 		}
 	],
-	"codenameChart": true,
-	"scrollSpeed": 2.7,
-	"chartVersion": "1.6.0",
-	"stage": "spookyMansionErect",
 	"noteTypes": []
 }

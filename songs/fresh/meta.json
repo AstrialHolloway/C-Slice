@@ -1,7 +1,17 @@
 {
 	"customValues": {
+		"ratings": {
+			"easy": 1,
+			"hard": 2,
+			"normal": 1
+		},
+		"charter": "ninjamuffin99 + MtH",
+		"noteStyle": "funkin",
+		"album": "volume1",
+		"artist": "Kawai Sprite",
 		"stickerPack": "parents"
 	},
+	"color": "#9271FD",
 	"opponentModeAllowed": true,
 	"icon": "dad",
 	"difficulties": [
@@ -9,15 +19,15 @@
 		"normal",
 		"hard"
 	],
-	"color": "#9271FD",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"displayName": "Fresh",
+	"needsVoices": false,
 	"beatsPerMeasure": 4,
-	"needsVoices": true,
 	"variants": [
 		"erect",
-		"pico"
+		"pico",
+		"fresh-chart-erect"
 	],
 	"bpm": 120
 }

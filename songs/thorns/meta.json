@@ -1,7 +1,6 @@
 {
-	"customValues": {
-		"stickerPack": "standard-bf"
-	},
+	"customValues": {},
+	"color": "#FF78BF",
 	"opponentModeAllowed": true,
 	"icon": "spirit",
 	"difficulties": [
@@ -9,12 +8,11 @@
 		"normal",
 		"hard"
 	],
-	"color": "#FF78BF",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"displayName": "Thorns",
 	"beatsPerMeasure": 4,
-	"needsVoices": true,
+	"needsVoices": false,
 	"variants": [
 		"erect"
 	],

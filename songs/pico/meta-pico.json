@@ -1,10 +1,4 @@
 {
-	"color": "#941653",
-	"customValues": {
-		"stickerPack": "standard-pico",
-		"abot": "true"
-	},
-	"instSuffix": "-pico",
 	"opponentModeAllowed": true,
 	"icon": "pico",
 	"difficulties": [
@@ -12,11 +6,25 @@
 		"normal",
 		"hard"
 	],
+	"color": "#941653",
 	"coopAllowed": true,
+	"customValues": {
+		"previewStart": 0,
+		"ratings": {
+			"easy": 2,
+			"hard": 4,
+			"normal": 3
+		},
+		"album": "expansion2",
+		"previewEnd": 15000,
+		"artist": "Metaroom (ft. Saster)",
+		"charter": "fabs"
+	},
 	"stepsPerBeat": 4,
 	"displayName": "Pico (Pico Mix)",
-	"needsVoices": true,
+	"needsVoices": false,
 	"beatsPerMeasure": 4,
 	"bpm": 150,
+	"instSuffix": "-pico",
 	"vocalsSuffix": "-pico"
 }

@@ -1,20 +1,21 @@
 {
-	"customValues": {
-		"stickerPack": "standard-pico",
-		"abot": "true"
-	},
-	"color": "#725EB0",
 	"opponentModeAllowed": true,
-	"icon": "Darnell",
 	"difficulties": [
-		"Easy",
-		"Normal",
-		"Hard"
+		"easy",
+		"normal",
+		"hard"
 	],
-	"coopAllowed": false,
-	"stepsPerBeat": 2,
+	"icon": "darnell",
+	"coopAllowed": true,
+	"name": "2hot",
+	"color": -10394881,
+	"stepsPerBeat": 4,
 	"displayName": "2Hot",
-	"beatsPerMeasure": 6,
 	"needsVoices": true,
-	"bpm": 182
+	"beatsPerMeasure": 4,
+	"bpm": 182,
+	"customValues": {
+		"stickerPack": "bonus-weekend1",
+		"album": "volume4"
+	}
 }

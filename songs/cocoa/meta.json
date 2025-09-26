@@ -2,6 +2,7 @@
 	"customValues": {
 		"stickerPack": "parents"
 	},
+	"color": "#A0D1FF",
 	"opponentModeAllowed": true,
 	"icon": "parents-christmas",
 	"difficulties": [
@@ -9,14 +10,12 @@
 		"normal",
 		"hard"
 	],
-	"color": "#A0D1FF",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"displayName": "Cocoa",
 	"beatsPerMeasure": 4,
-	"needsVoices": true,
+	"needsVoices": false,
 	"variants": [
-		"pico",
 		"erect"
 	],
 	"bpm": 100

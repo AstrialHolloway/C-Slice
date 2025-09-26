@@ -1,7 +1,7 @@
 {
 	"color": "#A0D1FF",
 	"customValues": {
-		"stickerPack": "standard-pico",
+		"stickerPack": "parents",
 		"abot": "true"
 	},
 	"instSuffix": "-pico",

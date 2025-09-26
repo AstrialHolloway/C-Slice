@@ -1,22 +1,20 @@
 {
-	"customValues": {
-		"stickerPack": "parents"
-	},
 	"opponentModeAllowed": true,
 	"icon": "mom",
 	"difficulties": [
 		"easy",
 		"normal",
-		"hard"
+		"hard",
+		"erect",
+		"nightmare"
 	],
-	"color": "#FC96D7",
+	"customValues": {"stickerPack": "parents"},
+	"color": -223530,
+	"name": "high",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"displayName": "High",
 	"beatsPerMeasure": 4,
-	"needsVoices": true,
-	"variants": [
-		"erect"
-	],
+	"needsVoices": false,
 	"bpm": 125
 }

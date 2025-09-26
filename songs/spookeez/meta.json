@@ -1,7 +1,4 @@
 {
-	"customValues": {
-		"stickerPack": "standard-bf"
-	},
 	"opponentModeAllowed": true,
 	"icon": "spooky",
 	"difficulties": [
@@ -9,15 +6,17 @@
 		"normal",
 		"hard"
 	],
-	"color": "#223344",
+	"variants": [
+		"erect",
+		"pico"
+	],
+	"customValues": {},
+	"color": -14535868,
+	"name": "spookeez",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"displayName": "Spookeez",
 	"beatsPerMeasure": 4,
-	"needsVoices": true,
-	"variants": [
-		"pico",
-		"erect"
-	],
+	"needsVoices": false,
 	"bpm": 150
 }

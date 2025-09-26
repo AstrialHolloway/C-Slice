@@ -1,20 +1,21 @@
 {
-	"customValues": {
-		"stickerPack": "standard-pico"
-	},
 	"opponentModeAllowed": true,
 	"icon": "darnell",
+	"name": "darnell",
+	"color": "#6162FF",
+	"coopAllowed": true,
 	"difficulties": [
-		"Erect",
-		"Nightmare"
+		"erect",
+		"nightmare"
 	],
-	"color": "#725EB0",
-	"coopAllowed": false,
-	"stepsPerBeat": 2,
+	"customValues": {
+		"stickerPack": "bonus-weekend1",
+		"album": "expansion2"
+	},
+	"stepsPerBeat": 4,
 	"displayName": "Darnell Erect",
-	"needsVoices": true,
-	"beatsPerMeasure": 6,
+	"beatsPerMeasure": 4,
 	"bpm": 155,
 	"instSuffix": "-erect",
-	"vocalsSuffix": "-erect"
+	"needsVoices": false
 }

@@ -1,153 +1,9 @@
 {
-	"events": [
-		{
-			"params": [
-				1
-			],
-			"time": 5052.63157894737,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 10105.2631578947,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 15157.8947368421,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 20210.5263157895,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 25263.1578947368,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 30315.7894736842,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 35368.4210526316,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 40421.0526315789,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 42947.3684210526,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 50526.3157894737,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 51789.4736842105,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 60631.5789473684,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 65684.2105263157,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 70736.8421052631,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 75789.4736842105,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 80842.1052631578,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 84631.5789473684,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 90947.3684210525,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 95999.9999999999,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				0
-			],
-			"time": 101052.631578947,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				1
-			],
-			"time": 106105.263157895,
-			"name": "Camera Movement"
-		}
-	],
+	"events": [],
+	"codenameChart": true,
+	"stage": "school-evil-erect",
+	"scrollSpeed": 2.7,
+	"chartVersion": "1.6.0",
 	"strumLines": [
 		{
 			"keyCount": 4,
@@ -2369,8 +2225,8 @@
 			],
 			"position": "dad",
 			"strumScale": 1,
-			"vocalsSuffix": "-Opponent-Erect",
-			"strumLinePos": 0.25,
+			"vocalsSuffix": "-spirit-erect",
+			"strumLinePos": 0.2,
 			"type": 0,
 			"characters": [
 				"spirit"
@@ -5436,8 +5292,8 @@
 			],
 			"position": "boyfriend",
 			"strumScale": 1,
-			"vocalsSuffix": "-Player-Erect",
-			"strumLinePos": 0.75,
+			"vocalsSuffix": "-bf-pixel-erect",
+			"strumLinePos": 0.7,
 			"type": 1,
 			"characters": [
 				"bf-pixel"
@@ -5445,18 +5301,14 @@
 		},
 		{
 			"keyCount": 4,
-			"notes": [],
-			"visible": false,
 			"position": "girlfriend",
-			"type": 2,
+			"notes": [],
 			"characters": [
 				"gf-pixel"
-			]
+			],
+			"visible": false,
+			"type": 2
 		}
 	],
-	"codenameChart": true,
-	"scrollSpeed": 2.7,
-	"chartVersion": "1.6.0",
-	"stage": "schoolEvilErect",
 	"noteTypes": []
 }

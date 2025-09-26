@@ -1,24 +1,25 @@
 {
-	"customValues": {
-		"stickerPack": "standard-pico",
-		"abot": "true"
-	},
+	"beatsPerMeasure": 4,
 	"opponentModeAllowed": true,
-	"icon": "darnell",
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"bpm": 155,
 	"difficulties": [
-		"Easy",
-		"Normal",
-		"Hard"
+		"easy",
+		"normal",
+		"hard"
 	],
-	"color": "#725EB0",
-	"coopAllowed": false,
-	"stepsPerBeat": 2,
-	"displayName": "Darnell",
-	"beatsPerMeasure": 6,
-	"needsVoices": true,
 	"variants": [
 		"erect",
-		"bf"
+		"bf"	
 	],
-	"bpm": 155
+	"needsVoices": false,
+	"displayName": "Darnell",
+	"icon": "darnell",
+	"name": "darnell",
+	"color": "#6162FF",
+	"customValues": {
+		"stickerPack": "bonus-weekend1",
+		"album": "volume4"
+	}
 }

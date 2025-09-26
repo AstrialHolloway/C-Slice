@@ -1,8 +1,19 @@
 {
+	"color": "#9271FD",
 	"customValues": {
-		"stickerPack": "standard-pico",
-		"abot": "true"
+		"previewStart": 0,
+		"ratings": {
+			"easy": 1,
+			"normal": 2,
+			"hard": 3
+		},
+		"charter": "fabs + Spazkid",
+		"artist": "Tee Lopes (Feat. Saruky)",
+		"previewEnd": 15000,
+		"noteStyle": "pixel",
+		"album": "expansion2"
 	},
+	"instSuffix": "-pico",
 	"opponentModeAllowed": true,
 	"icon": "senpai",
 	"difficulties": [
@@ -10,13 +21,11 @@
 		"normal",
 		"hard"
 	],
-	"color": "#FF78BF",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"displayName": "Senpai (Pico Mix)",
-	"needsVoices": true,
+	"needsVoices": false,
 	"beatsPerMeasure": 4,
-	"bpm": 144,
-	"instSuffix": "-pico",
-	"vocalsSuffix": "-pico"
+	"vocalsSuffix": "-pico",
+	"bpm": 144
 }

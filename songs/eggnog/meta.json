@@ -1,9 +1,9 @@
 {
+	"opponentModeAllowed": true,
+	"icon": "parents-christmas",
 	"customValues": {
 		"stickerPack": "parents"
 	},
-	"opponentModeAllowed": true,
-	"icon": "parents-christmas",
 	"difficulties": [
 		"easy",
 		"normal",
@@ -16,7 +16,6 @@
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
 	"variants": [
-		"pico",
 		"erect"
 	],
 	"bpm": 150

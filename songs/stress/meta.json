@@ -1,7 +1,4 @@
 {
-	"customValues": {
-		"stickerPack": "standard-bf"
-	},
 	"opponentModeAllowed": true,
 	"icon": "tankman",
 	"difficulties": [
@@ -9,7 +6,7 @@
 		"normal",
 		"hard"
 	],
-	"color": "#E1E1E1",
+	"color": "#F6B604",
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"displayName": "Stress",
