@@ -1,9 +1,0 @@
-<!DOCTYPE codename-engine-week>
-<week name="RED SNOW" chars="parents-christmas,bf,gf" sprite="week5">
-	<song>Cocoa</song>
-	<song>Eggnog</song>
-	<song hide="true">Winter Horrorland</song>
-	<difficulty name="Easy"/>
-	<difficulty name="Normal"/>
-	<difficulty name="Hard"/>
-</week>

@@ -2,15 +2,22 @@
 
 import funkin.savedata.FunkinSave;
 
+import flixel.text.FlxText;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxTimer;
+import flixel.math.FlxRect;
+import flixel.tweens.FlxEase;
+
+
 import data.GlobalVars;
 
 var currentCharacter = char;
 
 var freeplayData = CoolUtil.parseJson("data/registry/freeplay/"+currentCharacter+".json");
 
-trace("loading "+char+"'s freeplay menu");
+trace("loading "+currentCharacter+"'s freeplay menu");
 
-static var freeplayIndex = 0;
+static var freeplayIndex = 1;
 
 static var freeplayDiffIndex = 1;
 
@@ -85,19 +92,7 @@ dadSprite.loadGraphic(Paths.image("menus/freeplay/"+freeplayData.bgSprite));
 dadSprite.scale.set(1.4, 1.4);
 add(dadSprite);
 
-var arrowLeftDiff:FunkinSprite = new FunkinSprite(20,70 + uiOffset);
-arrowLeftDiff.frames = Paths.getSparrowAtlas("menus/freeplay/freeplaySelector/"+freeplayData.arrowSprite);
-arrowLeftDiff.animation.addByPrefix("Loop", "arrow pointer loop", 24, true);
-arrowLeftDiff.animation.play("Loop");
-add(arrowLeftDiff);
 
-var arrowRightDiff:FunkinSprite = new FunkinSprite(325,70 + uiOffset);
-arrowRightDiff.frames = Paths.getSparrowAtlas("menus/freeplay/freeplaySelector/"+freeplayData.arrowSprite);
-arrowRightDiff.animation.addByPrefix("Loop", "arrow pointer loop", 24, true);
-arrowRightDiff.animation.play("Loop");
-arrowRightDiff.origin.set(arrowRightDiff.width / 2, arrowRightDiff.height / 2);
-arrowRightDiff.scale.x = -1;
-add(arrowRightDiff);
 
 dj = new FunkinSprite(freeplayData.dj.position[0]-15, freeplayData.dj.position[1]+10);
 dj.loadSprite(Paths.image("menus/freeplay/djs/" + freeplayData.dj.assetPath));
@@ -118,36 +113,103 @@ add(dj);
 // capsules
 // -------------------------
 
-var cardList:Array<String> = [
-    "freeplayCapsule", "freeplayCapsule", "freeplayCapsule",
-    "freeplayCapsule", "freeplayCapsule", "freeplayCapsule",
-    "freeplayCapsule", "freeplayCapsule", "freeplayCapsule",
-    "freeplayCapsule", "freeplayCapsule", "freeplayCapsule",
-    "freeplayCapsule", "freeplayCapsule", "freeplayCapsule",
-    "freeplayCapsule", "freeplayCapsule", "freeplayCapsule",
-    "freeplayCapsule", "freeplayCapsule", "freeplayCapsule",
-    "freeplayCapsule", "freeplayCapsule", "freeplayCapsule"
-];
+var songList:Array<String> = freeplayData.songList;
+var entries:Array<{sprite:FlxSprite, text:FlxText}> = [];
+var maxTextWidth:Int = 500; // cutoff width in pixels
+var marqueeTweens:Array<FlxTween> = [];
+var baseX:Int = 275;
+var baseY:Int = 250; // where the selected capsule sits
+var spacingY:Int = 110;   // vertical spacing
+var spacingX:Int = 30;   // horizontal offset per distance
+var centerX:Int = 381;   // X position for selected
+var tweenSpeed:Float = 0.25; // change this to make scrolling faster or slower
+var slowExitThresholdY:Float = 0;   // Y level where the effect triggers
+var slowExitTargetY:Float = -100;       // target Y to fly up to
+var slowExitSpeed:Float = 0.5;       // slower tween speed for this effect
+var baseScale:Float = 0.80; // set your desired base scale
 
-var songTags:Array<FunkinSprite> = [];
+// Create menu entries
+for (i in 0...songList.length) {
+    var songName = songList[i];
 
-var startX:Float = 30; // where the column starts
-var startY:Float = 100;  // where the center (selected) card should be
-var spacing:Float = 120; // vertical spacing between each
-var scrollSpeed:Float = 6; // how fast it eases
+    // Capsule
+    var capsule = new FlxSprite(baseX, baseY); // start all at same spot
+    capsule.frames = Paths.getSparrowAtlas("menus/freeplay/freeplayCapsule/capsule/" + freeplayData.loopingSprites.capsule.assetPath);
+    capsule.animation.addByPrefix("basic", "basic", 24, true);
+    capsule.animation.addByPrefix("sel", "sel", 24, true);
+    capsule.animation.play("basic");
 
-for (i in 0...cardList.length) {
-    var tag:FunkinSprite = new FunkinSprite(startX, startY + (i * spacing));
-    tag.frames = Paths.getSparrowAtlas("menus/freeplay/freeplayCapsule/capsule/" + cardList[i]);
-    tag.animation.addByPrefix("sel", "sel", 24, false);
-    tag.animation.addByPrefix("basic", "basic", 24, false);
-    tag.animation.play("basic");
-    tag.antialiasing = true;
-    tag.scale.set(0.8, 0.8);
-    add(tag);
+    capsule.scale.set(baseScale, baseScale);
+    capsule.updateHitbox();
+    add(capsule);
 
-    songTags.push(tag);
+    // Text
+    var songText = new FlxText(capsule.x + 115, capsule.y + 40, 1000, songName, 16);
+    songText.setFormat(Paths.font("5by7.ttf"), 35, FlxColor.GRAY, "left");
+    songText.scrollFactor.set();
+    songText.scale.set(baseScale, baseScale);
+    songText.updateHitbox();
+    add(songText);
+
+    if (songText.width > maxTextWidth) {
+        songText.clipRect = new FlxRect(0, 0, maxTextWidth, 9999);
+    }
+
+    entries.push({
+        sprite: capsule,
+        text: songText,
+        spriteTween: null,
+        textTween: null
+    });
 }
+
+
+// Selection function
+
+
+
+function updateSelection() {
+    for (i in 0...songList.length) {
+        var entry = entries[i];
+
+        // Y = position relative to freeplayIndex
+        var targetY = baseY + (i - freeplayIndex) * spacingY;
+
+        // X = staggered pyramid effect
+        var targetX = (i == freeplayIndex) ? centerX : centerX - Math.abs(i - freeplayIndex) * spacingX;
+
+        // Tween smoothly using tweenSpeed
+        FlxTween.tween(entry.sprite, { y: targetY, x: targetX }, tweenSpeed, { ease: FlxEase.quadOut });
+        FlxTween.tween(entry.text,   { y: targetY + 36, x: targetX + 100 }, tweenSpeed, { ease: FlxEase.quadOut });
+
+        // Play animations
+        if (i == freeplayIndex) entry.sprite.animation.play("sel");
+        else entry.sprite.animation.play("basic");
+
+        // Keep everything visible
+        entry.sprite.alpha = 1;
+        entry.text.alpha = 1;
+    }
+}
+
+// Immediately apply updateSelection() to layout based on current freeplayIndex
+updateSelection();
+
+
+var arrowLeftDiff:FunkinSprite = new FunkinSprite(20,70 + uiOffset);
+arrowLeftDiff.frames = Paths.getSparrowAtlas("menus/freeplay/freeplaySelector/"+freeplayData.arrowSprite);
+arrowLeftDiff.animation.addByPrefix("Loop", "arrow pointer loop", 24, true);
+arrowLeftDiff.animation.play("Loop");
+add(arrowLeftDiff);
+
+var arrowRightDiff:FunkinSprite = new FunkinSprite(325,70 + uiOffset);
+arrowRightDiff.frames = Paths.getSparrowAtlas("menus/freeplay/freeplaySelector/"+freeplayData.arrowSprite);
+arrowRightDiff.animation.addByPrefix("Loop", "arrow pointer loop", 24, true);
+arrowRightDiff.animation.play("Loop");
+arrowRightDiff.origin.set(arrowRightDiff.width / 2, arrowRightDiff.height / 2);
+arrowRightDiff.scale.x = -1;
+add(arrowRightDiff);
+
 
 // -------------------------
 // Top
@@ -580,53 +642,17 @@ function handleInputs()
     // --- Handle controls
     if (controls.UP_P) {
         freeplayIndex--;
-        if (freeplayIndex < 0)
-        {
-            freeplayIndex = cardList.length-1;
-        }
+        if (freeplayIndex < 0) freeplayIndex = songList.length - 1; // wrap top → bottom
+        updateSelection();
         FlxG.sound.play(Paths.sound("menu/scroll"), 0.7);
     }
     if (controls.DOWN_P) {
         freeplayIndex++;
-        if (freeplayIndex > cardList.length-1)
-        {
-            freeplayIndex = 0;
-        }
+        if (freeplayIndex >= songList.length) freeplayIndex = 0; // wrap bottom → top
+        updateSelection();
         FlxG.sound.play(Paths.sound("menu/scroll"), 0.7);
     }
 
-    // --- Smooth scroll positions
-    for (i in 0...songTags.length) {
-        var targetY:Float = startY + ((i - freeplayIndex) * spacing);
-        songTags[i].y = FlxMath.lerp(songTags[i].y, targetY, scrollSpeed * elapsedShitIdfk);
-
-        // scale values
-        var smallScale:Float = 0.7;   // not selected
-        var baseScale:Float = 0.8;   // default
-        var selectedScale:Float = 0.9; // selected
-
-        // anchor scaling to left edge
-        songTags[i].origin.set(0, songTags[i].origin.y);
-
-        if (i == freeplayIndex) {
-            // selected card: grow bigger
-            songTags[i].scale.set(
-                FlxMath.lerp(songTags[i].scale.x, selectedScale, 10 * elapsedShitIdfk),
-                FlxMath.lerp(songTags[i].scale.y, selectedScale, 10 * elapsedShitIdfk)
-            );
-            songTags[i].alpha = FlxMath.lerp(songTags[i].alpha, 1.0, 10 * elapsedShitIdfk);
-        } else {
-            // non-selected: shrink a little
-            songTags[i].scale.set(
-                FlxMath.lerp(songTags[i].scale.x, smallScale, 10 * elapsedShitIdfk),
-                FlxMath.lerp(songTags[i].scale.y, smallScale, 10 * elapsedShitIdfk)
-            );
-            songTags[i].alpha = FlxMath.lerp(songTags[i].alpha, 0.4, 10 * elapsedShitIdfk);
-        }
-
-        // keep left aligned
-        songTags[i].x = startX;
-    } 
     if (controls.BACK)
     {
         FlxG.sound.play(Paths.sound("menu/cancel"), 0.7);

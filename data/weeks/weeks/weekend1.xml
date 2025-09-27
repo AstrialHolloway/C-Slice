@@ -1,10 +1,7 @@
 <!DOCTYPE codename-engine-week>
-<week name="Due Debts" chars="darnell,pico-player,nene" sprite="weekend1">
+<week name="DUE DEBTS" chars="darnell,pico-player,nene" sprite="weekend1" bgColor="#413cae">
 	<song>Darnell</song>
-	<song>lit-up</song>
-	<song>2hot</song>
-	<song>blazin</song>
-	<difficulty name="Easy"/>
-	<difficulty name="Normal"/>
-	<difficulty name="Hard"/>
+	<song>Lit Up</song>
+	<song>2Hot</song>
+	<song hide="true">Blazin</song>
 </week>

@@ -1,5 +1,5 @@
 static var redirectStates:Map<Dynamic, String> = [
-    //FreeplayState => "freeplay"
+    FreeplayState => "freeplay"
 ];
 
 
