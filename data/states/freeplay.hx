@@ -94,20 +94,78 @@ add(dadSprite);
 
 
 
-dj = new FunkinSprite(freeplayData.dj.position[0]-15, freeplayData.dj.position[1]+10);
-dj.loadSprite(Paths.image("menus/freeplay/djs/" + freeplayData.dj.assetPath));
-dj.animation.addByPrefix('intro', freeplayData.dj.animations.intro.prefix, freeplayData.dj.animations.intro.frameRate, freeplayData.dj.animations.intro.looping);
-dj.animation.addByPrefix('idle', freeplayData.dj.animations.idle.prefix, freeplayData.dj.animations.idle.frameRate,freeplayData.dj.animations.idle.looping);
-dj.animation.addByPrefix('exit', freeplayData.dj.animations.exit.prefix, freeplayData.dj.animations.exit.frameRate, freeplayData.dj.animations.exit.looping);
-dj.animation.addByPrefix('confirm', freeplayData.dj.animations.confirm.prefix, freeplayData.dj.animations.confirm.frameRate, freeplayData.dj.animations.confirm.looping);
-dj.addOffset('idle', -freeplayData.dj.animations.idle.offsets[0], -freeplayData.dj.animations.idle.offsets[1]);
-dj.addOffset('exit', -freeplayData.dj.animations.exit.offsets[0], -freeplayData.dj.animations.exit.offsets[1]);
-dj.addOffset('intro', -freeplayData.dj.animations.intro.offsets[0], -freeplayData.dj.animations.intro.offsets[1]);
-dj.addOffset('confirm', -freeplayData.dj.animations.confirm.offsets[0], -freeplayData.dj.animations.confirm.offsets[1]);
+//dj = new FunkinSprite(freeplayData.dj.position[0]-15, freeplayData.dj.position[1]+10);
+//dj.loadSprite(Paths.image("menus/freeplay/djs/" + freeplayData.dj.assetPath));
+//dj.animation.addByPrefix('intro', freeplayData.dj.animations.intro.prefix, freeplayData.dj.animations.intro.frameRate, freeplayData.dj.animations.intro.looping);
+//dj.animation.addByPrefix('idle', freeplayData.dj.animations.idle.prefix, freeplayData.dj.animations.idle.frameRate,freeplayData.dj.animations.idle.looping);
+//dj.animation.addByPrefix('exit', freeplayData.dj.animations.exit.prefix, freeplayData.dj.animations.exit.frameRate, freeplayData.dj.animations.exit.looping);
+//dj.animation.addByPrefix('confirm', freeplayData.dj.animations.confirm.prefix, freeplayData.dj.animations.confirm.frameRate, freeplayData.dj.animations.confirm.looping);
+//dj.addOffset('idle', -freeplayData.dj.animations.idle.offsets[0], -freeplayData.dj.animations.idle.offsets[1]);
+//dj.addOffset('exit', -freeplayData.dj.animations.exit.offsets[0], -freeplayData.dj.animations.exit.offsets[1]);
+//dj.addOffset('intro', -freeplayData.dj.animations.intro.offsets[0], -freeplayData.dj.animations.intro.offsets[1]);
+//dj.addOffset('confirm', -freeplayData.dj.animations.confirm.offsets[0], -freeplayData.dj.animations.confirm.offsets[1]);
+//dj.antialiasing = true;
+//dj.updateHitbox();
+//dj.playAnim('idle', true);
+//add(dj);
+
+dj2 = new FunkinSprite(640 , 346);
+dj2.loadSprite(Paths.image("menus/freeplay/"+ freeplayData.dj.assetPath));
+
+dj2.addAnim('intro', freeplayData.dj.animations.intro.prefix, freeplayData.dj.animations.intro.frameRate, freeplayData.dj.animations.intro.looping);
+dj2.addAnim('idle', freeplayData.dj.animations.idle.prefix, freeplayData.dj.animations.idle.frameRate, freeplayData.dj.animations.idle.looping);
+dj2.addAnim('exit', freeplayData.dj.animations.exit.prefix, freeplayData.dj.animations.exit.frameRate, freeplayData.dj.animations.exit.looping);
+dj2.addAnim('confirm', freeplayData.dj.animations.confirm.prefix, freeplayData.dj.animations.confirm.frameRate, freeplayData.dj.animations.confirm.frameRate);
+dj2.addAnim('afk', freeplayData.dj.animations.afk.prefix, freeplayData.dj.animations.afk.frameRate, freeplayData.dj.animations.afk.frameRate);
+
+dj2.addOffset('intro', 0,0);
+dj2.addOffset('idle', -15,-15);
+dj2.addOffset('exit', 0,0);
+dj2.addOffset('confirm', 0,0);
+dj2.addOffset('afk', -freeplayData.dj.animations.afk.offsets[0],-freeplayData.dj.animations.afk.offsets[1]);
+
+dj2.antialiasing = true;
+dj2.playAnim('idle', true);
+dj2.scale.set(1,1);
+dj2.updateHitbox();
+add(dj2);
+
+dj = new FunkinSprite(640 , 346);
+dj.loadSprite(Paths.image("menus/freeplay/"+ freeplayData.dj.assetPath));
+
+dj.addAnim('intro', freeplayData.dj.animations.intro.prefix, freeplayData.dj.animations.intro.frameRate, freeplayData.dj.animations.intro.looping);
+dj.addAnim('idle', freeplayData.dj.animations.idle.prefix, freeplayData.dj.animations.idle.frameRate, freeplayData.dj.animations.idle.looping);
+dj.addAnim('exit', freeplayData.dj.animations.exit.prefix, freeplayData.dj.animations.exit.frameRate, freeplayData.dj.animations.exit.looping);
+dj.addAnim('confirm', freeplayData.dj.animations.confirm.prefix, freeplayData.dj.animations.confirm.frameRate, freeplayData.dj.animations.confirm.looping);
+dj.addAnim('fistPump', freeplayData.dj.animations.fistPump.prefix, freeplayData.dj.animations.fistPump.frameRate, freeplayData.dj.animations.fistPump.looping);
+dj.addAnim('loss', freeplayData.dj.animations.loss.prefix, freeplayData.dj.animations.loss.frameRate, freeplayData.dj.animations.loss.looping);
+dj.addAnim('afk', freeplayData.dj.animations.afk.prefix, freeplayData.dj.animations.afk.frameRate, freeplayData.dj.animations.afk.looping);
+dj.addAnim('tvIntro', freeplayData.dj.animations.tvIntro.prefix, freeplayData.dj.animations.tvIntro.frameRate, freeplayData.dj.animations.tvIntro.looping, freeplayData.dj.animations.tvIntro.forced, freeplayData.dj.animations.tvIntro.indices);
+dj.addAnim('tvIdle', freeplayData.dj.animations.tvIdle.prefix, freeplayData.dj.animations.tvIdle.frameRate, freeplayData.dj.animations.tvIdle.looping, freeplayData.dj.animations.tvIdle.forced, freeplayData.dj.animations.tvIdle.indices);
+dj.addAnim('tvSwitch', freeplayData.dj.animations.tvSwitch.prefix, freeplayData.dj.animations.tvSwitch.frameRate, freeplayData.dj.animations.tvSwitch.looping, freeplayData.dj.animations.tvSwitch.forced, freeplayData.dj.animations.tvSwitch.indices);
+dj.addAnim('newChar', freeplayData.dj.animations.newChar.prefix, freeplayData.dj.animations.newChar.frameRate, freeplayData.dj.animations.newChar.looping);
+
+dj.addOffset('intro', -freeplayData.dj.animations.intro.offsets[0],-freeplayData.dj.animations.intro.offsets[1]);
+dj.addOffset('idle', -freeplayData.dj.animations.idle.offsets[0],-freeplayData.dj.animations.idle.offsets[1]);
+dj.addOffset('exit', -freeplayData.dj.animations.exit.offsets[0],-freeplayData.dj.animations.exit.offsets[1]);
+dj.addOffset('confirm', -freeplayData.dj.animations.confirm.offsets[0],-freeplayData.dj.animations.confirm.offsets[1]);
+dj.addOffset('fistPump', -freeplayData.dj.animations.fistPump.offsets[0],-freeplayData.dj.animations.fistPump.offsets[1]);
+dj.addOffset('loss', -freeplayData.dj.animations.loss.offsets[0],-freeplayData.dj.animations.loss.offsets[1]);
+dj.addOffset('afk', -freeplayData.dj.animations.afk.offsets[0],-freeplayData.dj.animations.afk.offsets[1]);
+dj.addOffset('tvIntro', -freeplayData.dj.animations.tvIntro.offsets[0],-freeplayData.dj.animations.tvIntro.offsets[1]);
+dj.addOffset('tvIdle', -freeplayData.dj.animations.tvIdle.offsets[0],-freeplayData.dj.animations.tvIdle.offsets[1]);
+dj.addOffset('tvSwitch', -freeplayData.dj.animations.tvSwitch.offsets[0],-freeplayData.dj.animations.tvSwitch.offsets[1]);
+dj.addOffset('newChar', -freeplayData.dj.animations.newChar.offsets[0],-freeplayData.dj.animations.newChar.offsets[1]);
+
 dj.antialiasing = true;
+dj.playAnim('intro');
+dj.scale.set(1,1);
 dj.updateHitbox();
-dj.playAnim('idle', true);
 add(dj);
+
+
+
+
 
 // -------------------------
 // capsules
@@ -223,6 +281,9 @@ add(blackSprite);
 var characterSelectLabel = new FlxText(300, 5, 1000, "Press [ TAB ] to change characters", 10);
 characterSelectLabel.setFormat("fonts/5by7.ttf", 32, FlxColor.GRAY, "left");
 add(characterSelectLabel);
+var frameLabel = new FlxText(300, 5, 1000, "Frame:"+dj.globalCurFrame, 10);
+frameLabel.setFormat("fonts/5by7.ttf", 32, FlxColor.GRAY, "left");
+add(frameLabel);
 
 // Fade loop
 FlxTween.tween(characterSelectLabel, {alpha: 0.3}, 1.6, {
@@ -431,13 +492,51 @@ new FlxTimer().start(20, function(tmr:FlxTimer)
 
 var elapsedShitIdfk;
 
+var randAnimNum;
+
 function update(elapsed:Float)
 {
+    frameLabel.text = "Frame:"+dj.globalCurFrame;
     handleBackingText();
     scoreHandler();
     accuracyHandler();
     handleInputs();
+    animShit();
     elapsedShitIdfk = elapsed;
+    randAnimNum = FlxG.random.int(0, 100);
+}
+
+function animShit()
+{
+    if (dj.getAnimName() == "intro" && dj.globalCurFrame == 16)
+    {
+        dj.playAnim('idle');
+    }
+
+    if (dj.getAnimName() == "tvIntro" && dj.globalCurFrame == 53)
+    {
+        dj.playAnim('tvSwitch');
+    }
+
+    if (dj.getAnimName() == "tvSwitch" && dj.globalCurFrame == 58)
+    {
+        dj.playAnim('tvIdle');
+    }
+
+    if (dj.getAnimName() == "fistPump" && dj.globalCurFrame == 60)
+    {
+        dj.playAnim('idle');
+    }
+
+    if (dj.getAnimName() == "afk" && dj.globalCurFrame == 138)
+    {
+        dj.playAnim('idle');
+    }
+
+    if (dj.getAnimName() == "idle" && dj.globalCurFrame == 13 && randAnimNum==100)
+    {
+        dj.playAnim('afk');
+    }
 }
 
 function handleBackingText()

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="turntablefull.png">
+<SubTexture name="idle0000" x="0" y="0" width="407" height="233" frameX="0" frameY="0" frameWidth="405" frameHeight="231" />
+<SubTexture name="idle0001" x="407" y="0" width="407" height="233" frameX="0" frameY="0" frameWidth="405" frameHeight="231" />
+<SubTexture name="idle0002" x="0" y="233" width="407" height="233" frameX="0" frameY="0" frameWidth="405" frameHeight="231" />
+<SubTexture name="idle0003" x="407" y="233" width="407" height="233" frameX="0" frameY="0" frameWidth="405" frameHeight="231" />
+<SubTexture name="idle0004" x="0" y="466" width="407" height="233" frameX="0" frameY="0" frameWidth="405" frameHeight="231" />
+<SubTexture name="idle0005" x="407" y="466" width="407" height="233" frameX="0" frameY="0" frameWidth="405" frameHeight="231" />
+<SubTexture name="idle0006" x="814" y="0" width="407" height="233" frameX="0" frameY="0" frameWidth="405" frameHeight="231" />
+<SubTexture name="idle0007" x="814" y="233" width="407" height="233" frameX="0" frameY="0" frameWidth="405" frameHeight="231" />
+<SubTexture name="idle0008" x="814" y="466" width="407" height="233" frameX="0" frameY="0" frameWidth="405" frameHeight="231" />
+<SubTexture name="idle0009" x="0" y="699" width="407" height="233" frameX="0" frameY="0" frameWidth="405" frameHeight="231" />
+<SubTexture name="idle0010" x="0" y="0" width="407" height="233" frameX="0" frameY="0" frameWidth="405" frameHeight="231" />
+</TextureAtlas>
