@@ -7,6 +7,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import flixel.math.FlxRect;
 import flixel.tweens.FlxEase;
+import flixel.FlxObject;
 
 
 import data.GlobalVars;
@@ -46,68 +47,52 @@ cardGlowSprite.color = Std.parseInt(freeplayData.bgCardColor);
 cardGlowSprite.scale.set(2, 2);
 add(cardGlowSprite);
 
-
-var textLines:Array<{text:String, font:String, size:Int, color:FlxColor, speed:Float, y:Int, direction:Int}> = [
-    { text: freeplayData.backingText.line1.text, font: freeplayData.backingText.line1.font, size: freeplayData.backingText.line1.size, color: Std.parseInt(freeplayData.backingText.line1.color), speed: Std.parseInt(freeplayData.backingText.line1.speed), y: Std.parseInt(freeplayData.backingText.line1.y) + uiOffset, direction: Std.parseInt(freeplayData.backingText.line1.direction) },
-    { text: freeplayData.backingText.line2.text, font: freeplayData.backingText.line2.font, size: freeplayData.backingText.line2.size, color: Std.parseInt(freeplayData.backingText.line2.color), speed: Std.parseInt(freeplayData.backingText.line2.speed), y: Std.parseInt(freeplayData.backingText.line2.y) + uiOffset, direction: Std.parseInt(freeplayData.backingText.line2.direction) },
-    { text: freeplayData.backingText.line3.text, font: freeplayData.backingText.line3.font, size: freeplayData.backingText.line3.size, color: Std.parseInt(freeplayData.backingText.line3.color), speed: Std.parseInt(freeplayData.backingText.line3.speed), y: Std.parseInt(freeplayData.backingText.line3.y) + uiOffset, direction: Std.parseInt(freeplayData.backingText.line3.direction) },
-    { text: freeplayData.backingText.line4.text, font: freeplayData.backingText.line4.font, size: freeplayData.backingText.line4.size, color: Std.parseInt(freeplayData.backingText.line4.color), speed: Std.parseInt(freeplayData.backingText.line4.speed), y: Std.parseInt(freeplayData.backingText.line4.y) + uiOffset, direction: Std.parseInt(freeplayData.backingText.line4.direction) },
-    { text: freeplayData.backingText.line5.text, font: freeplayData.backingText.line5.font, size: freeplayData.backingText.line5.size, color: Std.parseInt(freeplayData.backingText.line5.color), speed: Std.parseInt(freeplayData.backingText.line5.speed), y: Std.parseInt(freeplayData.backingText.line5.y) + uiOffset, direction: Std.parseInt(freeplayData.backingText.line5.direction) },
-    { text: freeplayData.backingText.line6.text, font: freeplayData.backingText.line6.font, size: freeplayData.backingText.line6.size, color: Std.parseInt(freeplayData.backingText.line6.color), speed: Std.parseInt(freeplayData.backingText.line6.speed), y: Std.parseInt(freeplayData.backingText.line6.y) + uiOffset, direction: Std.parseInt(freeplayData.backingText.line6.direction) }
-];
-
-var loopTexts:Array<Array<FlxText>> = [];
-var lineSpeeds:Array<Float> = [];
-var lineDirs:Array<Int> = [];
-
-for (line in 0...textLines.length)
+if (freeplayData.backingType=="text")
 {
-    var lineData = textLines[line];
+    var textLines:Array<{text:String, font:String, size:Int, color:FlxColor, speed:Float, y:Int, direction:Int}> = [
+        { text: freeplayData.backingText.line1.text, font: freeplayData.backingText.line1.font, size: freeplayData.backingText.line1.size, color: Std.parseInt(freeplayData.backingText.line1.color), speed: Std.parseInt(freeplayData.backingText.line1.speed), y: Std.parseInt(freeplayData.backingText.line1.y) + uiOffset, direction: Std.parseInt(freeplayData.backingText.line1.direction) },
+        { text: freeplayData.backingText.line2.text, font: freeplayData.backingText.line2.font, size: freeplayData.backingText.line2.size, color: Std.parseInt(freeplayData.backingText.line2.color), speed: Std.parseInt(freeplayData.backingText.line2.speed), y: Std.parseInt(freeplayData.backingText.line2.y) + uiOffset, direction: Std.parseInt(freeplayData.backingText.line2.direction) },
+        { text: freeplayData.backingText.line3.text, font: freeplayData.backingText.line3.font, size: freeplayData.backingText.line3.size, color: Std.parseInt(freeplayData.backingText.line3.color), speed: Std.parseInt(freeplayData.backingText.line3.speed), y: Std.parseInt(freeplayData.backingText.line3.y) + uiOffset, direction: Std.parseInt(freeplayData.backingText.line3.direction) },
+        { text: freeplayData.backingText.line4.text, font: freeplayData.backingText.line4.font, size: freeplayData.backingText.line4.size, color: Std.parseInt(freeplayData.backingText.line4.color), speed: Std.parseInt(freeplayData.backingText.line4.speed), y: Std.parseInt(freeplayData.backingText.line4.y) + uiOffset, direction: Std.parseInt(freeplayData.backingText.line4.direction) },
+        { text: freeplayData.backingText.line5.text, font: freeplayData.backingText.line5.font, size: freeplayData.backingText.line5.size, color: Std.parseInt(freeplayData.backingText.line5.color), speed: Std.parseInt(freeplayData.backingText.line5.speed), y: Std.parseInt(freeplayData.backingText.line5.y) + uiOffset, direction: Std.parseInt(freeplayData.backingText.line5.direction) },
+        { text: freeplayData.backingText.line6.text, font: freeplayData.backingText.line6.font, size: freeplayData.backingText.line6.size, color: Std.parseInt(freeplayData.backingText.line6.color), speed: Std.parseInt(freeplayData.backingText.line6.speed), y: Std.parseInt(freeplayData.backingText.line6.y) + uiOffset, direction: Std.parseInt(freeplayData.backingText.line6.direction) }
+    ];
 
-    // Measure width with this font + size
-    var measure:FlxText = new FlxText(0, 0, 0, lineData.text, lineData.size);
-    measure.setFormat(Paths.font(lineData.font), lineData.size, lineData.color);
-    var textWidth:Float = measure.width;
-    remove(measure);
+    var loopTexts:Array<Array<FlxText>> = [];
+    var lineSpeeds:Array<Float> = [];
+    var lineDirs:Array<Int> = [];
 
-    var repeats:Int = Math.ceil(FlxG.width / textWidth) + 2;
-    var lineTexts:Array<FlxText> = [];
-
-    for (i in 0...repeats)
+    for (line in 0...textLines.length)
     {
-        var txt:FlxText = new FlxText(i * textWidth, lineData.y, 0, lineData.text, lineData.size);
-        txt.setFormat(Paths.font(lineData.font), lineData.size, lineData.color);
-        add(txt);
-        lineTexts.push(txt);
+        var lineData = textLines[line];
+
+        // Measure width with this font + size
+        var measure:FlxText = new FlxText(0, 0, 0, lineData.text, lineData.size);
+        measure.setFormat(Paths.font(lineData.font), lineData.size, lineData.color);
+        var textWidth:Float = measure.width;
+        remove(measure);
+
+        var repeats:Int = Math.ceil(FlxG.width / textWidth) + 2;
+        var lineTexts:Array<FlxText> = [];
+
+        for (i in 0...repeats)
+        {
+            var txt:FlxText = new FlxText(i * textWidth, lineData.y, 0, lineData.text, lineData.size);
+            txt.setFormat(Paths.font(lineData.font), lineData.size, lineData.color);
+            add(txt);
+            lineTexts.push(txt);
+        }
+
+        loopTexts.push(lineTexts);
+        lineSpeeds.push(lineData.speed);
+        lineDirs.push(lineData.direction);
     }
 
-    loopTexts.push(lineTexts);
-    lineSpeeds.push(lineData.speed);
-    lineDirs.push(lineData.direction);
 }
-
-
 var dadSprite:FunkinSprite = new FunkinSprite(556, 115 + uiOffset);
 dadSprite.loadGraphic(Paths.image("menus/freeplay/"+freeplayData.bgSprite));
 dadSprite.scale.set(1.4, 1.4);
 add(dadSprite);
-
-
-
-//dj = new FunkinSprite(freeplayData.dj.position[0]-15, freeplayData.dj.position[1]+10);
-//dj.loadSprite(Paths.image("menus/freeplay/djs/" + freeplayData.dj.assetPath));
-//dj.animation.addByPrefix('intro', freeplayData.dj.animations.intro.prefix, freeplayData.dj.animations.intro.frameRate, freeplayData.dj.animations.intro.looping);
-//dj.animation.addByPrefix('idle', freeplayData.dj.animations.idle.prefix, freeplayData.dj.animations.idle.frameRate,freeplayData.dj.animations.idle.looping);
-//dj.animation.addByPrefix('exit', freeplayData.dj.animations.exit.prefix, freeplayData.dj.animations.exit.frameRate, freeplayData.dj.animations.exit.looping);
-//dj.animation.addByPrefix('confirm', freeplayData.dj.animations.confirm.prefix, freeplayData.dj.animations.confirm.frameRate, freeplayData.dj.animations.confirm.looping);
-//dj.addOffset('idle', -freeplayData.dj.animations.idle.offsets[0], -freeplayData.dj.animations.idle.offsets[1]);
-//dj.addOffset('exit', -freeplayData.dj.animations.exit.offsets[0], -freeplayData.dj.animations.exit.offsets[1]);
-//dj.addOffset('intro', -freeplayData.dj.animations.intro.offsets[0], -freeplayData.dj.animations.intro.offsets[1]);
-//dj.addOffset('confirm', -freeplayData.dj.animations.confirm.offsets[0], -freeplayData.dj.animations.confirm.offsets[1]);
-//dj.antialiasing = true;
-//dj.updateHitbox();
-//dj.playAnim('idle', true);
-//add(dj);
 
 dj2 = new FunkinSprite(640 , 346);
 dj2.loadSprite(Paths.image("menus/freeplay/"+ freeplayData.dj.assetPath));
@@ -115,17 +100,29 @@ dj2.loadSprite(Paths.image("menus/freeplay/"+ freeplayData.dj.assetPath));
 dj2.addAnim('intro', freeplayData.dj.animations.intro.prefix, freeplayData.dj.animations.intro.frameRate, freeplayData.dj.animations.intro.looping);
 dj2.addAnim('idle', freeplayData.dj.animations.idle.prefix, freeplayData.dj.animations.idle.frameRate, freeplayData.dj.animations.idle.looping);
 dj2.addAnim('exit', freeplayData.dj.animations.exit.prefix, freeplayData.dj.animations.exit.frameRate, freeplayData.dj.animations.exit.looping);
-dj2.addAnim('confirm', freeplayData.dj.animations.confirm.prefix, freeplayData.dj.animations.confirm.frameRate, freeplayData.dj.animations.confirm.frameRate);
-dj2.addAnim('afk', freeplayData.dj.animations.afk.prefix, freeplayData.dj.animations.afk.frameRate, freeplayData.dj.animations.afk.frameRate);
+dj2.addAnim('confirm', freeplayData.dj.animations.confirm.prefix, freeplayData.dj.animations.confirm.frameRate, freeplayData.dj.animations.confirm.looping);
+dj2.addAnim('fistPump', freeplayData.dj.animations.fistPump.prefix, freeplayData.dj.animations.fistPump.frameRate, freeplayData.dj.animations.fistPump.looping);
+dj2.addAnim('loss', freeplayData.dj.animations.loss.prefix, freeplayData.dj.animations.loss.frameRate, freeplayData.dj.animations.loss.looping);
+dj2.addAnim('afk', freeplayData.dj.animations.afk.prefix, freeplayData.dj.animations.afk.frameRate, freeplayData.dj.animations.afk.looping);
+dj2.addAnim('tvIntro', freeplayData.dj.animations.tvIntro.prefix, freeplayData.dj.animations.tvIntro.frameRate, freeplayData.dj.animations.tvIntro.looping, freeplayData.dj.animations.tvIntro.forced, freeplayData.dj.animations.tvIntro.indices);
+dj2.addAnim('tvIdle', freeplayData.dj.animations.tvIdle.prefix, freeplayData.dj.animations.tvIdle.frameRate, freeplayData.dj.animations.tvIdle.looping, freeplayData.dj.animations.tvIdle.forced, freeplayData.dj.animations.tvIdle.indices);
+dj2.addAnim('tvSwitch', freeplayData.dj.animations.tvSwitch.prefix, freeplayData.dj.animations.tvSwitch.frameRate, freeplayData.dj.animations.tvSwitch.looping, freeplayData.dj.animations.tvSwitch.forced, freeplayData.dj.animations.tvSwitch.indices);
+dj2.addAnim('newChar', freeplayData.dj.animations.newChar.prefix, freeplayData.dj.animations.newChar.frameRate, freeplayData.dj.animations.newChar.looping);
 
-dj2.addOffset('intro', 0,0);
-dj2.addOffset('idle', -15,-15);
-dj2.addOffset('exit', 0,0);
-dj2.addOffset('confirm', 0,0);
+dj2.addOffset('intro', -freeplayData.dj.animations.intro.offsets[0],-freeplayData.dj.animations.intro.offsets[1]);
+dj2.addOffset('idle', -freeplayData.dj.animations.idle.offsets[0],-freeplayData.dj.animations.idle.offsets[1]);
+dj2.addOffset('exit', -freeplayData.dj.animations.exit.offsets[0],-freeplayData.dj.animations.exit.offsets[1]);
+dj2.addOffset('confirm', -freeplayData.dj.animations.confirm.offsets[0],-freeplayData.dj.animations.confirm.offsets[1]);
+dj2.addOffset('fistPump', -freeplayData.dj.animations.fistPump.offsets[0],-freeplayData.dj.animations.fistPump.offsets[1]);
+dj2.addOffset('loss', -freeplayData.dj.animations.loss.offsets[0],-freeplayData.dj.animations.loss.offsets[1]);
 dj2.addOffset('afk', -freeplayData.dj.animations.afk.offsets[0],-freeplayData.dj.animations.afk.offsets[1]);
+dj2.addOffset('tvIntro', -freeplayData.dj.animations.tvIntro.offsets[0],-freeplayData.dj.animations.tvIntro.offsets[1]);
+dj2.addOffset('tvIdle', -freeplayData.dj.animations.tvIdle.offsets[0],-freeplayData.dj.animations.tvIdle.offsets[1]);
+dj2.addOffset('tvSwitch', -freeplayData.dj.animations.tvSwitch.offsets[0],-freeplayData.dj.animations.tvSwitch.offsets[1]);
+dj2.addOffset('newChar', -freeplayData.dj.animations.newChar.offsets[0],-freeplayData.dj.animations.newChar.offsets[1]);
 
 dj2.antialiasing = true;
-dj2.playAnim('idle', true);
+dj2.playAnim('idle');
 dj2.scale.set(1,1);
 dj2.updateHitbox();
 add(dj2);
@@ -196,10 +193,19 @@ for (i in 0...songList.length) {
     capsule.animation.addByPrefix("basic", "basic", 24, true);
     capsule.animation.addByPrefix("sel", "sel", 24, true);
     capsule.animation.play("basic");
-
+    
     capsule.scale.set(baseScale, baseScale);
     capsule.updateHitbox();
     add(capsule);
+
+    var songBlurText = new FlxText(capsule.x + 115, capsule.y + 40, 1000, songName, 16);
+    songBlurText.setFormat(Paths.font("5by7.ttf"), 35, FlxColor.GRAY, "left");
+    songBlurText.scrollFactor.set();
+    songBlurText.shader = new CustomShader("gaussianBlur");
+    songBlurText.shader._amount = 1;
+    songBlurText.scale.set(baseScale, baseScale);
+    songBlurText.updateHitbox();
+    add(songBlurText);
 
     // Text
     var songText = new FlxText(capsule.x + 115, capsule.y + 40, 1000, songName, 16);
@@ -209,13 +215,23 @@ for (i in 0...songList.length) {
     songText.updateHitbox();
     add(songText);
 
+    
+    
+
+    if (songBlurText.width > maxTextWidth) {
+        songBlurText.clipRect = new FlxRect(0, 0, maxTextWidth, 9999);
+    }
+
     if (songText.width > maxTextWidth) {
         songText.clipRect = new FlxRect(0, 0, maxTextWidth, 9999);
     }
 
+    
+
     entries.push({
         sprite: capsule,
         text: songText,
+        textBlur: songBlurText,
         spriteTween: null,
         textTween: null
     });
@@ -239,10 +255,21 @@ function updateSelection() {
         // Tween smoothly using tweenSpeed
         FlxTween.tween(entry.sprite, { y: targetY, x: targetX }, tweenSpeed, { ease: FlxEase.quadOut });
         FlxTween.tween(entry.text,   { y: targetY + 36, x: targetX + 100 }, tweenSpeed, { ease: FlxEase.quadOut });
+        FlxTween.tween(entry.textBlur,   { y: targetY + 36, x: targetX + 100 }, tweenSpeed, { ease: FlxEase.quadOut });
 
         // Play animations
-        if (i == freeplayIndex) entry.sprite.animation.play("sel");
-        else entry.sprite.animation.play("basic");
+        if (i == freeplayIndex)
+        {
+            entry.sprite.animation.play("sel");
+            entry.text.color = Std.parseInt(freeplayData.loopingSprites.capsule.animations.selected.textColor);
+            entry.textBlur.color = Std.parseInt(freeplayData.loopingSprites.capsule.animations.selected.textBlurColor);
+        }
+        else
+        {
+            entry.sprite.animation.play("basic");
+            entry.text.color = Std.parseInt(freeplayData.loopingSprites.capsule.animations.deselected.textColor);
+            entry.textBlur.color = Std.parseInt(freeplayData.loopingSprites.capsule.animations.selected.textBlurColor);
+        }
 
         // Keep everything visible
         entry.sprite.alpha = 1;
@@ -492,7 +519,9 @@ new FlxTimer().start(20, function(tmr:FlxTimer)
 
 var elapsedShitIdfk;
 
+var tvWait = 0;
 var randAnimNum;
+var randAnimNum2;
 
 function update(elapsed:Float)
 {
@@ -503,7 +532,12 @@ function update(elapsed:Float)
     handleInputs();
     animShit();
     elapsedShitIdfk = elapsed;
-    randAnimNum = FlxG.random.int(0, 100);
+    if (tvWait < freeplayData.dj.animations.tvIntro.waitTime)
+    {
+        tvWait++;
+    }
+    randAnimNum = FlxG.random.int(0, freeplayData.dj.animations.afk.animChance);
+    randAnimNum2 = FlxG.random.int(0, freeplayData.dj.animations.tvSwitch.animChance);
 }
 
 function animShit()
@@ -523,6 +557,11 @@ function animShit()
         dj.playAnim('tvIdle');
     }
 
+    if (dj.getAnimName() == "tvIdle" && dj.globalCurFrame == 70 && randAnimNum2==freeplayData.dj.animations.tvSwitch.animChance)
+    {
+        dj.playAnim('tvSwitch');
+    }
+
     if (dj.getAnimName() == "fistPump" && dj.globalCurFrame == 60)
     {
         dj.playAnim('idle');
@@ -533,9 +572,14 @@ function animShit()
         dj.playAnim('idle');
     }
 
-    if (dj.getAnimName() == "idle" && dj.globalCurFrame == 13 && randAnimNum==100)
+    if (dj.getAnimName() == "idle" && dj.globalCurFrame == 13 && randAnimNum==freeplayData.dj.animations.afk.animChance)
     {
         dj.playAnim('afk');
+        tvWait=0;
+    }
+    if (dj.getAnimName() == "idle" && dj.globalCurFrame == 13 && tvWait==freeplayData.dj.animations.tvIntro.waitTime)
+    {
+        dj.playAnim('tvIntro');
     }
 }
 
@@ -761,3 +805,18 @@ function handleInputs()
         });
     }
 }
+
+var basicDebugList:Array<Dynamic> = [
+	{ "title": "< Basic Debug Stats >", "align": "center", "id": -1 },
+    { "debugName": "Current Character: ", "attribute": currentCharacter, "align": "left","id": 0 },
+    { "debugName": "Debug Mode: ", "attribute": true, "align": "left","id": 1 },
+    { "debugName": "Char Select Unlocked: ", "attribute": false, "align": "left","id": 2 }
+];
+
+var selectionDebugList:Array<Dynamic> = [
+	{ "title": "< Selection Debug Stats >", "align": "center", "id": -1 },
+    { "debugName": "Current Song Index: ", "attribute": freeplayIndex, "align": "left","id": 0 }
+    { "debugName": "Current Difficulty Index: ", "attribute": freeplayDiffIndex, "align": "left","id": 1 },
+    { "debugName": "Current Song Name: ", "attribute": songList[freeplayIndex], "align": "left","id": 2 },
+    { "debugName": "Song Diff: ", "attribute": 00, "align": "left","id": 3 }
+];

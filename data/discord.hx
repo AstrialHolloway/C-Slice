@@ -12,7 +12,7 @@ function onDiscordPresenceUpdate(e) {
 	if(data.button1Url == null)
 		data.button1Url = "https://discord.gg/2NTCdsQvx4";
 	if(data.button2Label == null)
-		data.button2Label = "Mod Link"; // "Codename Engine Discord"
+		data.button2Label = "Mod Link"; // "Mod Page"
 	if(data.button2Url == null)
 		data.button2Url = "https://gamebanana.com/wips/95235";
 }
@@ -37,8 +37,8 @@ function onEditorTreeLoaded(name:String) {
 			DiscordUtil.changePresenceSince("Choosing a Character", null);
 		case "Chart Editor":
 			DiscordUtil.changePresenceSince("Choosing a Chart", null);
-		//case "Stage Editor": // secret for now
-		//	DiscordUtil.changePresenceSince("Choosing a Stage", null);
+		case "Stage Editor": // secret for now
+			DiscordUtil.changePresenceSince("Choosing a Stage", null);
 	}
 }
 
@@ -48,7 +48,7 @@ function onEditorLoaded(name:String, editingThing:String) {
 			DiscordUtil.changePresenceSince("Editing a Character", editingThing);
 		case "Chart Editor":
 			DiscordUtil.changePresenceSince("Editing a Chart", editingThing);
-		//case "Stage Editor":
-		//	DiscordUtil.changePresenceSince("Editing a Stage", editingThing);
+		case "Stage Editor":
+			DiscordUtil.changePresenceSince("Editing a Stage", editingThing);
 	}
 }

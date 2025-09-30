@@ -1,6 +1,6 @@
 static var redirectStates:Map<Dynamic, String> = [
-    FreeplayState => "freeplay"
-    MainMenuState => "funkin.menus.MainMenuState"
+    FreeplayState => "freeplay-bf"
+    MainMenuState => MainMenuState
 ];
 
 
