@@ -1,7 +1,4 @@
+public static var freechar:String = "freeplay-pico";
 
-package;
+public static var char:String = "pico";
 
-
-public static var freechar:String = "freeplay-bf";
-
-public static var char:String = "boyfriend";

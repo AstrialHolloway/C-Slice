@@ -1,5 +1,16 @@
 {
     "hasErect": true,
+    "hasRemix": true,
+    
+    "hasIntro": true,
+    "hasConfirm": true,
+    "hasAFK": true,
+    "hasTV": false,
+    "hasWin": true,
+    "hasLoss": true,
+    "hasNewChar": false,
+    "hasExit": true,
+    "startAnim": "intro",
     
     "remixType": "bf",
     "remixExt": "-bf",
@@ -115,7 +126,7 @@
     "arrowSprite": "freeplaySelector",
     "digitalSprite": "digital_numbers",
     "bgCardColor": "0xffd863",
-    "bgSprite": "freeplayBGdadCropped",
+    "bgSprite": "freeplayBGdad",
 
     "loopingSprites": {
         

@@ -10,7 +10,9 @@
 		{
 			"params": [
 				2,
-				0.8
+				0.8,
+				"BEAT",
+				0
 			],
 			"name": "Camera Modulo Change",
 			"time": 100
@@ -27,7 +29,9 @@
 		{
 			"params": [
 				2,
-				1
+				1,
+				"BEAT",
+				0
 			],
 			"name": "Camera Modulo Change",
 			"time": 6300

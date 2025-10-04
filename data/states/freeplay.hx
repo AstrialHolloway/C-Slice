@@ -1,5 +1,3 @@
-// Script by AstroDev, if modifying please have a basic understanding of haxe!
-
 import funkin.savedata.FunkinSave;
 
 import flixel.text.FlxText;
@@ -8,13 +6,31 @@ import flixel.util.FlxTimer;
 import flixel.math.FlxRect;
 import flixel.tweens.FlxEase;
 import flixel.FlxObject;
+import funkin.backend.system.framerate.Framerate;
 
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.text.FlxText;
+import flixel.group.FlxGroup;
+import flixel.util.FlxColor;
+import flixel.FlxState;
+
+import flixel.math.FlxPoint;
+import openfl.display.Bitmap;
+import openfl.display.BitmapData;
+import openfl.display.DisplayObject;
+import openfl.display.Sprite;
+import openfl.events.KeyboardEvent;
+import openfl.text.TextFormat;
+import openfl.ui.Keyboard;
 
 import data.GlobalVars;
 
 var currentCharacter = char;
 
-var freeplayData = CoolUtil.parseJson("data/registry/freeplay/"+currentCharacter+".json");
+//var freeplayData = CoolUtil.parseJson("data/registry/freeplay/"+currentCharacter+".json");
+
+var freeplayData = CoolUtil.parseJson("data/registry/freeplay/pico.json");
 
 trace("loading "+currentCharacter+"'s freeplay menu");
 
@@ -89,73 +105,73 @@ if (freeplayData.backingType=="text")
     }
 
 }
-var dadSprite:FunkinSprite = new FunkinSprite(556, 115 + uiOffset);
-dadSprite.loadGraphic(Paths.image("menus/freeplay/"+freeplayData.bgSprite));
-dadSprite.scale.set(1.4, 1.4);
-add(dadSprite);
-
-dj2 = new FunkinSprite(640 , 346);
-dj2.loadSprite(Paths.image("menus/freeplay/"+ freeplayData.dj.assetPath));
-
-dj2.addAnim('intro', freeplayData.dj.animations.intro.prefix, freeplayData.dj.animations.intro.frameRate, freeplayData.dj.animations.intro.looping);
-dj2.addAnim('idle', freeplayData.dj.animations.idle.prefix, freeplayData.dj.animations.idle.frameRate, freeplayData.dj.animations.idle.looping);
-dj2.addAnim('exit', freeplayData.dj.animations.exit.prefix, freeplayData.dj.animations.exit.frameRate, freeplayData.dj.animations.exit.looping);
-dj2.addAnim('confirm', freeplayData.dj.animations.confirm.prefix, freeplayData.dj.animations.confirm.frameRate, freeplayData.dj.animations.confirm.looping);
-dj2.addAnim('fistPump', freeplayData.dj.animations.fistPump.prefix, freeplayData.dj.animations.fistPump.frameRate, freeplayData.dj.animations.fistPump.looping);
-dj2.addAnim('loss', freeplayData.dj.animations.loss.prefix, freeplayData.dj.animations.loss.frameRate, freeplayData.dj.animations.loss.looping);
-dj2.addAnim('afk', freeplayData.dj.animations.afk.prefix, freeplayData.dj.animations.afk.frameRate, freeplayData.dj.animations.afk.looping);
-dj2.addAnim('tvIntro', freeplayData.dj.animations.tvIntro.prefix, freeplayData.dj.animations.tvIntro.frameRate, freeplayData.dj.animations.tvIntro.looping, freeplayData.dj.animations.tvIntro.forced, freeplayData.dj.animations.tvIntro.indices);
-dj2.addAnim('tvIdle', freeplayData.dj.animations.tvIdle.prefix, freeplayData.dj.animations.tvIdle.frameRate, freeplayData.dj.animations.tvIdle.looping, freeplayData.dj.animations.tvIdle.forced, freeplayData.dj.animations.tvIdle.indices);
-dj2.addAnim('tvSwitch', freeplayData.dj.animations.tvSwitch.prefix, freeplayData.dj.animations.tvSwitch.frameRate, freeplayData.dj.animations.tvSwitch.looping, freeplayData.dj.animations.tvSwitch.forced, freeplayData.dj.animations.tvSwitch.indices);
-dj2.addAnim('newChar', freeplayData.dj.animations.newChar.prefix, freeplayData.dj.animations.newChar.frameRate, freeplayData.dj.animations.newChar.looping);
-
-dj2.addOffset('intro', -freeplayData.dj.animations.intro.offsets[0],-freeplayData.dj.animations.intro.offsets[1]);
-dj2.addOffset('idle', -freeplayData.dj.animations.idle.offsets[0],-freeplayData.dj.animations.idle.offsets[1]);
-dj2.addOffset('exit', -freeplayData.dj.animations.exit.offsets[0],-freeplayData.dj.animations.exit.offsets[1]);
-dj2.addOffset('confirm', -freeplayData.dj.animations.confirm.offsets[0],-freeplayData.dj.animations.confirm.offsets[1]);
-dj2.addOffset('fistPump', -freeplayData.dj.animations.fistPump.offsets[0],-freeplayData.dj.animations.fistPump.offsets[1]);
-dj2.addOffset('loss', -freeplayData.dj.animations.loss.offsets[0],-freeplayData.dj.animations.loss.offsets[1]);
-dj2.addOffset('afk', -freeplayData.dj.animations.afk.offsets[0],-freeplayData.dj.animations.afk.offsets[1]);
-dj2.addOffset('tvIntro', -freeplayData.dj.animations.tvIntro.offsets[0],-freeplayData.dj.animations.tvIntro.offsets[1]);
-dj2.addOffset('tvIdle', -freeplayData.dj.animations.tvIdle.offsets[0],-freeplayData.dj.animations.tvIdle.offsets[1]);
-dj2.addOffset('tvSwitch', -freeplayData.dj.animations.tvSwitch.offsets[0],-freeplayData.dj.animations.tvSwitch.offsets[1]);
-dj2.addOffset('newChar', -freeplayData.dj.animations.newChar.offsets[0],-freeplayData.dj.animations.newChar.offsets[1]);
-
-dj2.antialiasing = true;
-dj2.playAnim('idle');
-dj2.scale.set(1,1);
-dj2.updateHitbox();
-add(dj2);
+var angleMaskShader = new CustomShader("angleMask");
+var  bgDad = new FlxSprite(370, 0).loadGraphic(Paths.image('menus/freeplay/'+freeplayData.bgSprite));
+bgDad.shader = angleMaskShader;
+angleMaskShader.endPosition = [90, 100]; // 100 AS DEFAULT WORKS NICELY FOR FREEPLAY?
+angleMaskShader.extraTint = [1, 1, 1];
+bgDad.setGraphicSize(0, FlxG.height);
+bgDad.updateHitbox();
+add(bgDad);
 
 dj = new FunkinSprite(640 , 346);
 dj.loadSprite(Paths.image("menus/freeplay/"+ freeplayData.dj.assetPath));
-
-dj.addAnim('intro', freeplayData.dj.animations.intro.prefix, freeplayData.dj.animations.intro.frameRate, freeplayData.dj.animations.intro.looping);
+if (freeplayData.hasIntro == true)
+{
+    dj.addAnim('intro', freeplayData.dj.animations.intro.prefix, freeplayData.dj.animations.intro.frameRate, freeplayData.dj.animations.intro.looping);
+    dj.addOffset('intro', -freeplayData.dj.animations.intro.offsets[0],-freeplayData.dj.animations.intro.offsets[1]);
+}
 dj.addAnim('idle', freeplayData.dj.animations.idle.prefix, freeplayData.dj.animations.idle.frameRate, freeplayData.dj.animations.idle.looping);
-dj.addAnim('exit', freeplayData.dj.animations.exit.prefix, freeplayData.dj.animations.exit.frameRate, freeplayData.dj.animations.exit.looping);
-dj.addAnim('confirm', freeplayData.dj.animations.confirm.prefix, freeplayData.dj.animations.confirm.frameRate, freeplayData.dj.animations.confirm.looping);
-dj.addAnim('fistPump', freeplayData.dj.animations.fistPump.prefix, freeplayData.dj.animations.fistPump.frameRate, freeplayData.dj.animations.fistPump.looping);
-dj.addAnim('loss', freeplayData.dj.animations.loss.prefix, freeplayData.dj.animations.loss.frameRate, freeplayData.dj.animations.loss.looping);
-dj.addAnim('afk', freeplayData.dj.animations.afk.prefix, freeplayData.dj.animations.afk.frameRate, freeplayData.dj.animations.afk.looping);
-dj.addAnim('tvIntro', freeplayData.dj.animations.tvIntro.prefix, freeplayData.dj.animations.tvIntro.frameRate, freeplayData.dj.animations.tvIntro.looping, freeplayData.dj.animations.tvIntro.forced, freeplayData.dj.animations.tvIntro.indices);
-dj.addAnim('tvIdle', freeplayData.dj.animations.tvIdle.prefix, freeplayData.dj.animations.tvIdle.frameRate, freeplayData.dj.animations.tvIdle.looping, freeplayData.dj.animations.tvIdle.forced, freeplayData.dj.animations.tvIdle.indices);
-dj.addAnim('tvSwitch', freeplayData.dj.animations.tvSwitch.prefix, freeplayData.dj.animations.tvSwitch.frameRate, freeplayData.dj.animations.tvSwitch.looping, freeplayData.dj.animations.tvSwitch.forced, freeplayData.dj.animations.tvSwitch.indices);
-dj.addAnim('newChar', freeplayData.dj.animations.newChar.prefix, freeplayData.dj.animations.newChar.frameRate, freeplayData.dj.animations.newChar.looping);
-
-dj.addOffset('intro', -freeplayData.dj.animations.intro.offsets[0],-freeplayData.dj.animations.intro.offsets[1]);
 dj.addOffset('idle', -freeplayData.dj.animations.idle.offsets[0],-freeplayData.dj.animations.idle.offsets[1]);
-dj.addOffset('exit', -freeplayData.dj.animations.exit.offsets[0],-freeplayData.dj.animations.exit.offsets[1]);
-dj.addOffset('confirm', -freeplayData.dj.animations.confirm.offsets[0],-freeplayData.dj.animations.confirm.offsets[1]);
-dj.addOffset('fistPump', -freeplayData.dj.animations.fistPump.offsets[0],-freeplayData.dj.animations.fistPump.offsets[1]);
-dj.addOffset('loss', -freeplayData.dj.animations.loss.offsets[0],-freeplayData.dj.animations.loss.offsets[1]);
-dj.addOffset('afk', -freeplayData.dj.animations.afk.offsets[0],-freeplayData.dj.animations.afk.offsets[1]);
-dj.addOffset('tvIntro', -freeplayData.dj.animations.tvIntro.offsets[0],-freeplayData.dj.animations.tvIntro.offsets[1]);
-dj.addOffset('tvIdle', -freeplayData.dj.animations.tvIdle.offsets[0],-freeplayData.dj.animations.tvIdle.offsets[1]);
-dj.addOffset('tvSwitch', -freeplayData.dj.animations.tvSwitch.offsets[0],-freeplayData.dj.animations.tvSwitch.offsets[1]);
-dj.addOffset('newChar', -freeplayData.dj.animations.newChar.offsets[0],-freeplayData.dj.animations.newChar.offsets[1]);
+if (freeplayData.hasExit == true)
+{
+    dj.addAnim('exit', freeplayData.dj.animations.exit.prefix, freeplayData.dj.animations.exit.frameRate, freeplayData.dj.animations.exit.looping);
+    dj.addOffset('exit', -freeplayData.dj.animations.exit.offsets[0],-freeplayData.dj.animations.exit.offsets[1]);
+}
+if (freeplayData.hasConfirm == true)
+{
+    dj.addAnim('confirm', freeplayData.dj.animations.confirm.prefix, freeplayData.dj.animations.confirm.frameRate, freeplayData.dj.animations.confirm.looping);
+    dj.addOffset('confirm', -freeplayData.dj.animations.confirm.offsets[0],-freeplayData.dj.animations.confirm.offsets[1]);
+}
+if (freeplayData.hasWin == true)
+{
+    dj.addAnim('fistPump', freeplayData.dj.animations.fistPump.prefix, freeplayData.dj.animations.fistPump.frameRate, freeplayData.dj.animations.fistPump.looping);
+    dj.addOffset('fistPump', -freeplayData.dj.animations.fistPump.offsets[0],-freeplayData.dj.animations.fistPump.offsets[1]);
+}
+if (freeplayData.hasLoss == true)
+{
+    dj.addAnim('loss', freeplayData.dj.animations.loss.prefix, freeplayData.dj.animations.loss.frameRate, freeplayData.dj.animations.loss.looping);
+    dj.addOffset('loss', -freeplayData.dj.animations.loss.offsets[0],-freeplayData.dj.animations.loss.offsets[1]);
+}
+if (freeplayData.hasAFK == true)
+{
+    dj.addAnim('afk', freeplayData.dj.animations.afk.prefix, freeplayData.dj.animations.afk.frameRate, freeplayData.dj.animations.afk.looping);
+    dj.addOffset('afk', -freeplayData.dj.animations.afk.offsets[0],-freeplayData.dj.animations.afk.offsets[1]);
+}
+if (freeplayData.hasTV == true)
+{
+    dj.addAnim('tvIntro', freeplayData.dj.animations.tvIntro.prefix, freeplayData.dj.animations.tvIntro.frameRate, freeplayData.dj.animations.tvIntro.looping, freeplayData.dj.animations.tvIntro.forced, freeplayData.dj.animations.tvIntro.indices);
+    dj.addOffset('tvIntro', -freeplayData.dj.animations.tvIntro.offsets[0],-freeplayData.dj.animations.tvIntro.offsets[1]);
+}
+if (freeplayData.hasTV == true)
+{
+    dj.addAnim('tvIdle', freeplayData.dj.animations.tvIdle.prefix, freeplayData.dj.animations.tvIdle.frameRate, freeplayData.dj.animations.tvIdle.looping, freeplayData.dj.animations.tvIdle.forced, freeplayData.dj.animations.tvIdle.indices);
+    dj.addOffset('tvIdle', -freeplayData.dj.animations.tvIdle.offsets[0],-freeplayData.dj.animations.tvIdle.offsets[1]);
+}
+if (freeplayData.hasTV == true)
+{
+    dj.addAnim('tvSwitch', freeplayData.dj.animations.tvSwitch.prefix, freeplayData.dj.animations.tvSwitch.frameRate, freeplayData.dj.animations.tvSwitch.looping, freeplayData.dj.animations.tvSwitch.forced, freeplayData.dj.animations.tvSwitch.indices);
+    dj.addOffset('tvSwitch', -freeplayData.dj.animations.tvSwitch.offsets[0],-freeplayData.dj.animations.tvSwitch.offsets[1]);
+}
+if (freeplayData.hasNewChar == true)
+{
+    dj.addAnim('newChar', freeplayData.dj.animations.newChar.prefix, freeplayData.dj.animations.newChar.frameRate, freeplayData.dj.animations.newChar.looping);
+    dj.addOffset('newChar', -freeplayData.dj.animations.newChar.offsets[0],-freeplayData.dj.animations.newChar.offsets[1]);
+}
+
 
 dj.antialiasing = true;
-dj.playAnim('intro');
+dj.playAnim(freeplayData.startAnim);
 dj.scale.set(1,1);
 dj.updateHitbox();
 add(dj);
@@ -169,8 +185,11 @@ add(dj);
 // -------------------------
 
 var songList:Array<String> = freeplayData.songList;
+var songListRemix:Array<String> = freeplayData.remixedSongs;
+var songRemixAdd = freeplayData.remixAdd;
+var songRemixExt = freeplayData.remixExt;
 var entries:Array<{sprite:FlxSprite, text:FlxText}> = [];
-var maxTextWidth:Int = 500; // cutoff width in pixels
+var maxTextWidth:Int = 360; // cutoff width in pixels
 var marqueeTweens:Array<FlxTween> = [];
 var baseX:Int = 275;
 var baseY:Int = 250; // where the selected capsule sits
@@ -185,7 +204,26 @@ var baseScale:Float = 0.80; // set your desired base scale
 
 // Create menu entries
 for (i in 0...songList.length) {
-    var songName = songList[i];
+    var songDisplay = songList[i];
+    var songName = songList[i].toLowerCase();
+    var iconPathShit;
+
+    // Check if this song is in the remix list
+    if (songListRemix.contains(songDisplay)) {
+        
+        if (songDisplay != "Random")
+        {
+            iconPathShit = CoolUtil.parseJson("songs/"+songName+"/meta"+songRemixExt+".json");
+        }
+        songDisplay += " "+songRemixAdd; // Add your remix suffix or prefix
+    }
+    else
+    {
+        if (songDisplay != "Random")
+        {
+            iconPathShit = CoolUtil.parseJson("songs/"+songName+"/meta.json");
+        }
+    }
 
     // Capsule
     var capsule = new FlxSprite(baseX, baseY); // start all at same spot
@@ -198,7 +236,7 @@ for (i in 0...songList.length) {
     capsule.updateHitbox();
     add(capsule);
 
-    var songBlurText = new FlxText(capsule.x + 115, capsule.y + 40, 1000, songName, 16);
+    var songBlurText = new FlxText(capsule.x + 115, capsule.y + 40, 1000, songDisplay, 16);
     songBlurText.setFormat(Paths.font("5by7.ttf"), 35, FlxColor.GRAY, "left");
     songBlurText.scrollFactor.set();
     songBlurText.shader = new CustomShader("gaussianBlur");
@@ -207,8 +245,7 @@ for (i in 0...songList.length) {
     songBlurText.updateHitbox();
     add(songBlurText);
 
-    // Text
-    var songText = new FlxText(capsule.x + 115, capsule.y + 40, 1000, songName, 16);
+    var songText = new FlxText(capsule.x + 115, capsule.y + 40, 1000, songDisplay, 16);
     songText.setFormat(Paths.font("5by7.ttf"), 35, FlxColor.GRAY, "left");
     songText.scrollFactor.set();
     songText.scale.set(baseScale, baseScale);
@@ -308,9 +345,7 @@ add(blackSprite);
 var characterSelectLabel = new FlxText(300, 5, 1000, "Press [ TAB ] to change characters", 10);
 characterSelectLabel.setFormat("fonts/5by7.ttf", 32, FlxColor.GRAY, "left");
 add(characterSelectLabel);
-var frameLabel = new FlxText(300, 5, 1000, "Frame:"+dj.globalCurFrame, 10);
-frameLabel.setFormat("fonts/5by7.ttf", 32, FlxColor.GRAY, "left");
-add(frameLabel);
+
 
 // Fade loop
 FlxTween.tween(characterSelectLabel, {alpha: 0.3}, 1.6, {
@@ -512,74 +547,147 @@ accuracyHundsSprite.animation.play("one");
 accuracyHundsSprite.scale.set(1,1);
 add(accuracyHundsSprite);
 
-new FlxTimer().start(20, function(tmr:FlxTimer)
-{
-    highscoreSprite.animation.play("Idle");
-}, 0);
-
 var elapsedShitIdfk;
 
 var tvWait = 0;
 var randAnimNum;
 var randAnimNum2;
 
+var basicDebugList:Array<Dynamic> = [
+	{ "title": "Basic Debug Stats (Press O/P to switch)", "align": "left", "id": -1 },
+    { "debugName": "Current Character: ", "attribute": currentCharacter, "align": "left","id": 0 },
+    { "debugName": "Debug Mode: ", "attribute": true, "align": "left","id": 1 },
+    { "debugName": "Char Select Unlocked: ", "attribute": false, "align": "left","id": 2 }
+];
+
+var selectionDebugList:Array<Dynamic> = [
+	{ "title": "Selection Debug Stats (Press O/P to switch)", "align": "left", "id": -1 },
+    { "debugName": "Current Song Index: ", "attribute": freeplayIndex, "align": "left","id": 0 },
+    { "debugName": "Current Difficulty Index: ", "attribute": freeplayDiffIndex, "align": "left","id": 1 },
+    { "debugName": "Current Song Name: ", "attribute": songList[freeplayIndex], "align": "left","id": 2 },
+    { "debugName": "Song Diff: ", "attribute": 00, "align": "left","id": 3 }
+];
+
+var djDebugList:Array<Dynamic> = [
+	{ "title": "DJ Debug Stats (Press O/P to switch)", "align": "left", "id": -1 },
+    { "debugName": "Current Anim: ", "attribute": dj.getAnimName(), "align": "left","id": 0 },
+    { "debugName": "Current Anim Frame: ", "attribute": dj.globalCurFrame, "align": "left","id": 1 },
+    { "debugName": "Current TV Wait Time: ", "attribute": tvWait, "align": "left","id": 2 },
+    { "debugName": "Current AFK Rand Number: ", "attribute": randAnimNum, "align": "left","id": 3 },
+    { "debugName": "Current TV AFK Rand Number: ", "attribute": randAnimNum2, "align": "left","id": 4 }
+];
+
+
+
+debugBG = new FlxSprite(0,176);
+debugBG.makeGraphic(316,200, FlxColor.BLACK);
+debugBG.alpha = 0.5;
+add(debugBG);
+
+var debugTitle = new FlxText(5, 180, 1000, "State Debug Stats:", 10);
+debugTitle.setFormat("fonts/pixter-granular.ttf", 10, FlxColor.WHITE, "left");
+add(debugTitle);
+
+
+
+new FlxTimer().start(20, function(tmr:FlxTimer)
+{
+    highscoreSprite.animation.play("Idle");
+}, 0);
+
+
+
 function update(elapsed:Float)
 {
-    frameLabel.text = "Frame:"+dj.globalCurFrame;
-    handleBackingText();
+    if (Framerate.debugMode == 2)
+    {
+        debugBG.visible=true;
+    }
+    else
+    {
+        debugBG.visible=false;
+    }
+    if (freeplayData.backingType=="text")
+    {
+        handleBackingText();
+    }
     scoreHandler();
     accuracyHandler();
     handleInputs();
     animShit();
     elapsedShitIdfk = elapsed;
-    if (tvWait < freeplayData.dj.animations.tvIntro.waitTime)
+    if(freeplayData.hasTV == true)
     {
-        tvWait++;
+        if (tvWait < freeplayData.dj.animations.tvIntro.waitTime)
+        {
+            tvWait++;
+        }
+        randAnimNum2 = FlxG.random.int(0, freeplayData.dj.animations.tvSwitch.animChance);
     }
-    randAnimNum = FlxG.random.int(0, freeplayData.dj.animations.afk.animChance);
-    randAnimNum2 = FlxG.random.int(0, freeplayData.dj.animations.tvSwitch.animChance);
+    if(freeplayData.hasAFK == true)
+    {
+        randAnimNum = FlxG.random.int(0, freeplayData.dj.animations.afk.animChance);
+    }
 }
 
 function animShit()
 {
-    if (dj.getAnimName() == "intro" && dj.globalCurFrame == 16)
+    if(freeplayData.hasIntro == true)
     {
-        dj.playAnim('idle');
+        if (dj.getAnimName() == "intro" && dj.globalCurFrame == 16)
+        {
+            dj.playAnim('idle');
+        }
     }
-
-    if (dj.getAnimName() == "tvIntro" && dj.globalCurFrame == 53)
+    if(freeplayData.hasTV == true)
     {
-        dj.playAnim('tvSwitch');
+        if (dj.getAnimName() == "tvIntro" && dj.globalCurFrame == 53)
+        {
+            dj.playAnim('tvSwitch');
+        }
     }
-
-    if (dj.getAnimName() == "tvSwitch" && dj.globalCurFrame == 58)
+    if(freeplayData.hasTV == true)
     {
-        dj.playAnim('tvIdle');
+        if (dj.getAnimName() == "tvSwitch" && dj.globalCurFrame == 58)
+        {
+            dj.playAnim('tvIdle');
+        }
     }
-
-    if (dj.getAnimName() == "tvIdle" && dj.globalCurFrame == 70 && randAnimNum2==freeplayData.dj.animations.tvSwitch.animChance)
+    if(freeplayData.hasTV == true)
     {
-        dj.playAnim('tvSwitch');
+        if (dj.getAnimName() == "tvIdle" && dj.globalCurFrame == 70 && randAnimNum2==freeplayData.dj.animations.tvSwitch.animChance)
+        {
+            dj.playAnim('tvSwitch');
+        }
     }
-
-    if (dj.getAnimName() == "fistPump" && dj.globalCurFrame == 60)
+    if(freeplayData.hasWin == true)
     {
-        dj.playAnim('idle');
+        if (dj.getAnimName() == "fistPump" && dj.globalCurFrame == 60)
+        {
+            dj.playAnim('idle');
+        }
     }
-
-    if (dj.getAnimName() == "afk" && dj.globalCurFrame == 138)
+    if(freeplayData.hasAFK == true)
     {
-        dj.playAnim('idle');
+        if (dj.getAnimName() == "afk" && dj.globalCurFrame == 138)
+        {
+            dj.playAnim('idle');
+        }
     }
-
-    if (dj.getAnimName() == "idle" && dj.globalCurFrame == 13 && randAnimNum==freeplayData.dj.animations.afk.animChance)
+    if(freeplayData.hasAFK == true)
     {
-        dj.playAnim('afk');
-        tvWait=0;
+        if (dj.getAnimName() == "idle" && dj.globalCurFrame == 13 && randAnimNum==freeplayData.dj.animations.afk.animChance)
+        {
+            dj.playAnim('afk');
+            tvWait=0;
+        }
     }
-    if (dj.getAnimName() == "idle" && dj.globalCurFrame == 13 && tvWait==freeplayData.dj.animations.tvIntro.waitTime)
+    if(freeplayData.hasTV == true)
     {
-        dj.playAnim('tvIntro');
+        if (dj.getAnimName() == "idle" && dj.globalCurFrame == 13 && tvWait==freeplayData.dj.animations.tvIntro.waitTime)
+        {
+            dj.playAnim('tvIntro');
+        }
     }
 }
 
@@ -806,17 +914,5 @@ function handleInputs()
     }
 }
 
-var basicDebugList:Array<Dynamic> = [
-	{ "title": "< Basic Debug Stats >", "align": "center", "id": -1 },
-    { "debugName": "Current Character: ", "attribute": currentCharacter, "align": "left","id": 0 },
-    { "debugName": "Debug Mode: ", "attribute": true, "align": "left","id": 1 },
-    { "debugName": "Char Select Unlocked: ", "attribute": false, "align": "left","id": 2 }
-];
 
-var selectionDebugList:Array<Dynamic> = [
-	{ "title": "< Selection Debug Stats >", "align": "center", "id": -1 },
-    { "debugName": "Current Song Index: ", "attribute": freeplayIndex, "align": "left","id": 0 }
-    { "debugName": "Current Difficulty Index: ", "attribute": freeplayDiffIndex, "align": "left","id": 1 },
-    { "debugName": "Current Song Name: ", "attribute": songList[freeplayIndex], "align": "left","id": 2 },
-    { "debugName": "Song Diff: ", "attribute": 00, "align": "left","id": 3 }
-];
+
