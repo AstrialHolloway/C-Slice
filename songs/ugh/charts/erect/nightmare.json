@@ -1,12 +1,14 @@
 {
 	"events": [],
-	"stage": "tank-erect",
 	"codenameChart": true,
+	"stage": "tank-erect",
 	"scrollSpeed": 2.8,
 	"chartVersion": "1.6.0",
 	"strumLines": [
 		{
 			"keyCount": 4,
+			"strumScale": 1,
+			"position": "dad",
 			"notes": [
 				{
 					"id": 0,
@@ -112,7 +114,7 @@
 				},
 				{
 					"id": 3,
-					"sLen": 132.352941176469,
+					"sLen": 132.352941176468,
 					"time": 2823.52941176471,
 					"type": 0
 				},
@@ -604,13 +606,13 @@
 				},
 				{
 					"id": 0,
-					"sLen": 264.705882352948,
+					"sLen": 264.705882352951,
 					"time": 27176.4705882353,
 					"type": 0
 				},
 				{
 					"id": 2,
-					"sLen": 264.705882352948,
+					"sLen": 264.705882352951,
 					"time": 27529.4117647059,
 					"type": 0
 				},
@@ -1857,23 +1859,23 @@
 					"type": 0
 				}
 			],
+			"characters": [
+				"tankman"
+			],
+			"type": 0,
 			"visible": true,
 			"strumSpacing": 1,
 			"strumPos": [
 				0,
 				50
 			],
-			"position": "dad",
-			"strumScale": 1,
-			"vocalsSuffix": "-tankman-erect",
 			"strumLinePos": 0.2,
-			"type": 0,
-			"characters": [
-				"tankman"
-			]
+			"vocalsSuffix": "-tankman-erect"
 		},
 		{
 			"keyCount": 4,
+			"strumScale": 1,
+			"position": "boyfriend",
 			"notes": [
 				{
 					"id": 0,
@@ -2465,7 +2467,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 308.823529411758,
+					"sLen": 308.823529411755,
 					"time": 25411.7647058824,
 					"type": 0
 				},
@@ -2639,7 +2641,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 352.941176470576,
+					"sLen": 352.941176470573,
 					"time": 28588.2352941176,
 					"type": 0
 				},
@@ -2693,7 +2695,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 132.352941176465,
+					"sLen": 132.352941176458,
 					"time": 31411.7647058824,
 					"type": 0
 				},
@@ -4180,29 +4182,35 @@
 					"type": 0
 				}
 			],
+			"characters": [
+				"bf"
+			],
+			"type": 1,
 			"visible": true,
 			"strumSpacing": 1,
 			"strumPos": [
 				0,
 				50
 			],
-			"position": "boyfriend",
-			"strumScale": 1,
-			"vocalsSuffix": "-bf-erect",
 			"strumLinePos": 0.7,
-			"type": 1,
-			"characters": [
-				"bf"
-			]
+			"vocalsSuffix": "-bf-erect"
 		},
 		{
 			"keyCount": 4,
 			"notes": [],
-			"position": "girlfriend",
-			"type": 2,
 			"visible": false,
+			"strumSpacing": 1,
+			"strumPos": [
+				0,
+				50
+			],
+			"position": "girlfriend",
+			"strumScale": 1,
+			"vocalsSuffix": "",
+			"strumLinePos": 0.25,
+			"type": 2,
 			"characters": [
-				"gf-tankmen"
+				"gf"
 			]
 		}
 	],

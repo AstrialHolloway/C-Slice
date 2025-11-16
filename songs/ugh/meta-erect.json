@@ -3,14 +3,14 @@
 	"customValues": {
 		"previewStart": 0,
 		"ratings": {
-			"nightmare": 9,
-			"erect": 8
+			"erect": 8,
+			"nightmare": 9
 		},
-		"noteStyle": "funkin",
-		"album": "volume4",
-		"previewEnd": 15000,
+		"charter": "fabs + Spazkid",
 		"artist": "Kawai Sprite",
-		"charter": "fabs + Spazkid"
+		"previewEnd": 15000,
+		"noteStyle": "funkin",
+		"album": "volume4"
 	},
 	"instSuffix": "-erect",
 	"opponentModeAllowed": true,
@@ -24,6 +24,6 @@
 	"displayName": "Ugh Erect",
 	"beatsPerMeasure": 4,
 	"needsVoices": false,
-	"vocalsSuffix": "-erect",
-	"bpm": 170
+	"bpm": 170,
+	"vocalsSuffix": "-erect"
 }
